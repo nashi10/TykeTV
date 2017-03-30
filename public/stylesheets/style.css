@@ -1,0 +1,45 @@
+.container{
+  background-color: #7de88a;
+  height:100%;
+  width:100%;
+}
+.logo{
+  font-size: 60px;
+  color: #c43396;
+  position:relative;
+  left:3%;
+  top:1%;
+}
+.content-container{
+  background-color: #e8a7e5;
+  border:15px #FFFFFF solid;
+  border-radius: 30px;
+  padding: 10px;
+  height:500px;
+  width:942px;
+  position:absolute;
+  z-index:1;
+  top:150px;
+  left:150px;
+}
+.log-in{
+  position:relative;
+  top:150px;
+  left:50px;
+}
+.form-group{
+  width:300px;
+}
+img{
+  height:180px;
+  width:180px;
+  position:absolute;
+  z-index:0;
+  top:10px;
+  right:250px;
+}
+
+.signup-body
+{
+  background-color:#7de88a;
+}
