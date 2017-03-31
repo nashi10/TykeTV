@@ -25,11 +25,16 @@ if (app.get('env') == 'development') {
   app.use(require('connect-browser-sync')(bs));
 }
 
+//checking connection
 console.log(process.env.MONGODB_URI);
 //Connecting to mongoDB
 var dbConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/tyketv_test';
 mongoose.connect(dbConnectionString);
 //mongoose.connect(dbConnectionString + '/tyketv_test');
+
+//checking connection
+conn.on('error', console.error.bind(console, 'connection error:'));
+conn.once('open', function () {console.log("Great success!")});
 
 // view engine setup
 app.set('views', __dirname + '/views');
