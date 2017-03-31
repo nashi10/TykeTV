@@ -26,8 +26,9 @@ if (app.get('env') == 'development') {
 }
 
 //Connecting to mongoDB
-var dbConnectionString = process.env.MONGODB_URI || 'mongodb://localhost';
-mongoose.connect(dbConnectionString + '/my_test');
+var dbConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/tyketv_test';
+mongoose.connect(dbConnectionString);
+//mongoose.connect(dbConnectionString + '/tyketv_test');
 
 // view engine setup
 app.set('views', __dirname + '/views');

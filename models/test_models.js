@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
  var userSchema = mongoose.Schema({
     email: String,
-    pwd: String,
+    pwd: String   
 });
 var User = mongoose.model("User", userSchema);
 
