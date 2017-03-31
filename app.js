@@ -25,6 +25,7 @@ if (app.get('env') == 'development') {
   app.use(require('connect-browser-sync')(bs));
 }
 
+console.log(process.env.MONGODB_URI);
 //Connecting to mongoDB
 var dbConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/tyketv_test';
 mongoose.connect(dbConnectionString);
