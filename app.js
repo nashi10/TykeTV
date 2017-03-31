@@ -33,6 +33,7 @@ mongoose.connect(dbConnectionString);
 //mongoose.connect(dbConnectionString + '/tyketv_test');
 
 //checking connection
+var conn=mongoose.connection;
 conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', function () {console.log("Great success!")});
 
