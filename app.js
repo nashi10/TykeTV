@@ -25,17 +25,12 @@ if (app.get('env') == 'development') {
   app.use(require('connect-browser-sync')(bs));
 }
 
-//checking connection
-console.log(process.env.MONGODB_URI);
-//Connecting to mongoDB
-var dbConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/tyketv_test';
-mongoose.connect(dbConnectionString);
-//mongoose.connect(dbConnectionString + '/tyketv_test');
 
-//checking connection
-var conn=mongoose.connection;
-conn.on('error', console.error.bind(console, 'connection error:'));
-conn.once('open', function () {console.log("Great success!")});
+//Connecting to mongoDB
+var MONGODB_URI="mongodb://admin:TykeTV123@ds149030.mlab.com:49030/tyketv_test";
+var dbConnectionString = MONGODB_URI;
+mongoose.connect(dbConnectionString);
+
 
 // view engine setup
 app.set('views', __dirname + '/views');
@@ -54,7 +49,9 @@ app.use('/', index);
 app.use('/index.htm', index);
 app.use('/users', users);
 app.use('/Signup.htm', index);
-app.use('*', index);
+app.use('/error.htm', index);
+app.use('/success.htm', index);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -71,7 +68,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error.htm');
+  res.render('/error.htm');
 });
 
 module.exports = app;

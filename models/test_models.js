@@ -1,11 +1,23 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
- var userSchema = mongoose.Schema({
+ var userParentsSchema = mongoose.Schema({
     email: String,
-    pwd: String   
+    pwd: String,
+    fname:String,
+    lname:String,
+    kids: Number,
+    kidIDs: Array
 });
-var User = mongoose.model("User", userSchema);
+var UserParent = mongoose.model("UserParent", userParentsSchema);
 
+var userKidsSchema = mongoose.Schema({
+   fname: String,
+   lname: String,
+   age : Number,
+   image: String,
+   contentLinkIDs : Array
+});
+var UserKid = mongoose.model("UserKid", userKidsSchema);
 
-module.exports = User;
+module.exports =  { UserParent, UserKid} ;
