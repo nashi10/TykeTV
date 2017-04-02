@@ -48,7 +48,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/index.htm', index);
 app.use('/users', users);
-app.use('/Signup.htm', index);
+app.use('/signup.htm', index);
+app.use('/history.htm*', index);
 app.use('/error.htm', index);
 app.use('/success.htm', index);
 
@@ -68,7 +69,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('/error.htm');
+  res.render('error');
 });
 
 module.exports = app;

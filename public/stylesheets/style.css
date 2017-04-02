@@ -30,7 +30,7 @@
 .form-group{
   width:300px;
 }
-img{
+#mascot{
   height:180px;
   width:180px;
   position:absolute;
@@ -38,8 +38,16 @@ img{
   top:10px;
   right:250px;
 }
-
-.signup-body
+#kids_links li
+{
+  display:inline;
+  text-decoration:none;
+}
+#kids_links img{
+  height:180px;
+  width:180px;
+}
+.signup-body, #history-body
 {
   background-color:#7de88a;
 }
