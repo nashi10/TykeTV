@@ -43,11 +43,15 @@
   display:inline;
   text-decoration:none;
 }
-#kids_links img{
+.childInfo{
   height:180px;
   width:180px;
 }
-.signup-body, #history-body
+.signup-body, .history-body
 {
   background-color:#7de88a;
+}
+.carousel-cell
+{
+  display:inline;
 }

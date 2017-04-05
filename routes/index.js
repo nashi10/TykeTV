@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var {UserParent,UserKid} = require('../models/test_models');
+var {ObjectId} = require('mongodb');
+var {UserParent,UserKid, Content_link} = require('../models/test_models');
 
 /* GET landing page. */
 router.get('/', function(req, res, next) {
@@ -24,8 +25,6 @@ router.get('/history.htm', function(req, res, next) {
 
 /* GET history page + user email */
 router.get('/history.htm/:loginEmail', function(req, res, next) {
-  var images=[];
-  var names=[];
   var email=req.params.loginEmail;
   UserParent.findOne({email:email}, function(err, det){
       if(err)
@@ -36,19 +35,23 @@ router.get('/history.htm/:loginEmail', function(req, res, next) {
       {
         var numberOfKids= det.kids;
         var kidList=det.kidIDs;
-        for(var i=0;i<numberOfKids;i++){
-          UserKid.findOne({_id:kidList[i]},function(err1,det1){
-            console.log(det1);
-            if(err)
-              res.send({redirect: '/error.htm'});
-            else
-            {
-              images[i-1]=det1.image;
-              names[i-1]=det1.fname;
+        UserKid.find({_id:{$in:kidList}},function(err1,det1){
+          console.log(typeof det1);
+          var images=[];
+          var names=[];
+          //console.log("inside for loop");
+          //console.log(det1);
+          if(err)
+            res.send({redirect: '/error.htm'});
+          else
+          {
+            for(var i=0;i<numberOfKids;i++){
+              images.push(det1[i].image);
+              names.push(det1[i].fname);
             }
-          });
-        }
-        res.render('history',{images:images,names:names}); // sending a local object to history page
+            res.render('history',{images:images,names:names}); // sending a local object to history page
+          }
+        });
       }
   });
 });
@@ -92,7 +95,7 @@ router.post('/index.htm*', function(req, res){
     }
     else{
         UserParent.findOne({ email: loginInfo.email},'pwd', function(err, det){
-            if(err)
+            if(err || !det)
             {
               res.send({redirect: '../error.htm'});
             }
@@ -108,5 +111,52 @@ router.post('/index.htm*', function(req, res){
 
     }
 });
+
+/* Retrieve kidHistory from db. */
+router.post('/kidhistory.htm', function(req, res, next) {
+  var parentEmail = req.body.email;
+  var fname= req.body.fname;
+  UserParent.findOne({ email: parentEmail},'_id', function(err, det){
+      if(err || !det)
+      {
+        res.send({redirect: '../error.htm'});
+      }
+      else
+      {
+        console.log("Det: "+ det._id);
+        UserKid.findOne({Parent_id: ObjectId(det._id).toString(),fname:fname},'contentLinkIDs', function(err1, det1){
+            console.log(typeof det1);
+            if(err1)
+            {
+              res.send({redirect: '/error.htm'});
+            }
+            else
+            {
+              console.log("In user kid table");
+              console.log("Det1: "+ det1);
+              console.log("DET1 id:"+ det1._id);
+              console.log("contentLinkIDs: "+ det1.contentLinkIDs);
+              var contentLinkIDs=det1.contentLinkIDs;
+              Content_link.find({_id:{$in:contentLinkIDs}},'Link', function(err2, det2){
+                  console.log("entering contentLink table");
+                  var contentLinks=[];
+                  if(err2 || !det2)
+                  {
+                    res.send({redirect: '../error.htm'});
+                  }
+                  else
+                  {
+                    for(var i=0;i<det2.length;i++){
+                      contentLinks.push(det2[i].Link);
+                    }
+                    console.log(contentLinks);
+                    res.send({Links:contentLinks});
+                  } //closing else of Contetn_Link
+              }); //closing Content_Link
+            } //closing else of UserKid
+          }); //closing UserKid
+        } //closing else of userParent
+    }); //closing USerParent Find
+}); //closing router.post
 
 module.exports = router;

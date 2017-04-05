@@ -1,3 +1,4 @@
+var Promise = require('bluebird');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -8,16 +9,27 @@ var Schema = mongoose.Schema;
     lname:String,
     kids: Number,
     kidIDs: Array
-});
+},{ collection: 'userparents' });
 var UserParent = mongoose.model("UserParent", userParentsSchema);
 
 var userKidsSchema = mongoose.Schema({
    fname: String,
    lname: String,
-   age : Number,
+   DOB : Number,
    image: String,
+   Parent_id:String,
    contentLinkIDs : Array
-});
+},{ collection: 'userkids' });
 var UserKid = mongoose.model("UserKid", userKidsSchema);
 
-module.exports =  { UserParent, UserKid} ;
+var Content_linksSchema = mongoose.Schema({
+   Link:String,
+   Name:String,
+   Description: String,
+   Views :Number,
+   Category:String,
+   Age_group:String
+},{ collection: 'Content_links' });
+var Content_link = mongoose.model("Content_link", Content_linksSchema);
+
+module.exports =  { UserParent, UserKid, Content_link} ;

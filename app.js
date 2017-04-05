@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Promise = require('bluebird');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
@@ -34,8 +35,8 @@ mongoose.connect(dbConnectionString);
 
 // view engine setup
 app.set('views', __dirname + '/views');
-app.engine('htm', require('ejs').renderFile);
-app.set('view engine', 'htm');
+//app.engine('htm', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -45,11 +46,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/users', users);
 app.use('/', index);
 app.use('/index.htm', index);
-app.use('/users', users);
-app.use('/signup.htm', index);
+app.use('/signup*', index);
 app.use('/history.htm*', index);
+app.use('/kidhistory.htm', index);
 app.use('/error.htm', index);
 app.use('/success.htm', index);
 

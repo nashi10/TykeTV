@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>TykeTV</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../javascripts/test.js"></script>
+  </head>
+  <body class="history-body">
+    <div style="opacity: 1;  border-width: 10px; border-radius: 20px; border-color: rgb(255, 255, 255); border-style: solid; background-color: rgb(255, 243, 187); background-image: none; background-size: auto auto; background-repeat: repeat; background-position: center center; width: 200px; height: 100px; transform: rotate(0deg) translate(287px, 179px) rotate(0deg);">
+      <p style="text-align: center;"></p>
+    </div>
+    <div class="content-container">
+      <ul>
+          <% for(var i=0; i<images.length; i++) {%>
+          <li >
+            <img class="childInfo" src='<%= images[i] %>' alt="<%= names[i] %>" title="Click to view <%= names[i] %>'s activity"/>
+          </li>
+          <% } %>
+      </ul>
+      <div id="activity-container">
+        <p> Recent Views</p>
+        <div class="main-carousel" id="div-id-to-insert-video-after">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
