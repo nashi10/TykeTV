@@ -222,7 +222,6 @@ img, embed, object, video {
 	height: 120px; /* 180/90 */;
 	max-width: 120px;
 	z-index: 0;
-	top: 50px;
 	left: 450px;
 	left: 60%;
 	position: absolute;
@@ -245,7 +244,6 @@ img, embed, object, video {
 }
 .title {
 	font-size: 5em;
-	padding-top: 5%;
 	padding-left: 2%;
 }
 .footer {
