@@ -9,8 +9,10 @@
 <script src="../javascripts/test.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>
+
 $(document).ready(function() {
- $("#CheckActivityTab").trigger('click');});
+ $("#CheckActivityButton").click();
+});
 
 function selectTab(evt, name) {
     var i, tabcontent, tablinks;
@@ -41,15 +43,12 @@ function selectTab(evt, name) {
 		<button class="tablinks" onclick="selectTab(event, 'bookEvents')">
 		<p><img class="tabicons" src="../images/BookEvents.svg"> Events</p>
 		</button>
-		<button class="tablinks" onclick="selectTab(event, 'checkActivity')">
+		<button id="checkActivityButton" class="tablinks" onclick="selectTab(event, 'checkActivity')">
 		<p><img class="tabicons" src="../images/Historyicon2.svg"> History</p>
 		</button></div>
 	<div class="section">
 		<div class="upper_section">
-			<div id="bookEvents" class="tabcontent">
-				<h3>Book Events</h3>
-				<p>To be constructed</p>
-			</div>
+      <!--removed div for book events - tabcontent. Removed display:none css property for tabcontent  -->
 			<div id="checkActivity" class="tabcontent">
 				<ul>
           <% for(var i=0; i<images.length; i++) {%>
