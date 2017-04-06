@@ -5,7 +5,12 @@ var {UserParent,UserKid, Content_link} = require('../models/test_models');
 
 /* GET landing page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
+});
+
+/* GET landing page. */
+router.get('/index.htm', function(req, res, next) {
+  res.render('index');
 });
 
 /* GET Signup page. */
@@ -63,26 +68,57 @@ router.get('/error.htm', function(req, res, next) {
 
 /*Posting info from signup page to db*/
 router.post('/signup.htm', function(req, res){
+  console.log("Inside signup post");
+  console.log(typeof req.body);
+  console.log(req.body);
     var loginInfo = req.body; //Get the parsed information
-    if(!loginInfo.email || !loginInfo.pwd){
-         return console.error('Email or pwd missing');
-    }
-    else{
-        var newUser = new UserParent({
-            email: loginInfo.email,
-            pwd: loginInfo.pwd,
-            fname: loginInfo.fname,
-            lname: loginInfo.lname
-        });
-        newUser.save(function(err, det){
-            if(err)
-                return console.error(err);
+    var newUserParent = new UserParent({
+      email: loginInfo.email,
+      pwd: loginInfo.pwd,
+      fname: loginInfo.fname,
+      lname: loginInfo.lname,
+      kids: loginInfo.numberOfKids
+    });
+    var childfnamefor=JSON.parse(loginInfo.childfname);
+    var childlnamefor=JSON.parse(loginInfo.childlname);
+    var childagefor=JSON.parse(loginInfo.childage);
+    var inputimagefor=JSON.parse(loginInfo.inputimage);
+    console.log("Formatted childfname: "+childfnamefor );
+    console.log("To be added Parent values:"+ newUserParent);
+    newUserParent.save(function(err, det){
+      if(err)
+        res.send("error: "+err);
+      else{
+        console.log("Inside else of parent insertion");
+        for(var i=0;i<loginInfo.numberOfKids;i++){
+          console.log("Inside for of kid insertion");
+          console.log("Id of inserted parent"+det._id);
+          var newUserKid = new UserKid({
+            fname: childfnamefor[i],
+            lname: childlnamefor[i],
+            DOB : childagefor[i],
+            image: inputimagefor[i],
+            Parent_id:ObjectId(det._id).toString()
+          });
+          console.log("To be added kid values:"+ newUserKid);
+          newUserKid.save(function(err1, det1){
+            if(err1)
+              res.send("Error in newUserKid insertion:"+err1);
             else
-            {
-              res.send({redirect: '/index.htm'});
-            }
-        });
-    }
+              {
+                console.log("Id of inserted kid"+det1._id);
+                UserParent.findOneAndUpdate({_id: det._id}, {$push:{kidIDs:ObjectId(det1._id).toString()}},function(err2, det2){
+                  if(err2){
+                    console.log("Something wrong when updating data!");
+                  }
+                  console.log("loading index.htm");
+                  res.send({redirect: '/index.htm'});
+                });   //end of USerParent updation
+              } // end of else of userKid insertion
+            }); // end of userKid insertion
+          } //end of for loop
+        }//end of else of userParent insertion
+    });//end of userParent insertion
 });
 
 /*checking info from login page with db*/

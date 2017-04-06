@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', users);
 app.use('/', index);
 app.use('/index.htm', index);
-app.use('/signup*', index);
+app.use('/signup.htm', index);
 app.use('/history.htm*', index);
 app.use('/kidhistory.htm', index);
 app.use('/error.htm', index);
