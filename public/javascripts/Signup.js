@@ -59,9 +59,6 @@ function showChildrenInfo() {
 		document.getElementById('eight').style.display='table-row';
 		document.getElementById('child2InfoHeader').style.display='table-row';
         
-        secht=document.getElementByClassName('section').style.height;
-        var secht=1.5*secht;
-        document.getElementByClassName('section').style.height=secht;
 	}
 	else if (document.getElementById('NumChildren').value == "3")
 	{
@@ -113,12 +110,3 @@ function showChildrenInfo() {
 
 }
 
-function submitForm()
-{
-	alert("Information was submitted");
-}
-
-function cancelForm()
-{
-	alert("Cancelled form");
-}

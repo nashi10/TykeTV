@@ -1,27 +1,59 @@
 <html>
   <head>
-    <title>TykeTV</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../stylesheets/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>Tyke TV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="../javascripts/test.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/HomeCSS.css" />
+    <style>
+      .mySlides {display:none;}
+    </style>
   </head>
   <body>
-    <div class="container">
-      <h1 class="logo">Tyke TV</h1>
-      <img id="mascot" src="../images/dragon_baby_happy.png"/>
-      <div class="content-container">
-          <div class="log-in">
-            <p>Log in!</p>
-
-              <div class="form-group">
-                <input type="email" class="form-control" name="email" id="login-email" placeholder="Enter email">
-                <input type="password" class="form-control" name="pwd" id="login-pwd" placeholder="Enter password">
-              </div>
-              <button type="button" class="btn btn-default" id="login-button">ENTER</button>
-            <p>Not a friend of Tyke? <a href="signup.htm">Sign up now!</a></p>
+    <div id="page">
+	    <div class="header">
+        <h1 class="title"><a href="index.htm">Tyke TV</a></h1>
+		    <img src="../images/dragon_baby_happy.png" alt="Tyke the Dragon"/>
+	    </div>
+      <div class="section">
+        <div class="left_section">
+          <h1>Log in:</h1>
+          <div class="form-group">
+            <input type="email" class="form-control" id="login-email" placeholder="Enter email">
+            <input type="password" class="form-control" id="login-pwd" placeholder="Enter password">
+          </div>
+          <button type="button" class="btn-default" id="login-button"> <p class="enter">ENTER</p></button>
+          <div class="signup">
+            <p>Not a friend of Tyke? <br> <a href="signup.htm">Sign up now!</a></p>
+          </div>
         </div>
+        <div class="right_section">
+          <div class="slideshow">
+              <img class="mySlides" src="../images/threeDragons.png">
+              <img class="mySlides" src="../images/Bookevents.png">
+              <img class="mySlides" src="../images/ViewVideos.png">
+          </div>
+        <script>
+          var myIndex = 0;
+          carousel();
+          function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}
+            x[myIndex-1].style.display = "block";
+            setTimeout(carousel, 5000);
+          }
+        </script>
       </div>
     </div>
+	 </div>
+ 	 <div class="footer">
+     <p>Copyright@TykeTV.com</p>
+   </div>
   </body>
 </html>

@@ -30,7 +30,6 @@ var checkUser = function() {
   });
 };
 
-
 //Cloudinary image uploads
 var inputimage=[];
 $(function(){
