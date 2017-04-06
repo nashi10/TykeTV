@@ -1,28 +1,76 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>TykeTV</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../stylesheets/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="../javascripts/test.js"></script>
-  </head>
-  <body class="history-body">
-    <div style="opacity: 1;  border-width: 10px; border-radius: 20px; border-color: rgb(255, 255, 255); border-style: solid; background-color: rgb(255, 243, 187); background-image: none; background-size: auto auto; background-repeat: repeat; background-position: center center; width: 200px; height: 100px; transform: rotate(0deg) translate(287px, 179px) rotate(0deg);">
-      <p style="text-align: center;"></p>
-    </div>
-    <div class="content-container">
-      <ul>
+<head>
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+<title>TykeTV</title>
+<link href="../stylesheets/ParentHistory_3.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../javascripts/test.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+$(document).ready(function() {
+ $("#CheckActivityTab").trigger('click');});
+
+function selectTab(evt, name) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(name).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+</head>
+
+<body>
+
+<div id="page">
+	<div class="header">
+		<h1 class="title">Tyke TV </h1>
+		<div class="dragon-logo">
+			<img id="dragon-img" class="img-responsive" src="../images/dragon_parent_1.png" />
+		</div>
+	</div>
+	<div class="tab">
+		<button class="tablinks" onclick="selectTab(event, 'bookEvents')">
+		<p><img class="tabicons" src="../images/BookEvents.svg"> Events</p>
+		</button>
+		<button class="tablinks" onclick="selectTab(event, 'checkActivity')">
+		<p><img class="tabicons" src="../images/Historyicon2.svg"> History</p>
+		</button></div>
+	<div class="section">
+		<div class="upper_section">
+			<div id="bookEvents" class="tabcontent">
+				<h3>Book Events</h3>
+				<p>To be constructed</p>
+			</div>
+			<div id="checkActivity" class="tabcontent">
+				<ul>
           <% for(var i=0; i<images.length; i++) {%>
-          <li >
-            <img class="childInfo" src='<%= images[i] %>' alt="<%= names[i] %>" title="Click to view <%= names[i] %>'s activity"/>
-          </li>
+            <li class="childInfo">
+              <img class="img-circle" src='<%= images[i] %>' alt="<%= names[i] %>" title="Click to view <%= names[i] %>'s activity"/>
+            </li>
           <% } %>
-      </ul>
-      <div id="activity-container">
-        <p> Recent Views</p>
-        <div class="main-carousel" id="div-id-to-insert-video-after">
-          </div>
+				</ul>
+			</div>
+		</div>
+		<div class="lower_section">
+			<h2 id="text1"><span id="kid-name"></span>RECENT VIEWS</h2>
+      <div id="#div-id-to-insert-video-after"><!--changed-->
       </div>
-    </div>
-  </body>
+		</div>
+	</div>
+	<div class="footer">
+		<p>Copyright@TykeTV.com</p>
+	</div>
+</div>
+
+</body>
+
 </html>

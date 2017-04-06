@@ -32,7 +32,7 @@ router.get('/history.htm', function(req, res, next) {
 router.get('/history.htm/:loginEmail', function(req, res, next) {
   var email=req.params.loginEmail;
   UserParent.findOne({email:email}, function(err, det){
-      if(err)
+      if(err || !det)
       {
         res.send({redirect: '/error.htm'});
       }

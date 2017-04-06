@@ -3,7 +3,7 @@
     <title>Tyke TV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="../javascripts/test.js"></script>
+    <script src="../javascripts/login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../stylesheets/HomeCSS.css" />
     <style>
@@ -31,8 +31,10 @@
         <div class="right_section">
           <div class="slideshow">
               <img class="mySlides" src="../images/threeDragons.png">
-              <img class="mySlides" src="../images/Bookevents.png">
+              <img class="mySlides" src="../images/threeDragons.png">
               <img class="mySlides" src="../images/ViewVideos.png">
+              <img class="mySlides" src="../images/Bookevents.png">
+              <img class="mySlides" src="../images/Bookevents-2.png">
           </div>
         <script>
           var myIndex = 0;
@@ -46,7 +48,7 @@
             myIndex++;
             if (myIndex > x.length) {myIndex = 1}
             x[myIndex-1].style.display = "block";
-            setTimeout(carousel, 5000);
+            setTimeout(carousel, 2000);
           }
         </script>
       </div>
