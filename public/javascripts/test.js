@@ -26,10 +26,11 @@ var getHistory = function() {
     success: function(data) {
      console.log(kidName);
       //document.getElementById("kid-name").style.display=inline;
+      $('#div-id-to-insert-video-after li').remove();
       document.getElementById("kid-name").innerHTML="";
-      document.getElementById("kid-name").innerHTML=kidName;
-      //for(var i=0;i<data.Links.length;i++){
-      //$('#div-id-to-insert-video-after').append('<div class="carousel-cell" align="center"><iframe class="myframe" src="'+ data.Links[i]+'" ></iframe></div>');
+      document.getElementById("kid-name").innerHTML=kidName+"'s ";
+      for(var i=0;i<data.Links.length;i++){
+      $('#div-id-to-insert-video-after').append('<li class="carousel-cell"><iframe class="myframe" src="'+ data.Links[i]+'" ></iframe></li>');
       }
     }
   });

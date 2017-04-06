@@ -2,8 +2,8 @@ body{
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
 	background-color: #7de88a;
-	width: 1536px;
-	height: 640px;
+	width: 100vw;
+	height: 100vh;
     max-width: 100%;
 	}
 #page{
@@ -47,7 +47,7 @@ body{
     top: 1.5625%;
 	right: 13.0208333333%;
 	float: right;
-}	
+}
 }
 @media only screen and (max-width:640px){
 .dragon-logo {
@@ -59,7 +59,7 @@ body{
     top: 2%;
 	right: 13.0208333333%;
 	float: right;
-}	
+}
 }
 @media only screen and (max-width:480px){
 .dragon-logo {
@@ -71,7 +71,7 @@ body{
     top: 3.5%;
 	right: 13.0208333333%;
 	float: right;
-}	
+}
 }
 img {
     max-width: 100%;
@@ -214,47 +214,119 @@ font-size: 0.8em;
 margin-right: 3%;
  }
 
+.lower_section{
+margin-top: 0.5%;
+ margin-bottom: 1%;
+ margin-left: 3%;
+margin-right: 3%;
+width: 94%;
+height: 51.5%;
+background-color: rgba(235,235,235,0.25);
+overflow-x:auto;
+}
 
+#text1{
+padding-top: 1%;
+padding-bottom: 1%;
+font-family: Chewy;
+font-size: 1.5em;
+color: #ffffff;
+letter-spacing: 2px;
+text-align: left;
+padding-left:2%;
+margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 640px){
+	#text1{
+font-size: 1.3em;
+}
+}
+
+@media only screen and (max-width: 480px){
+	#text1{
+font-size: 1.1em;
+}
+}
 /* Styling the carousel */
 .carousel-cell {
   width: 33.3333%;
-  height: 160px;
+  height: 60%;
   margin-left: 10px;
   margin-right: 10px;
+  list-style-type: none;
+display: inline-block;
+
 }
 .myframe {
-	width: 75%;
+	min-width: 25%;
+	height: 60%;
+	margin-bottom: 5%;
 }
-@media only screen and (max-width: 950px){
-	.carousel-cell {
-  width: 50%;
+
+
+@media only screen and (min-width: 1200px){
+.carousel-cell {
+		display: inline;
+  width: 100%;
   margin: auto;
 }
 .myframe {
-	width: 75%;
+	width: 50%;
+	display: inline;
+}
+}
+
+@media only screen and (min-width:769px),(max-width:1200px){
+	.carousel-cell {
+		display: inline;
+  width: 60%;
+  margin: auto;
+}
+.myframe {
+	width: 10%;
+	display: inline;
+margin: auto;
+}
+}
+
+
+@media only screen and (max-width: 768px){
+	.carousel-cell {
+		display: inline;
+  width: 33.33%;
+  margin: auto;
+}
+.myframe {
+	width: 50%;
+	display: inline;
+margin: auto;
 }
 }
 @media only screen and (max-width: 480px){
 	.carousel-cell {
   width: 100%;
   margin: auto;
+  display: inline;
 }
 .myframe {
-	width: 75%;
+	display: inline;
+	width: 80%;
+	margin: auto;
 }
 }
-/* already included in flickity.css */
+ /* already included in flickity.css
 .flickity-prev-next-button:focus {
   outline: none;
   color: white;
   box-shadow: 0 0 0 5px #09F;
 }
-/* position dots in carousel */
+ position dots in carousel
 .flickity-page-dots {
 	height: 20px;
   bottom: 5px;
 }
-/* white circles */
+ white circles
 .flickity-page-dots .dot {
   width: 5px;
   height: 5px;
@@ -262,14 +334,14 @@ margin-right: 3%;
   background: transparent;
   border: 2px solid white;
 }
-/* fill-in selected dot */
+ fill-in selected dot
 .flickity-page-dots .dot.is-selected {
   background: white;
 }
 .histVideo{
 	width: 60%;
 	height: 75%;
-}
+}*/
 
 /* Styling the kids images as buttons to retrieve history */
 .childInfo{
@@ -286,36 +358,6 @@ cursor: pointer;
 border-radius: 50%;
 }
 
-.lower_section{
-margin-top: 0.5%;
- margin-bottom: 1%;
- margin-left: 3%;
-margin-right: 3%;
-width: 94%;
-height: 51.5%;
-background-color: rgba(235,235,235,0.25);
-}
-
-#text1{
-padding-top: 1%;
-padding-bottom: 1%;
-font-family: Chewy;
-font-size: 1.5em;
-color: #ffffff;
-letter-spacing: 2px;
-text-align: left;
-padding-left:2%;
-}
-@media only screen and (max-width: 640px){
-	#text1{
-font-size: 1.3em;
-}
-}
-@media only screen and (max-width: 480px){
-	#text1{
-font-size: 1.1em;
-}
-}
 .footer{
   height: 35px;
   position: relative;
