@@ -187,37 +187,18 @@ function insertData(data){
     document.getElementById('txtchildfname1').value=kids[0].fname;
     document.getElementById('txtchildlname1').value=kids[0].lname;
     document.getElementById('txtchildage1').value=kids[0].DOB;
-    document.getElementById('thumbnail1').src=kids[0].image;
+    if(kids[0].image!=null){
+        document.getElementById('thumbnail1').src=kids[0].image;
+    }
+    else {
+       document.getElementById('thumbnail1').alt="No image";
+    }
   }
   else if(parent.kids==2){
     document.getElementById('txtchildfname1').value=kids[0].fname;
     document.getElementById('txtchildlname1').value=kids[0].lname;
     document.getElementById('txtchildage1').value=kids[0].DOB;
-    document.getElementById('thumbnail1').src=kids[0].image;
-    document.getElementById('txtchildfname2').value=kids[1].fname;
-    document.getElementById('txtchildlname2').value=kids[1].lname;
-    document.getElementById('txtchildage2').value=kids[1].DOB;
-    document.getElementById('thumbnail2').src=kids[1].image;
-  }
-  else if(parent.kids==3){
-    document.getElementById('txtchildfname1').value=kids[0].fname;
-    document.getElementById('txtchildlname1').value=kids[0].lname;
-    document.getElementById('txtchildage1').value=kids[0].DOB;
-    document.getElementById('thumbnail1').src=kids[0].image;
-    document.getElementById('txtchildfname2').value=kids[1].fname;
-    document.getElementById('txtchildlname2').value=kids[1].lname;
-    document.getElementById('txtchildage2').value=kids[1].DOB;
-    document.getElementById('thumbnail2').src=kids[1].image;
-    document.getElementById('txtchildfname3').value=kids[2].fname;
-    document.getElementById('txtchildlname3').value=kids[2].lname;
-    document.getElementById('txtchildage3').value=kids[2].DOB;
-    document.getElementById('thumbnail3').src=kids[2].image;
-  }
-  else if(parent.kids==4){
-    document.getElementById('txtchildfname1').value=kids[0].fname;
-    document.getElementById('txtchildlname1').value=kids[0].lname;
-    document.getElementById('txtchildage1').value=kids[0].DOB;
-    if(!kids[0].image){
+    if(kids[0].image!=null){
         document.getElementById('thumbnail1').src=kids[0].image;
     }
     else {
@@ -226,7 +207,56 @@ function insertData(data){
     document.getElementById('txtchildfname2').value=kids[1].fname;
     document.getElementById('txtchildlname2').value=kids[1].lname;
     document.getElementById('txtchildage2').value=kids[1].DOB;
-    if(!kids[1].image){
+    if(kids[1].image!=null){
+        document.getElementById('thumbnail2').src=kids[1].image;
+    }
+    else {
+       document.getElementById('thumbnail2').alt="No image";
+    }
+  }
+  else if(parent.kids==3){
+    document.getElementById('txtchildfname1').value=kids[0].fname;
+    document.getElementById('txtchildlname1').value=kids[0].lname;
+    document.getElementById('txtchildage1').value=kids[0].DOB;
+    if(kids[0].image!=null){
+        document.getElementById('thumbnail1').src=kids[0].image;
+    }
+    else {
+       document.getElementById('thumbnail1').alt="No image";
+    }
+    document.getElementById('txtchildfname2').value=kids[1].fname;
+    document.getElementById('txtchildlname2').value=kids[1].lname;
+    document.getElementById('txtchildage2').value=kids[1].DOB;
+    if(kids[1].image!=null){
+        document.getElementById('thumbnail2').src=kids[1].image;
+    }
+    else {
+       document.getElementById('thumbnail2').alt="No image";
+    }
+    document.getElementById('txtchildfname3').value=kids[2].fname;
+    document.getElementById('txtchildlname3').value=kids[2].lname;
+    document.getElementById('txtchildage3').value=kids[2].DOB;
+    if(kids[2].image!=null){
+        document.getElementById('thumbnail3').src=kids[2].image;
+    }
+    else {
+       document.getElementById('thumbnail3').alt="No image";
+    }
+  }
+  else if(parent.kids==4){
+    document.getElementById('txtchildfname1').value=kids[0].fname;
+    document.getElementById('txtchildlname1').value=kids[0].lname;
+    document.getElementById('txtchildage1').value=kids[0].DOB;
+    if(kids[0].image!=null){
+        document.getElementById('thumbnail1').src=kids[0].image;
+    }
+    else {
+       document.getElementById('thumbnail1').alt="No image";
+    }
+    document.getElementById('txtchildfname2').value=kids[1].fname;
+    document.getElementById('txtchildlname2').value=kids[1].lname;
+    document.getElementById('txtchildage2').value=kids[1].DOB;
+    if(kids[1].image!=null){
         document.getElementById('thumbnail2').src=kids[1].image;
     }
     else {
@@ -236,11 +266,21 @@ function insertData(data){
     document.getElementById('txtchildfname3').value=kids[2].fname;
     document.getElementById('txtchildlname3').value=kids[2].lname;
     document.getElementById('txtchildage3').value=kids[2].DOB;
-    document.getElementById('thumbnail3').src=kids[2].image;
+    if(kids[2].image!=null){
+        document.getElementById('thumbnail3').src=kids[2].image;
+    }
+    else {
+       document.getElementById('thumbnail3').alt="No image";
+    }
     document.getElementById('txtchildfname4').value=kids[3].fname;
     document.getElementById('txtchildlname4').value=kids[3].lname;
     document.getElementById('txtchildage4').value=kids[3].DOB;
-    document.getElementById('thumbnail4').src=kids[3].image;
+    if(kids[3].image!=null){
+        document.getElementById('thumbnail4').src=kids[3].image;
+    }
+    else {
+       document.getElementById('thumbnail4').alt="No image";
+    }
   }
 }
 
@@ -458,7 +498,7 @@ $(function(){
               window.location.href = data.redirect;
     				}
             else {
-              return false;
+               location.reload(true);
             }
           }
     		});

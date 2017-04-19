@@ -292,7 +292,7 @@ router.post('/editaccount.htm', function(req, res){
   console.log(typeof req.body);
   console.log(req.body);
   var loginInfo = req.body;
-  async.parallel(
+  async.series(
     [
         function(callback) {
             console.log("updateParent");
@@ -335,13 +335,13 @@ router.post('/editaccount.htm', function(req, res){
   };
 
     function updateExistingKids(loginInfo,callback){
-      var emailOld=loginInfo.emailOld;
+      var email=loginInfo.email;
       var kidsOld=loginInfo.numberOfkidsOld;
       var childfnameforOld=JSON.parse(loginInfo.childfnameOld);
       var childfnamefor=JSON.parse(loginInfo.childfname);
       var childlnamefor=JSON.parse(loginInfo.childlname);
       var childagefor=JSON.parse(loginInfo.childage);
-      UserParent.findOne({ email: loginInfo.emailOld},'_id', function(err1, det1){
+      UserParent.findOne({ email: loginInfo.email},'_id', function(err1, det1){
           for(var i=0;i<kidsOld;i++){
             UserKid.findOneAndUpdate({Parent_id: ObjectId(det1._id).toString(),fname:childfnameforOld[i]},
             {$set:{fname:childfnamefor[i], lname:childlnamefor[i],DOB:childagefor[i]}},
@@ -361,11 +361,11 @@ router.post('/editaccount.htm', function(req, res){
 
   function checkInputImage(loginInfo,callback){
       //console.log("input image det1: "+det1);
-      var emailOld=loginInfo.emailOld;
+      var email=loginInfo.email;
       var kidsOld=loginInfo.numberOfkidsOld;
       var childfnameforOld=JSON.parse(loginInfo.childfnameOld);
       var inputimagefor=JSON.parse(loginInfo.inputimage);
-      UserParent.findOne({ email: loginInfo.emailOld},'_id', function(err1, det1){
+      UserParent.findOne({ email: loginInfo.email},'_id', function(err1, det1){
         for(var k=0;k<kidsOld;k++){
           console.log(k);
           console.log(inputimagefor[k]);
@@ -389,11 +389,8 @@ router.post('/editaccount.htm', function(req, res){
 };
 
     function createNewKids(loginInfo,callback){
-      var emailOld=loginInfo.emailOld;
       var email= loginInfo.email;
       var pwd= loginInfo.pwd;
-      var fname= loginInfo.fname;
-      var lname= loginInfo.lname;
       var kids= loginInfo.numberOfKids;
       var kidsOld=loginInfo.numberOfkidsOld;
       var childfnameforOld=JSON.parse(loginInfo.childfnameOld);
@@ -402,7 +399,7 @@ router.post('/editaccount.htm', function(req, res){
       var childagefor=JSON.parse(loginInfo.childage);
       var inputimagefor=JSON.parse(loginInfo.inputimage);
       if(kids>kidsOld){
-        UserParent.findOne({ email: loginInfo.emailOld},'_id', function(err1, det1){
+        UserParent.findOne({ email: loginInfo.email},'_id', function(err1, det1){
           console.log("Inside if statement");
           for(var j=kidsOld;j<kids;j++){
             console.log("Inside for of kid insertion");
