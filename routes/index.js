@@ -285,116 +285,86 @@ router.post('/editaccountRetrieve.htm', function(req, res, next) {
     });
 });
 
-/*
+
 //Update edited details in db
 router.post('/editaccount.htm', function(req, res){
   console.log("Inside edit account");
   console.log(typeof req.body);
   console.log(req.body);
   var loginInfo = req.body;
-  var emailOld=loginInfo.emailOld;
-  var email= loginInfo.email;
-  var pwd= loginInfo.pwd;
-  var fname= loginInfo.fname;
-  var lname= loginInfo.lname;
-  var kids= loginInfo.numberOfKids;
-  var kidsOld=loginInfo.numberOfkidsOld;
-  var childfnameforOld=JSON.parse(loginInfo.childfnameOld);
-  var childfnamefor=JSON.parse(loginInfo.childfname);
-  var childlnamefor=JSON.parse(loginInfo.childlname);
-  var childagefor=JSON.parse(loginInfo.childage);
-  var inputimagefor=JSON.parse(loginInfo.inputimage);
-  UserParent.findOneAndUpdate({email:emailOld},
-  {$set:{email:email, pwd:pwd,fname:fname,lname:lname,kids:kids}},
-  function(err1,det1){
-    if(err1){
-      console.log("Error in parent updation"+err1);
+  async.parallel(
+    [
+        function(callback) {
+            console.log("updateParent");
+            updateParent(loginInfo,callback);
+        },
+        function(callback) {
+            console.log("updateExistingKids");
+            updateExistingKids(loginInfo,callback);
+        },
+        function(callback) {
+          console.log("checkInputImage");
+            checkInputImage(loginInfo,callback);
+        },
+        function(callback) {
+          console.log("createNewKids");
+            createNewKids(loginInfo,callback);
+        }
+    ], function(err, results) {
+         console.log('edit done');
+         res.send({redirect: '/index.htm'});
     }
-    else {
-      for(var i=0;i<kidsOld;i++){
-        UserKid.findOneAndUpdate({Parent_id: ObjectId(det1._id).toString(),fname:childfnameforOld[i]},
-        {$set:{fname:childfnamefor[i], lname:childlnamefor[i],DOB:childagefor[i]}},
-        function(err2,det2){
-          if(err2){
-            console.log("Error in parent updation"+err1);
-          }
-          console.log("updateexisitng kids"+ det);
-        })
-      }
-    } //end of else of UserParent updation
-  }) //end of UserParent updation
-});//end of post
-*/
-
-/*
-//Update edited details in db
-router.post('/editaccount.htm', function(req, res){
-  console.log("Inside edit account");
-  console.log(typeof req.body);
-  console.log(req.body);
-  var loginInfo = req.body;
-  var emailOld=loginInfo.emailOld;
-  var email= loginInfo.email;
-  var pwd= loginInfo.pwd;
-  var fname= loginInfo.fname;
-  var lname= loginInfo.lname;
-  var kids= loginInfo.numberOfKids;
-  var kidsOld=loginInfo.numberOfkidsOld;
-  var childfnameforOld=JSON.parse(loginInfo.childfnameOld);
-  var childfnamefor=JSON.parse(loginInfo.childfname);
-  var childlnamefor=JSON.parse(loginInfo.childlname);
-  var childagefor=JSON.parse(loginInfo.childage);
-  var inputimagefor=JSON.parse(loginInfo.inputimage);
-
-  var  asyncTasks = [];
-  UserParent.findOneAndUpdate({email:emailOld},
-  {$set:{email:email, pwd:pwd,fname:fname,lname:lname,kids:kids}})
-    .then(det1=>updateExistingKids(det1, loginInfo))
-    .then(checkInputImage(loginInfo))
-    .then(createNewKids(loginInfo))
-    .then( function() {
-      console.log("loading index.htm");
-      res.send({redirect: '/index.htm'});
-    });
+);
 });
 
-    function updateExistingKids(det1,loginInfo){
+  function updateParent(loginInfo,callback){
+    var emailOld=loginInfo.emailOld;
+    var email= loginInfo.email;
+    var pwd= loginInfo.pwd;
+    var fname= loginInfo.fname;
+    var lname= loginInfo.lname;
+    var kids= loginInfo.numberOfKids;
+    UserParent.findOneAndUpdate({email:emailOld},
+    {$set:{email:email, pwd:pwd,fname:fname,lname:lname,kids:kids}},
+    function(err1,det1){
+      if(!err1){
+        console.log(det1);
+        callback(null,1);
+      }
+    })
+  };
+
+    function updateExistingKids(loginInfo,callback){
       var emailOld=loginInfo.emailOld;
-      var email= loginInfo.email;
-      var pwd= loginInfo.pwd;
-      var fname= loginInfo.fname;
-      var lname= loginInfo.lname;
-      var kids= loginInfo.numberOfKids;
       var kidsOld=loginInfo.numberOfkidsOld;
       var childfnameforOld=JSON.parse(loginInfo.childfnameOld);
       var childfnamefor=JSON.parse(loginInfo.childfname);
       var childlnamefor=JSON.parse(loginInfo.childlname);
       var childagefor=JSON.parse(loginInfo.childage);
-      var inputimagefor=JSON.parse(loginInfo.inputimage);
-      for(var i=0;i<kidsOld;i++){
-        UserKid.findOneAndUpdate({Parent_id: ObjectId(det1._id).toString(),fname:childfnameforOld[i]},
-        {$set:{fname:childfnamefor[i], lname:childlnamefor[i],DOB:childagefor[i]}},
-        function(err,det){
-          console.log("updateexisitng kids"+ det);
-        })
-    }
+      UserParent.findOne({ email: loginInfo.emailOld},'_id', function(err1, det1){
+          for(var i=0;i<kidsOld;i++){
+            UserKid.findOneAndUpdate({Parent_id: ObjectId(det1._id).toString(),fname:childfnameforOld[i]},
+            {$set:{fname:childfnamefor[i], lname:childlnamefor[i],DOB:childagefor[i]}},
+            function(err,det){
+              if(!err){
+                console.log("updateexisitng kids"+ det);
+                if(det.fname==childfnameforOld[kidsOld-1]){
+                  console.log("inside callback checker"+i);
+                  callback(null,1);
+                }
+              }
+
+            })
+          }
+        });
 };
 
-  function checkInputImage(loginInfo){
+  function checkInputImage(loginInfo,callback){
       //console.log("input image det1: "+det1);
       var emailOld=loginInfo.emailOld;
-      var email= loginInfo.email;
-      var pwd= loginInfo.pwd;
-      var fname= loginInfo.fname;
-      var lname= loginInfo.lname;
-      var kids= loginInfo.numberOfKids;
       var kidsOld=loginInfo.numberOfkidsOld;
       var childfnameforOld=JSON.parse(loginInfo.childfnameOld);
-      var childfnamefor=JSON.parse(loginInfo.childfname);
-      var childlnamefor=JSON.parse(loginInfo.childlname);
-      var childagefor=JSON.parse(loginInfo.childage);
       var inputimagefor=JSON.parse(loginInfo.inputimage);
-      console.log(inputimagefor);
       UserParent.findOne({ email: loginInfo.emailOld},'_id', function(err1, det1){
         for(var k=0;k<kidsOld;k++){
           console.log(k);
@@ -404,14 +374,21 @@ router.post('/editaccount.htm', function(req, res){
          UserKid.findOneAndUpdate({Parent_id: ObjectId(det1._id).toString(),fname:childfnameforOld[k]},
             {$set:{image:inputimagefor[k]}},function(err2,det2){
               console.log("inputimage"+det2);
+              if(det2.fname==childfnameforOld[kidsOld-1]){
+                callback(null,1);
+              }
             });
+        }
+        else {
+          if(k==kidsOld-1){
+            callback(null,1);
+          }
         }
       }
     });
 };
 
-    function createNewKids(loginInfo){
-      console.log("create new kids det1: "+det1);
+    function createNewKids(loginInfo,callback){
       var emailOld=loginInfo.emailOld;
       var email= loginInfo.email;
       var pwd= loginInfo.pwd;
@@ -444,9 +421,15 @@ router.post('/editaccount.htm', function(req, res){
               else
                 {
                   console.log("Id of inserted kid"+det4._id);
-                  UserParent.findOneAndUpdate({_id: det1._id}, {$push:{kidIDs:ObjectId(det4._id).toString()}},function(err5, det5){
+                  UserParent.findOneAndUpdate({_id: det1._id}, {$push:{kidIDs:ObjectId(det4._id).toString()}},{new: true},function(err5, det5){
                     if(err5){
                       console.log("Something wrong when updating parent account after inserting kids!");
+                    }
+                    else{
+                      console.log(det5);
+                      if(det5.kidIDs.length==kids){
+                        callback(null,1);
+                      }
                     }
                   });   //end of USerParent updation
                 } // end of else of userKid insertion
@@ -454,8 +437,11 @@ router.post('/editaccount.htm', function(req, res){
           }//end of for loop
       });
     }//end of new kids if statement
+    else{
+      callback(null,1);
+    }
   }
-*/
+
 
 
 //Delete a kid's account
