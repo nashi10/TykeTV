@@ -8,15 +8,16 @@ var Promise = require('bluebird');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+//var users = require('./routes/users');
 
 var app = express();
+
 
 //Setting up browserSync
 if (app.get('env') == 'development') {
   var browserSync = require('browser-sync');
   var config = {
-    files: ["public/**/*.{js,css}", "views/**/*.htm"],
+    files: ["public/**/*.{js,css}", "views/**/*.ejs"],
     logLevel: 'info',
     logSnippet: false,
     reloadDelay: 3000,
@@ -46,15 +47,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', users);
+//app.use('/users', users);
 app.use('/', index);
 app.use('/index.htm', index);
 app.use('/signup.htm', index);
+app.use('/signup-email.htm', index);
 app.use('/history.htm*', index);
 app.use('/kidhistory.htm', index);
 app.use('/error.htm', index);
 app.use('/success.htm', index);
-
+app.use('/editaccountRetrieve.htm', index);
+app.use('/editaccount.htm', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

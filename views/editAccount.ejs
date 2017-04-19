@@ -1,0 +1,195 @@
+<html>
+
+<head>
+	<title>TykeTV</title>
+	<link href="../stylesheets/Editaccount.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascripts/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="../javascripts/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="../javascripts/jquery.fileupload.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="crossorigin="anonymous"></script>
+    <script src='../javascripts/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="../javascripts/editaccount.js"></script>
+</head>
+
+
+<body>
+
+<div id="page">
+	<div class="header">
+		<h1 class="title"><a href="index.htm">Tyke TV</a></h1>
+		<img alt="Tyke the Dragon" src="../images/dragon_baby_happy.png" /> </div>
+	<div class="section">
+		<div class="section-left">
+			<p>
+			<table class="sectiontable">
+				<tr>
+					<td class="tableheaderfont" colspan="2">
+					<h1>Edit your account: </h1>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">First Name:</td>
+					<td>
+					<input id="txtaccfname" class="textbox" name="fname" type="text"></td>
+				</tr>
+				<tr>
+					<td class="label">Last Name:</td>
+					<td>
+					<input id="txtacclname" class="textbox" name="lname" type="text"></td>
+				</tr>
+				<tr>
+					<td class="label">Email:</td>
+					<td>
+					<input id="txtaccemail" class="textbox" name="email" type="text"></td>
+				</tr>
+				<tr>
+					<td class="label">Password:</td>
+					<td>
+					<input id="txtaccpassword" class="textbox" name="password" type="text"></td>
+				</tr>
+				<tr>
+					<td class="tableheaderfont" colspan="2">
+					<h1 id="childInfoHeader">Child 1 Info:</h1>
+					</td>
+				</tr>
+				<tr id="one">
+					<td class="label">First Name:</td>
+					<td>
+					<input id="txtchildfname1" class="textbox" name="chfname" type="text"></td>
+				</tr>
+				<tr id="two">
+					<td class="label">Last Name:</td>
+					<td>
+					<input id="txtchildlname1" class="textbox" name="chlname" type="text"></td>
+				</tr>
+				<tr id="three">
+					<td class="label">Age:</td>
+					<td>
+					<input id="txtchildage1" class="textbox" name="age" type="text"></td>
+				</tr>
+				<tr id="four">
+					<td class="label">Image:</td>
+					<td id="inputimage1">
+						<div class="thumbnail">
+						<img id="thumbnail1" src="thumbnail.png" alt="Child Photo 1"/> </div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="tableheaderfont" colspan="2">
+					<h1 id="child2InfoHeader">Child 2 Info:</h1>
+					</td>
+				</tr>
+				<tr id="five">
+					<td class="label">First Name:</td>
+					<td>
+					<input id="txtchildfname2" class="textbox" name="chfname" type="text"></td>
+				</tr>
+				<tr id="six">
+					<td class="label">Last Name:</td>
+					<td>
+					<input id="txtchildlname2" class="textbox" name="chlname" type="text"></td>
+				</tr>
+				<tr id="seven">
+					<td class="label">Age:</td>
+					<td>
+					<input id="txtchildage2" class="textbox" name="age" type="text"></td>
+				</tr>
+				<tr id="eight">
+					<td class="label">Image:</td>
+					<td id="inputimage2">
+						<div class="thumbnail">
+						<img id="thumbnail2" src="thumbnail.png" alt="Child Photo 2"/> </div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="tableheaderfont" colspan="2">
+					<h1 id="child3InfoHeader">Child 3 Info:</h1>
+					</td>
+				</tr>
+				<tr id="nine">
+					<td class="label">First Name:</td>
+					<td>
+					<input id="txtchildfname3" class="textbox" name="chfname" type="text"></td>
+				</tr>
+				<tr id="ten">
+					<td class="label">Last Name:</td>
+					<td>
+					<input id="txtchildlname3" class="textbox" name="chlname" type="text"></td>
+				</tr>
+				<tr id="eleven">
+					<td class="label">Age:</td>
+					<td>
+					<input id="txtchildage3" class="textbox" name="age" type="text"></td>
+				</tr>
+				<tr id="twelve">
+					<td class="label">Image:</td>
+					<td id="inputimage3">
+						<div class="thumbnail">
+						<img id="thumbnail3" src="thumbnail.png" alt="Child Photo 3"/> </div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="tableheaderfont" colspan="2">
+					<h1 id="child4InfoHeader">Child 4 Info:</h1>
+					</td>
+				</tr>
+				<tr id="thirteen">
+					<td class="label">First Name:</td>
+					<td>
+					<input id="txtchildfname4" class="textbox" name="chfname" type="text"></td>
+				</tr>
+				<tr id="fourteen">
+					<td class="label">Last Name:</td>
+					<td>
+					<input id="txtchildlname4" class="textbox" name="chlname" type="text"></td>
+				</tr>
+				<tr id="fifteen">
+					<td class="label">Age:</td>
+					<td>
+					<input id="txtchildage4" class="textbox" name="age" type="text"></td>
+				</tr>
+				<tr id="sixteen">
+					<td class="label">Image:</td>
+					<td id="inputimage4">
+						<div class="thumbnail">
+						<img id="thumbnail4" src="thumbnail.png" alt="Child Photo 4"/> </div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+				    <td style="padding-bottom: 5%;" colspan="2">
+					<button id="btnAddChild" class="btn-add" type="Submit">
+					<p class="enter">Add Child</p>
+					</button></td>
+				</tr>
+				<tr>
+					<td>
+					<button id="edit-button" class="btn-default" type="buttton">
+					<p class="enter">SAVE</p>
+					</button></td>
+					<td>
+					<button id="btnCancel" class="btn-default"  type="Reset">
+					<p class="enter"><a href="/index.htm">CANCEL</a></p>
+					</button></td>
+				</tr>
+			</table>
+			</p>
+		</div>
+		<div class="section-right">
+			<div class="teenimage">
+				<img src="../images/editdragon.png" /> </div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<p>Copyright@TykeTV.com</p>
+</div>
+</body>
+
+</html>

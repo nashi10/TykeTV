@@ -1,0 +1,376 @@
+﻿* {
+	margin: 0 auto;
+	padding: 0;
+}
+body {
+	background-color: #7de88a;
+	width: auto;
+	height: auto;
+	margin: 0;
+}
+#page {
+	background-color: #7de88a;
+	margin: 36px;
+	margin: 2%;
+	width: 960px;
+	height: 900px;
+	width: 90%;
+	height: 87%;
+}
+.header {
+	height: 12%;
+	background-color: #7de88a;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 3%;
+}
+.header img {
+	height: 180px; /* 180/90 */
+	height: 25%;
+	max-width: 180px;
+	max-width: 25%;
+	top: 1.5%;
+	right: 200px;
+	position: absolute;
+	z-index: 0;
+}
+.title {
+	font-size: 5em; /* 48/16 default font size */;
+	color: #c43396;
+	font-family: Chewy;
+	text-shadow: -15px 10px 4px rgba(0,0,0,0.2);
+}
+.title a {
+	text-decoration: none;
+	color: #c43396;
+}
+.nav {
+	margin: 0;
+	padding: 0;
+	width: 80%;
+	margin-left: 12%;
+	margin-right 10%;
+	margin-top: 2%;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #7de88a;
+}
+li {
+	float: left;
+}
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: .5px 10px;
+	text-decoration: none;
+	font-family: Chewy;
+	font-size: 1.5em;
+}
+li a:hover {
+	color: #e8a7e5;
+}
+.section {
+	width: 80%; /* 585px/900 */
+	HEIGHT: 70%;
+	margin-left: 7%;
+	margin-right: 7%;
+	background-color: #e8a7e5;
+	border: 15px #FFFFFF solid;
+	border-radius: 3.448276%;
+/* 30/870 */background-image: radial-gradient(ellipse at center, #e8a7e5 2%, #cd61cf 100% );
+	overflow-x: auto;
+	position: absolute;
+	z-index: 1;
+}
+.section h1 {
+	margin: 2.604167%;
+/* 25/960 */font-family: Chewy;
+	font-size: 1.875em; /*30px*/
+	color: #ffffff;
+	letter-spacing: 0.05em;
+}
+.section p {
+	margin: 2.604167%;
+/* 25/960 */color: white;
+	font-family: Chewy;
+	font-size: 1.25em; /*20px*/
+}
+.sectiontable {
+	color: white;
+	font-family: Chewy;
+	font-size: 1.25em; /*25px*/;
+	float: left;
+	width: 50%; /* 450px/900 */
+}
+.tableheaderfont {
+	font-family: Chewy;
+	font-size: 0.666666666666666666666em;
+	margin-left: 0;
+	padding-left: 0;
+	color: #ffffff;
+	letter-spacing: 0.05em;
+}
+.section table td {
+	padding: .75%;
+	padding-left: 1.5%;
+}
+.thumbnail {
+	float:left;
+	height: 12%;
+	width: 12%;
+	padding:1%;
+	font-size:.75em;
+}
+.teenimage {
+	transform: rotate(354deg);
+	margin-top: 0;
+	width: 18.27586%; /* 159px; */
+	height: 19.11111%; /* 172px; */
+	width: 25%;
+	height: 25%;
+	float: left;
+	position: fixed;
+	right: 15%;
+}
+.textbox {
+	width: 100%;
+	height: 50%;
+	border: 5px solid #c7c7c7;
+	border-radius: 10px;
+	background-color: #ffffff;
+	font-family: Chewy;
+	font-size: 0.80em;
+}
+/* Dropdown Button */
+.dropbtn {
+	cursor: pointer;
+	width: 50%;
+	border: 1px solid #c8c8c8;
+	border-radius: 5px;
+	font-family: Chewy;
+	font-size: .9em;
+	color: #666666;
+	background-color: white;
+	text-align: center;
+	margin-top: 5%;
+}
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+	background-color: #7de88a;
+}
+.btn-default {
+	width: 100px; /* 130px */
+	border: 3px solid #04821b;
+	border-radius: 10px;
+	background-image: radial-gradient(ellipse at center, #0af58b 1%, #24ab46 100% );
+}
+.btn-default:hover, .btn-default:focus {
+	background-image: none;
+	background-color: #7de88a;
+}
+.btn-add {
+	width: 150px; /* 130px */
+	border: 3px solid #04821b;
+	border-radius: 10px;
+	background-image: radial-gradient(ellipse at center, #0af58b 1%, #24ab46 100% );
+}
+.btn-add:hover, .btn-add:focus {
+	background-image: none;
+	background-color: #7de88a;
+}
+p.enter {
+	font-family: Chewy;
+	font-size: 2em;
+	color: #c43396;
+}
+p.enter a {
+	text-decoration: none;
+	color: #c43396;
+	}
+}
+.footer {
+	height: 5%;
+	background-color: #7de88a;
+	width: 100%; /* 100% of the page container */
+}
+.footer p {
+	color: white;
+	font-family: chewy;
+	text-align: center;
+}
+img, embed, object, video {
+	max-width: 100%;
+}
+@media only screen and (max-width: 900px) and (min-width: 769px){
+	.sectiontable {
+	width: 70%;
+}
+}
+
+@media only screen and (max-width: 768px) and (min-width: 661px) {
+#page {
+	margin: 0;
+	HEIGHT: 90%;
+	WIDTH: auto;
+}
+.tableheaderfont {
+	font-size: 14px;
+}
+.sectiontable {
+	font-size: 20px;
+	width: 70%;
+}
+.btn-default {
+	width: 100px;
+}
+/*.nav {display: none;}*/
+.dropbtn {
+	width: 60%;
+	font-size: 1em;
+	margin-top: 5%;
+}
+.header img {
+	height: 120px; /* 180/90 */
+	max-width: 120px;
+	z-index: 0;
+	left: 450px;
+	left: 60%;
+	position: absolute;
+}
+.header {
+	height: 12%;
+	background-color: #7de88a;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 3%;
+}
+.section {
+	width: 75%;
+	height: 70%;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 10%;
+	margin-right: 7%;
+}
+.title {
+	font-size: 5em;
+	padding-left: 2%;
+}
+}
+@media only screen and (max-width: 660px) and (min-width: 481px)
+{
+#page {
+	margin: 0;
+	HEIGHT: 90%;
+	WIDTH: AUTO;
+}
+.tableheaderfont {
+	font-size: 14px;
+}
+.sectiontable {
+	font-size: 20px;
+	width: 80%;
+}
+.btn-default {
+	width: 90px;
+}
+/*.nav {display: none;}*/
+.dropbtn {
+	width: 60%;
+	font-size: 1em;
+	margin-top: 5%;
+}
+.header img {
+	height: 90px; /* 180/90 */
+	max-width: 90px;
+	z-index: 0;
+	top: 20px;
+	left: 230px;
+	position: absolute;
+}
+.header {
+	height: 12%;
+	background-color: #7de88a;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.section {
+	width: 75%;
+	height: 70%;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 8%;
+}
+.title {
+	font-size: 4em;
+	padding-left: 0%;
+}
+
+.teenimage img {
+	display: none;
+}
+
+}
+@media only screen and (max-width: 480px) {
+.tableheaderfont {
+	font-size: 12px;
+}
+.sectiontable {
+	font-size: 20px;
+	width: 85%;
+}
+.textbox {
+	width: 100%;
+}
+
+.dropbtn {
+	width: 65%;
+	font-size: .8em;
+	margin-top: 10%;
+}
+#page {
+	margin: 0;
+	height: 90%;
+	width: auto;
+}
+.header img {
+	height: 90px; /* 180/90 */;
+	max-width: 90px;
+	z-index: 0;
+	top: 20px;
+	left: 230px;
+	position: absolute;
+}
+.header {
+	height: 12%;
+	background-color: #7de88a;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 3%;
+}
+.section {
+	width: 75%;
+	height: 70%;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 8%;
+	margin-right: 7%;
+}
+.title {
+	font-size: 4em;
+	margin-top: 0;
+}
+
+.teenimage img {
+	display: none;
+}
+}

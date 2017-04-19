@@ -22,3 +22,12 @@ var checkUser = function() {
     }
   });
 };
+
+$("#login-email").change(function() {
+  // Check input( $( this ).val() ) for validity here
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var result= re.test($("#login-email").val());
+  if(!result){
+    alert("Email does not appear to be valid. Please re-check before submission");
+  }
+});

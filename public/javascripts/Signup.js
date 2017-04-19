@@ -1,5 +1,53 @@
 
+//Show and hide placeholders on window resize
+$(window).on('resize', function(event){
+	if ( $(window).width() < 739) {
+		labels=document.getElementsByClassName('label')
+		for (var i = 0; i < labels.length; i ++) {
+			labels[i].style.display='none';
+		}
+		 $('#txtaccfname').attr('placeholder','First Name');
+		 $('#txtacclname').attr('placeholder','Last Name');
+		 $('#txtaccemail').attr('placeholder','Email');
+		 $('#txtaccpassword').attr('placeholder','Password');
+		 $('#txtchildfname1').attr('placeholder','First Name');
+		 $('#txtchildlname1').attr('placeholder','Last Name');
+		 $('#txtchildage1').attr('placeholder','Age');
+		 $('#txtchildfname2').attr('placeholder','First Name');
+		 $('#txtchildlname2').attr('placeholder','Last Name');
+		 $('#txtchildage2').attr('placeholder','Age');
+		 $('#txtchildfname3').attr('placeholder','First Name');
+		 $('#txtchildlname3').attr('placeholder','Last Name');
+		 $('#txtchildage3').attr('placeholder','Age');
+		 $('#txtchildfname4').attr('placeholder','First Name');
+		 $('#txtchildlname4').attr('placeholder','Last Name');
+		 $('#txtchildage4').attr('placeholder','Age');
+	}
+	else{
+		labels=document.getElementsByClassName('label')
+		for (var i = 0; i < labels.length; i ++) {
+			labels[i].style.display='table-cell';
+		}
+		 $('#txtaccfname').attr('placeholder','');
+		 $('#txtacclname').attr('placeholder','');
+		 $('#txtaccemail').attr('placeholder','');
+		 $('#txtaccpassword').attr('placeholder','');
+		 $('#txtchildfname1').attr('placeholder','');
+		 $('#txtchildlname1').attr('placeholder','');
+		 $('#txtchildage1').attr('placeholder','');
+		 $('#txtchildfname2').attr('placeholder','');
+		 $('#txtchildlname2').attr('placeholder','');
+		 $('#txtchildage2').attr('placeholder','');
+		 $('#txtchildfname3').attr('placeholder','');
+		 $('#txtchildlname3').attr('placeholder','');
+		 $('#txtchildage3').attr('placeholder','');
+		 $('#txtchildfname4').attr('placeholder','');
+		 $('#txtchildlname4').attr('placeholder','');
+		 $('#txtchildage4').attr('placeholder','');
+	}
+});
 
+//show and hide child text boxes based on drop down selection
 window.onload = pre_loader;
 
 function pre_loader() {
@@ -24,10 +72,6 @@ function pre_loader() {
 		document.getElementById('fourteen').style.display='none';
 		document.getElementById('fifteen').style.display='none';
 		document.getElementById('sixteen').style.display='none';
-
-
-//document.getElementById('one').style.opacity=0;
-
 }
 
 
@@ -78,9 +122,7 @@ function showChildrenInfo() {
 		document.getElementById('ten').style.display='table-row';
 		document.getElementById('eleven').style.display='table-row';
 		document.getElementById('twelve').style.display='table-row';
-
-
-	}
+ }
 
 	else if(document.getElementById('NumChildren').value == "4")
 	{
@@ -143,12 +185,48 @@ $(function(){
           });
 });
 
+//checking for email validity
+$(function() {
+$("#txtaccemail").change(function() {
+	console.log("change action function 1");
+  // Check input( $( this ).val() ) for validity here
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var result= re.test($("#txtaccemail").val());
+  if(!result){
+		alert("Email does not appear to be valid. Please re-check before submission");
+    //swal("Email does not appear to be valid. Please re-check before submission");
+  }
+	});
+});
+
+//checking if email already exists in db
+$(function() {
+$(document.body).on('change','#txtaccemail', function() {
+		console.log("change action function 2");
+		var email = $('#txtaccemail').val();
+		$.ajax({
+			url: '/signup-email.htm',
+			type: 'POST',
+			data: {
+				email:email
+			},
+			dataType: 'json',
+			success: function(data) {
+				if(data){
+					alert("Email aready exists. Please enter a different email");
+					//swal("Email aready exists. Please enter a different email");
+				}
+  	}
+	})
+});
+});
+
 //Ajax POST call to db from signup page
 $(function() {
   $('#signup-button').on('click', addUser);
 });
 var addUser = function() {
-  console.log("enetrign addUser function");
+  console.log("entering addUser function");
   var childfname=[];
   var childlname=[];
   var childage=[];
@@ -165,25 +243,37 @@ var addUser = function() {
      childage[i] = $('#txtchildage'+j).val();
      //inputimage[i] = $('#inputimage'+j).val();
   }
-  console.log(inputimage[0]);
-  $.ajax({
-    url: '/signup.htm',
-    type: 'POST',
-    data: {
-      email:email,
-      pwd:pwd,
-      fname:fname,
-      lname:lname,
-      numberOfKids: numberOfKids,
-      childfname: JSON.stringify(childfname),
-      childlname: JSON.stringify(childlname),
-      childage: JSON.stringify(childage),
-      inputimage: JSON.stringify(inputimage)
-    },
-    dataType: 'json',
-    success: function(data) {
-      console.log("success -return to ajax");
-      window.location.href = data.redirect;
-      }
-  });
+	var conditionAdd=true;
+	for(var i=1;i<numberOfKids;i++){
+		conditionAdd=conditionAdd && childfname[i] && childage[i];
+	}
+	var condition=email && pwd && fname && lname && childfname[0] && childage[0] && conditionAdd;
+  console.log("condition:" + condition);
+	console.log("conditionAdd:" + conditionAdd);
+	if(condition){
+		$.ajax({
+			url: '/signup.htm',
+			type: 'POST',
+			data: {
+				email:email,
+				pwd:pwd,
+				fname:fname,
+				lname:lname,
+				numberOfKids: numberOfKids,
+				childfname: JSON.stringify(childfname),
+				childlname: JSON.stringify(childlname),
+				childage: JSON.stringify(childage),
+				inputimage: JSON.stringify(inputimage)
+			},
+			dataType: 'json',
+			success: function(data) {
+				console.log("success -return to ajax");
+				window.location.href = data.redirect;
+				}
+		});
+	}
+	else {
+			alert("Email, password, your name and kids' first names and ages are mandatory");
+			return false;
+	}
 };
