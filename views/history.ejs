@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
-<title>TykeTV</title>
-<link href="../stylesheets/ParentHistory_3.css" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="../javascripts/test.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script>
-
-$(document).ready(function() {
- $("#CheckActivityButton").click();
-});
-
-function selectTab(evt, name) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(name).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
-</head>
-
-<body>
-
-<div id="page">
-	<div class="header">
-		<h1 class="title">Tyke TV </h1>
-		<div class="dragon-logo">
-			<img id="dragon-img" class="img-responsive" src="../images/dragon_parent_1.png" />
-		</div>
-	</div>
-	<div class="tab">
-		<button class="tablinks" onclick="selectTab(event, 'bookEvents')">
-		<p><img class="tabicons" src="../images/BookEvents.svg"> Events</p>
-		</button>
-		<button id="checkActivityButton" class="tablinks" onclick="selectTab(event, 'checkActivity')">
-		<p><img class="tabicons" src="../images/Historyicon2.svg"> History</p>
-		</button></div>
-	<div class="section">
-		<div class="upper_section">
-      <!--removed div for book events - tabcontent. Removed display:none css property for tabcontent  -->
-			<div id="checkActivity" class="tabcontent">
-				<ul>
-          <% for(var i=0; i<images.length; i++) {%>
-            <li class="childInfo">
-              <img class="img-circle" src='<%= images[i] %>' alt="<%= names[i] %>" title="Click to view <%= names[i] %>'s activity"/>
-            </li>
-          <% } %>
-				</ul>
+	<head>
+		<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+		<title>TykeTV</title>
+		<link href="../stylesheets/ParentHistoryfinalcss.css" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="../javascripts/dropdown1.js"></script>
+		<script src="../javascripts/vidpopup.js"></script>
+		<script src="../javascripts/history.js"></script>
+	</head>
+	<body>
+		<div id="page">
+			<div class="header">
+				<h1 class="title"><a href="home.htm">Tyke TV </a></h1>
+				<div class="dragon-logo">
+					<img id="dragon-img" class="img-responsive" src="../images/dragon_parent_1.png" />
+				</div>
+				<div class="menu">
+				<img  id="menu_img" src="../images/Menu.svg">
+				   <div id="myDropdown" class="dropdown-content">
+		           <a href="#">Edit Profile</a>
+				   <a href="#">Delete Profile</a>
+		           <a href="#">Check History</a>
+		           <a href="#">Book Events</a>
+				   <a href="#">Logout</a>
+				   </div>
+				</div>
 			</div>
+			<div class="tab">
+				<button id="BookEventsButton" class="tablinks">
+				<p><img class="tabicons" src="../images/BookEvents.svg"> Events</p>
+				</button>
+				<button id="checkActivityButton" class="tablinks">
+				<p><img class="tabicons" src="../images/Historyicon2.svg"> History</p>
+				</button></div>
+			<div class="section">
+				<div class="upper_section">
+					<div id="checkActivity">
+						<ul class="kidList">
+							<% for(var i=0; i<images.length; i++) {%>
+							<li class="childInfo">
+							<div class="childPic">
+							<img class="img-circle" src='<%= images[i] %>' alt="<%= names[i] %>" title="Click to view <%= names[i] %>'s activity"/>
+							</div>
+							<div class="childName">
+							<a><span id="kid-nameUS"><%= names[i]%></span></a></div>
+							</li>
+							<% } %>
+						</ul>
+					</div>
+				</div>
+				<div class="lower_section">
+					<h2 id="text1"><span id="kid-name"></span>RECENT VIEWS</h2>
+					<div class="vid-list-container">
+						<ul id="vid-list">
+							<!--need to insert videos here-->
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<p>Copyright@TykeTV.com</p>
+			</div>
+			<div id="popup2" class="popup">
+			<iframe id="vid_frame" frameborder="0" height="315" src="" width="560" allowscriptaccess="always">
+				</iframe>
+			<a class="close" href="#" onclick="toggleVideo('hide')">
+			<img id="close-icon" src="../images/info-close-icon.png"></a></div>
 		</div>
-		<div class="lower_section">
-			<h2 id="text1"><span id="kid-name"></span>RECENT VIEWS</h2>
-      <ul id="div-id-to-insert-video-after">
-      </ul>
-		</div>
-	</div>
-	<div class="footer">
-		<p>Copyright@TykeTV.com</p>
-	</div>
-</div>
-
-</body>
-
+	</body>
 </html>

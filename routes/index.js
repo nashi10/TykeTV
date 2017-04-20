@@ -242,20 +242,27 @@ router.post('/kidhistory.htm', function(req, res, next) {
               console.log("DET1 id:"+ det1._id);
               console.log("contentLinkIDs: "+ det1.contentLinkIDs);
               var contentLinkIDs=det1.contentLinkIDs;
-              Content_link.find({_id:{$in:contentLinkIDs}},'Link', function(err2, det2){
+              Content_link.find({_id:{$in:contentLinkIDs}}, function(err2, det2){
                   console.log("entering contentLink table");
                   var contentLinks=[];
-                  if(err2 || !det2)
+                  var contentLinksName=[];
+                  var contentLinksDescr=[];
+                  var contentLinksThumb=[];
+                  if(err2)
                   {
                     res.render('error');
                   }
                   else
                   {
+                    console.log(det2);
                     for(var i=0;i<det2.length;i++){
                       contentLinks.push(det2[i].Link);
+                      contentLinksName.push(det2[i].Name);
+                      contentLinksDescr.push(det2[i].Description);
+                      contentLinksThumb.push(det2[i].Thumb);
                     }
                     console.log(contentLinks);
-                    res.send({Links:contentLinks});
+                    res.send({Links:contentLinks,Name:contentLinksName, Descr:contentLinksDescr,Thumb:contentLinksThumb});
                   } //closing else of Contetn_Link
               }); //closing Content_Link
             } //closing else of UserKid

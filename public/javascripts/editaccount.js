@@ -288,7 +288,7 @@ var inputs;
 //function to store original content :id and value
 function inputStoreData(){
   console.log("inside original input storage");
-    inputs = $('input[type="text"]').each(function() {
+    inputs = $('input[type="text"],input[type="password"]').each(function() {
     $(this).data('original', this.value);
   });
   console.log("Inputs inside store function:"+inputs);

@@ -26,6 +26,7 @@ var Content_linksSchema = mongoose.Schema({
    Link:String,
    Name:String,
    Description: String,
+   Thumb:String,
    Views :Number,
    Category:String,
    Age_group:String,

@@ -7,8 +7,9 @@ $(function(){
     window.location.href = "/index.htm";
 }) ;
 
+
 //Ajax POST call to db from history page- retrieving history
-$(function() {
+$(function(){
   $('.img-circle').on('click', getHistory);
 });
 var getHistory = function() {
@@ -26,11 +27,15 @@ var getHistory = function() {
     success: function(data) {
      console.log(kidName);
       //document.getElementById("kid-name").style.display=inline;
-      $('#div-id-to-insert-video-after li').remove();
+      $('#vid-list li').remove();
       document.getElementById("kid-name").innerHTML="";
       document.getElementById("kid-name").innerHTML=kidName+"'s ";
+      console.log(data.Links[0]);
+       console.log(data.Name[0]);
+       console.log(data.Descr[0]);
+       console.log(data.Thumb[0]);
       for(var i=0;i<data.Links.length;i++){
-      $('#div-id-to-insert-video-after').append('<li class="carousel-cell"><iframe class="myframe" src="'+ data.Links[i]+'" ></iframe></li>');
+      $('#vid-list').append('<li class="vid-item" onclick="startVideo(\''+data.Links[i]+'\')"><div class="thumb"><img src="'+ data.Thumb[i]+'"></div><div class="desc">'+data.Name[i]+'</div></li>');
       }
     }
   });
