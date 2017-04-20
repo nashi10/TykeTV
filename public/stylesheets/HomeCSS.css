@@ -14,7 +14,7 @@ body{
 	width: 84.21052%; /* 960/1140 */
 	width: 90%;
 	height: 900px; /* 900px */
-	height: 100%;
+	height: 87%;
 }
 
 
@@ -41,18 +41,18 @@ max-width:25%;
 
 .title {
 	font-size: 5em; /* 48/16 default font size */
-	color: #c43396;
+	color: #c43396; 
 	text-shadow: -15px 10px 4px rgba(0,0,0,0.2);
-	font-family: Chewy;
+	font-family: Chewy;	
 }
 
 .title a {
 	text-decoration:none;
-	color: #c43396;
+	color: #c43396; 
 }
 
 
-/*
+/* 
 ul {
     list-style-type: none;
     margin: 0;
@@ -86,7 +86,7 @@ li a:hover {
 
 .section{
 	width: 80%;  /* 870/960 */
-	height: 80%; /* 770/900 */
+	height: 70%; /* 770/900 */
 	margin-left: 7%;
 	margin-right: 7%;
 	background-image: radial-gradient(ellipse at center, #e8a7e5 2%, #cd61cf 100%);
@@ -101,7 +101,7 @@ li a:hover {
 	height: 100%; /* 770/770 */
 	float: left;
 	position: absolute;
-
+  	
 }
 
 
@@ -119,27 +119,25 @@ li a:hover {
 .form-control{
   	margin-left: -8%;
 	margin-bottom: 8%;
-	font-opacity: 0.4;
+	font-opacity: 0.4; 
   	font-family: Chewy;
   	font-size: 1.125em; /* 18/16 */
-  	color: #c43396;
-  	font-style: italic;
+  	color: #c43396; 
+  	font-style: italic; 
   	width: 116.666666%; /* 350px/300 */
   	height: 8%; /* 48px; */
-  	border: 5px solid #c7c7c7;
-  	border-radius: 10px;
+  	border: 5px solid #c7c7c7; 
+  	border-radius: 10px; 
   	background-color: #ffffff;
 
 }
-
-
 
 
 .footer {
 	height: 5%;
 	background-color: #7de88a;
 	width: 100%; /* 100% of the page container */
-
+	
 }
 
 .footer p{
@@ -157,7 +155,7 @@ li a:hover {
 	text-align: center;
 }
 
-.section h1 {
+.section h1 {	
 	margin: 2.604167%; /* 25/960 */
 	font-family: Chewy;
 	font-size: 1.875em; /*30px*/
@@ -188,18 +186,18 @@ li a:hover {
 }
 
 .right_section img{
-	margin-top:20%;
+	margin-top:20%;	
 	height: 50%;
-	width: 75%;
+	width: 75%; 
 border:10px solid white;
 border-radius: 10px;
-
+	
 }
 
 .slideshow {
 	display:block;
-
-}
+	
+}  
 
 
 .btn-default{
@@ -225,6 +223,7 @@ p.enter {
 font-family: Chewy;
 font-size: 2.5em;
 color: #c43396;
+	
 margin: 5%;
 }
 
@@ -243,31 +242,29 @@ img, embed, object, video {
 #page{
 	margin: 0;
 	width: auto;
-	height: auto;
+	height: 90%;
 }
 
 .title {
-	font-size: 5em;
+	font-size: 5em; 
 	padding-left: 2%;
 }
 
-.section {width: 75%; height:75%; margin-left:10%;}
-.slideshow {
-	margin-top: -15%;
-}
+.section {width: 75%; height:70%; margin-left:10%;}
+
 .right_section img{
-	margin-top:-10%;
+	margin-top:-10%;	
 	height: 40%;
-	width: 65%;
+	width: 65%; 
 border:10px solid white;
 border-radius: 10px;
-
+	
 }
 
 .right_section img{
-	margin-top:20%;
+	margin-top:20%;	
 	height: 60%;
-	width: 70%;
+	width: 70%; 
        border:10px solid white;
        border-radius: 10px;
 	}
@@ -282,11 +279,7 @@ border-radius: 10px;
 }
 
 
-.footer {
-	margin-top:850px;
-	font-size:1.5em;
 
-}
 
 .left_section {width:100%;
 		height:50%;}
@@ -302,11 +295,11 @@ border-radius: 10px;
 }
 .form-control{
  	margin-bottom: 3%;
-  	font-size: 1.8em;
-  	color: #c43396;
-  	font-style: italic;
-  	width: 116.666666%;
-  	height: 12%;
+  	font-size: 1.8em; 
+  	color: #c43396; 
+  	font-style: italic; 
+  	width: 116.666666%; 
+  	height: 12%; 
 
 }
 
@@ -314,7 +307,9 @@ border-radius: 10px;
 	margin-top: -8%;
 }
 
-
+.slideshow {
+	visibility:hidden;
+}
 }
 
 
@@ -323,15 +318,15 @@ border-radius: 10px;
 #page{
 	margin: 0;
 	width: auto;
-	height: auto;
-}
+	height: 90%;
+}	
 .title {
 	font-size: 4em;
 padding-top: 0%;
-	padding-left: 0%;
+	padding-left: 0%; 
 }
 
-.section {width: 75%; height:75%; margin-left:8%;}
+.section {width: 75%; height:70%; margin-left:8%;}
 
 .header img {
 	height:90px; /* 180/90 */
@@ -350,22 +345,22 @@ padding-top: 0%;
 .form-control{
   	margin-left: -8%;
 	margin-bottom: 8%;
-	font-opacity: 0.4;
+	font-opacity: 0.4; 
   	font-family: Chewy;
   	font-size: 1.125em; /* 18/16 */
-  	color: #c43396;
-  	font-style: italic;
+  	color: #c43396; 
+  	font-style: italic; 
   	width: 116.666666%; /* 350px/300 */
   	height: 8%; /* 48px; */
-  	border: 5px solid #c7c7c7;
-  	border-radius: 10px;
+  	border: 5px solid #c7c7c7; 
+  	border-radius: 10px; 
   	background-color: #ffffff;
 
 }
 
 
 .textbox {
-	width: 70%;
+	width: 70%; 
 }
 
 .btn-default{
@@ -380,9 +375,10 @@ padding-top: 0%;
 .left_section {width:100%;}
 .right_section {width:0%;}
 
-.footer {
-	margin-top:550px;
+
 
 }
 
-}
+
+
+
