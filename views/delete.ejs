@@ -1,25 +1,68 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>TykeTV</title>
-    <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/sweetalert.css">
-    <link href="../stylesheets/ParentHistory_3.css" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="../javascripts/sweetalert.min.js"></script>
-    <script src="../javascripts/delete.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <h1>delete account</h1>
-    <p>Entire account</p>
-    <button id="delete-accountButton">Yes</button>
-    <p>Click on image to remove resp. profile </p>
-    <ul>
-      <% for(var i=0; i<images.length; i++) {%>
-        <li class="childInfo">
-          <img class="img-circle" src='<%= images[i] %>' alt="<%= names[i] %>" title="Click to view <%= names[i] %>'s activity"/>
-        </li>
-      <% } %>
-    </ul>
-  </body>
+<head>
+
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+<title>TykeTV</title>
+<link rel="stylesheet" type="text/css" href="../stylesheets/sweetalert.css">
+
+<link href="../stylesheets/deletestyle.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../javascripts/sweetalert.min.js"></script>
+<script src="../javascripts/delete.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="../javascripts/dropdown1.js"></script>
+<!--<script src="Mascotchange.js"></script>-->
+</head>
+
+<body>
+<div id="page">
+	<div class="header">
+		<h1 class="title"><a href="home.htm">Tyke TV </a></h1>
+		<div class="dragon-logo">
+			<img id="dragon-img" class="img-responsive" src="../images/dragon_parent_1.png" />
+		</div>
+		<div class="menu">
+		<img onclick="myFunction()" id="menu_img" src="../images/Menu.svg">
+		   <div id="myDropdown" class="dropdown-content">
+           <a id="Edprof">Edit Profile</a>
+		   <a id="Deprof">Delete Profile</a>
+           <a id="Chistory">Check History</a>
+           <a id="Bevents">Book Events</a>
+		   <a id="Getout">Logout</a>
+		   </div>
+		</div>
+	</div>
+
+	<div class="section">
+			<h1> Select Image to Remove Profile </h1>
+		<!--This is a container for holding the kids images as buttons-->
+			<div id="checkActivity" class="tabcontent">
+				<ul class="kidList">
+					<% for(var i=0; i<images.length; i++) {%>
+						<li class="childInfo">
+							<div class="childPic">
+								<img class="img-circle" src='<%= images[i] %>' alt="<%= names[i] %>" title="Click to view <%= names[i] %>'s activity"/>
+							</div>
+							<div class="childName">
+								<a><span id="kid-nameUS"><%= names[i]%></span></a></div>
+						</li>
+					<% } %>
+				</ul>
+			</div>
+			<h1 class="bottomheader"> Delete Entire Account? </h1>
+			 <button class="btn-default" id="delete-accountButton">
+				<h1 class="buttontext">YES</h1>
+				</button>
+
+
+	</div>
+	<div class="footer">
+		<p>Copyright@TykeTV.com</p>
+	</div>
+</div>
+
+</body>
+
 </html>

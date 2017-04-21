@@ -31,6 +31,10 @@ router.get('/history.htm', function(req, res, next) {
   res.render('history');
 });
 
+router.get('/signedout.htm', function(req, res, next) {
+  res.render('signedout');
+});
+
 /* GET edit account page. */
 router.get('/editaccount.htm', function(req, res, next) {
   res.render('editAccount');
@@ -195,26 +199,26 @@ router.post('/index.htm*', function(req, res){
 
     var loginInfo = req.body; //Get the parsed information
 
-    if(!loginInfo.email || !loginInfo.pwd){
-        res.send('Email or pwd missing');
-    }
-    else{
         UserParent.findOne({ email: loginInfo.email},'pwd', function(err, det){
-            if(err || !det)
+            if(err)
             {
-              res.render('error');
+              res.send({result:"error"});
+            }
+            else if(det==null){
+              console.log(det);
+              res.send({result:"noaccount"});
             }
             else if(det.pwd==loginInfo.pwd)
             {
+              console.log(det);
               console.log("successful login-correct password");
-              res.send({redirect: `/history.htm/${loginInfo.email}`});
+              res.send({result:null, redirect: `/history.htm/${loginInfo.email}`});
             }
-            else {
-              console.log("incorrect password");
+            else if(det.pwd!=loginInfo.pwd){
+                console.log(det);
+                res.send({result:"nopwd"});
             }
         });
-
-    }
 });
 
 /* Retrieve kidHistory from db. */

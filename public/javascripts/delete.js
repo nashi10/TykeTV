@@ -7,9 +7,9 @@ var deleteKid = function() {
   var count = $("ul .childInfo").length;
   var result=false, result1=false;
   if(count==1){
-    swal({
+    /*swal({
     title: "Are you sure?",
-    text: "If you delete the last child, the entire account will be delted",
+    text: "If you delete the last child, the entire account will be deleted",
     type: "warning",
     showCancelButton: true,
     confirmButtonColor: "#DD6B55",
@@ -19,21 +19,21 @@ var deleteKid = function() {
     function(){
       result1=true;
     });
-    //result1= confirm("If you delete the last child, the entire account will be delted. Are you sure?");
+    //*/result1= confirm("If you delete the last child, the entire account will be delted. Are you sure?");
   }
   else {
-    //result= confirm("Are you sure?");
-    swal({
+    result= confirm("Are you sure?");
+    /*swal({
     title: "Are you sure?",
     type: "warning",
     showCancelButton: true,
     confirmButtonColor: "#DD6B55",
     confirmButtonText: "Yes, delete it!",
-    closeOnConfirm: false
+    closeOnConfirm: false*
     },
     function(){
       result=true;
-    });
+    });*/
   }
   if(result1==true){
     deleteParent();

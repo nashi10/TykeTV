@@ -58,6 +58,7 @@ app.use('/error.htm', index);
 app.use('/success.htm', index);
 app.use('/editaccountRetrieve.htm', index);
 app.use('/editaccount.htm', index);
+app.use('/signedout.htm', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

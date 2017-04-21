@@ -1,0 +1,285 @@
+* {
+	margin: 0 auto;
+	padding: 0;
+}
+body{
+	background-color: #7de88a;
+       margin: 0;
+	height: auto;
+	width: auto;
+}
+#page{
+	background-color: #7de88a;
+	margin: 2%;
+	width: 84.21052%; /* 960/1140 */
+	width: 90%;
+	height: 900px; /* 900px */
+	height: 87%;
+}
+
+
+.header{
+	height: 12%; /* 90/100 */
+	background-color: #7de88a;
+        width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 3%;
+}
+
+
+
+.header img {
+	 height:180px; /* 180/90 */
+	height: 25%;
+  	max-width:180px;
+	max-width:25%;
+  	position:absolute;
+  	top:1.5%;
+  	right:200px;
+}
+
+.title {
+	font-size: 5em; /* 48/16 default font size */
+	color: #c43396;
+	text-shadow: -15px 10px 4px rgba(0,0,0,0.2);
+	font-family: Chewy;
+}
+
+.title a {
+	text-decoration:none;
+	color: #c43396;
+}
+
+
+
+
+
+
+.section{
+	width: 80%;  /* 870/960 */
+	height: 70%; /* 770/900 */
+	margin-left: 7%;
+	margin-right: 7%;
+	background-image: radial-gradient(ellipse at center, #e8a7e5 2%, #cd61cf 100%);
+  	border:15px #FFFFFF solid;
+  	border-radius: 3.448276%;  /* 30/870 */
+ 	position: absolute;
+
+}
+
+
+.section img {
+	margin-left: 35%;
+	margin-top: 2%;
+	width: 25%;
+	height: 45%;
+
+
+}
+
+
+.section p {
+	margin: 2.604167%; /* 25/960 */
+	color: white;
+	font-family: Chewy;
+	font-size: 1.25em; /*20px*/
+	text-align: center;
+}
+
+.section h1 {
+	margin: 2.604167%; /* 25/960 */
+	text-align: center;
+	font-family: Chewy;
+	font-size: 1.875em; /*30px*/
+	color: #ffffff;
+	letter-spacing: 0.05em;
+}
+
+.btn-default{
+margin-left: 32.5%;
+margin-top: 5%;
+margin-bottom:10%;
+width: 35%;
+border: 3px solid #04821b;
+border-radius: 10px;
+background-image: radial-gradient(ellipse at center, #0af58b 1%, #24ab46 100% );
+
+
+}
+
+.btn-default:hover, .btn-default:focus{
+background-image: none;
+background-color: #7de88a;
+
+}
+
+
+
+p.enter {
+font-family: Chewy;
+font-size: 2em;
+color: #c43396;
+margin: 5%;
+text-decoration:none;
+}
+
+p.enter a {
+	text-decoration: none;
+	color: #c43396;
+	}
+
+
+
+.footer {
+	height: 5%;
+	background-color: #7de88a;
+	width: 100%; /* 100% of the page container */
+
+}
+
+.footer p{
+	color: white;
+	font-family: chewy;
+	text-align: center;
+}
+
+
+img, embed, object, video {
+	max-width: 100%;
+}
+
+
+@media only screen and (min-width: 661px) and (max-width: 768px)
+{
+
+#page{
+	margin: 0;
+	width: auto;
+	height: 90%;
+}
+
+.title {
+	font-size: 5em;
+	padding-left: 2%;
+}
+
+.section {width: 75%; height:70%; margin-left:10%;}
+
+
+.header img {
+	height:120px; /* 180/90 */
+  	max-width:120px;
+  	z-index:0;
+	left: 450px;
+	left:60%;
+}
+
+
+}
+
+
+
+@media only screen and (max-width: 660px) {
+#page{
+	margin: 0;
+	width: auto;
+	height: 90%;
+}
+.title {
+	font-size: 4em;
+	padding-top: 0%;
+	padding-left: 0%;
+}
+
+.section {width: 75%; height:70%; margin-left:8%;}
+
+.header img {
+	height:90px; /* 180/90 */
+  	max-width:90px;
+  	z-index:0;
+	top:20px;
+	left: 230px;
+	position: absolute;
+}
+
+
+
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 659px) {
+#page{
+	margin: 0;
+	width: auto;
+	height: 90%;
+}
+.title {
+	font-size: 4em;
+        padding-top: 0%;
+	padding-left: 0%;
+}
+
+.section {width: 75%; height:70%; margin-left:8%;}
+
+.header img {
+	height:90px; /* 180/90 */
+  	max-width:90px;
+  	z-index:0;
+	top:20px;
+	left: 230px;
+	position: absolute;
+}
+
+
+
+.section img {
+	margin-left: 25%;
+	margin-top: 2%;
+	width: 50%;
+	height: 45%;
+	}
+
+.btn-default{
+margin-left: 32.5%;
+margin-top: 5%;
+margin-bottom:10%;
+width: 35%;
+border: 3px solid #04821b;
+border-radius: 10px;
+background-image: radial-gradient(ellipse at center, #0af58b 1%, #24ab46 100% );
+
+
+}
+
+
+}
+
+@media only screen and (max-width: 480px){
+
+
+.section img {
+	margin-left: 25%;
+	margin-top: 2%;
+	width: 50%;
+	height: 35%;
+	}
+
+.btn-default{
+margin-left: 20%;
+margin-top: 5%;
+margin-bottom:10%;
+width: 60%;
+border: 3px solid #04821b;
+border-radius: 10px;
+background-image: radial-gradient(ellipse at center, #0af58b 1%, #24ab46 100% );
+}
+
+p.enter {
+font-family: Chewy;
+font-size: 1.4em;
+}
+
+
+
+}
