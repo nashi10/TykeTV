@@ -37,7 +37,7 @@ router.get('/signedout.htm', function(req, res, next) {
 
 /* GET edit account page. */
 router.get('/editaccount.htm', function(req, res, next) {
-  res.render('editAccount');
+  res.render('editaccount');
 });
 
 /* GET history page + user email */

@@ -24,3 +24,40 @@ $(function(){
   }
 
 });
+
+
+$(function(){
+  $('#Edprof').click(function(){
+      window.location.href="/editaccount.htm";
+  });
+});
+
+//on click of link get delete account page by passing location storage email
+//'/delete.htm/:loginEmail'
+$(function(){
+  $('#Deprof').click(function(){
+       var parentEmail=localStorage.getItem('login-email');
+      window.location.href=`/delete.htm/${parentEmail}`;
+  });
+});
+
+$(function(){
+  $('#Chistory').click(function(){
+       var parentEmail=localStorage.getItem('login-email');
+      window.location.href=`/history.htm/${parentEmail}`;
+  });
+});
+
+//Book events tab switch
+$(function(){
+  $('#Bevents').click(function(){
+      //add later
+  });
+});
+
+//logout popup
+$(function(){
+  $('#Getout').click(function(){
+      //add later
+  });
+});

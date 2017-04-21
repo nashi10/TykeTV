@@ -49,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/users', users);
 app.use('/', index);
+app.use('/editaccount.htm', index);
 app.use('/index.htm', index);
 app.use('/signup.htm', index);
 app.use('/signup-email.htm', index);
@@ -57,7 +58,6 @@ app.use('/kidhistory.htm', index);
 app.use('/error.htm', index);
 app.use('/success.htm', index);
 app.use('/editaccountRetrieve.htm', index);
-app.use('/editaccount.htm', index);
 app.use('/signedout.htm', index);
 
 // catch 404 and forward to error handler
