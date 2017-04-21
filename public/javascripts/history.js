@@ -40,3 +40,17 @@ var getHistory = function() {
     }
   });
 };
+
+
+$(function(){
+  $('#BookEventsButton').on('click',function(){
+  //  window.location.href="/events.htm";
+  })
+})
+
+
+$(function(){
+  $('#checkActivityButton').on('click',function(){
+    window.location.href=`/history.htm/${parentEmail}`;
+  })
+})

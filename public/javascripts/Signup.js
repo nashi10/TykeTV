@@ -1,3 +1,30 @@
+//show and hide child text boxes based on drop down selection
+window.onload = pre_loader;
+
+function pre_loader() {
+
+		document.getElementById('childInfoHeader').style.display='none';
+		document.getElementById('child2InfoHeader').style.display='none';
+		document.getElementById('child3InfoHeader').style.display='none';
+		document.getElementById('child4InfoHeader').style.display='none';
+		document.getElementById('one').style.display='none';
+		document.getElementById('two').style.display='none';
+		document.getElementById('three').style.display='none';
+		document.getElementById('four').style.display='none';
+		document.getElementById('five').style.display='none';
+		document.getElementById('six').style.display='none';
+		document.getElementById('seven').style.display='none';
+		document.getElementById('eight').style.display='none';
+		document.getElementById('nine').style.display='none';
+		document.getElementById('ten').style.display='none';
+		document.getElementById('eleven').style.display='none';
+		document.getElementById('twelve').style.display='none';
+		document.getElementById('thirteen').style.display='none';
+		document.getElementById('fourteen').style.display='none';
+		document.getElementById('fifteen').style.display='none';
+		document.getElementById('sixteen').style.display='none';
+}
+
 
 //Show and hide placeholders on window resize
 $(window).on('resize', function(event){
@@ -47,32 +74,7 @@ $(window).on('resize', function(event){
 	}
 });
 
-//show and hide child text boxes based on drop down selection
-window.onload = pre_loader;
 
-function pre_loader() {
-
-		document.getElementById('childInfoHeader').style.display='none';
-		document.getElementById('child2InfoHeader').style.display='none';
-		document.getElementById('child3InfoHeader').style.display='none';
-		document.getElementById('child4InfoHeader').style.display='none';
-		document.getElementById('one').style.display='none';
-		document.getElementById('two').style.display='none';
-		document.getElementById('three').style.display='none';
-		document.getElementById('four').style.display='none';
-		document.getElementById('five').style.display='none';
-		document.getElementById('six').style.display='none';
-		document.getElementById('seven').style.display='none';
-		document.getElementById('eight').style.display='none';
-		document.getElementById('nine').style.display='none';
-		document.getElementById('ten').style.display='none';
-		document.getElementById('eleven').style.display='none';
-		document.getElementById('twelve').style.display='none';
-		document.getElementById('thirteen').style.display='none';
-		document.getElementById('fourteen').style.display='none';
-		document.getElementById('fifteen').style.display='none';
-		document.getElementById('sixteen').style.display='none';
-}
 
 
 function showChildrenInfo() {
@@ -227,53 +229,70 @@ $(function() {
 });
 var addUser = function() {
   console.log("entering addUser function");
-  var childfname=[];
-  var childlname=[];
-  var childage=[];
-  //var inputimage=[];
-  var email = $('#txtaccemail').val();
-  var pwd = $('#txtaccpassword').val();
-  var fname = $('#txtaccfname').val();
-  var lname = $('#txtacclname').val();
-  var numberOfKids= $('#NumChildren').val();
-  for(var i=0;i<numberOfKids;i++){
-    var j=i+1;
-     childfname[i] = $('#txtchildfname'+j).val();
-     childlname[i] = $('#txtchildlname'+j).val();
-     childage[i] = $('#txtchildage'+j).val();
-     //inputimage[i] = $('#inputimage'+j).val();
-  }
-	var conditionAdd=true;
-	for(var i=1;i<numberOfKids;i++){
-		conditionAdd=conditionAdd && childfname[i] && childage[i];
-	}
-	var condition=email && pwd && fname && lname && childfname[0] && childage[0] && conditionAdd;
-  console.log("condition:" + condition);
-	console.log("conditionAdd:" + conditionAdd);
-	if(condition){
-		$.ajax({
-			url: '/signup.htm',
-			type: 'POST',
-			data: {
-				email:email,
-				pwd:pwd,
-				fname:fname,
-				lname:lname,
-				numberOfKids: numberOfKids,
-				childfname: JSON.stringify(childfname),
-				childlname: JSON.stringify(childlname),
-				childage: JSON.stringify(childage),
-				inputimage: JSON.stringify(inputimage)
-			},
-			dataType: 'json',
-			success: function(data) {
-				console.log("success -return to ajax");
-				window.location.href = data.redirect;
+	var email = $('#txtaccemail').val();
+	$.ajax({
+		url: '/signup-email.htm',
+		type: 'POST',
+		data: {
+			email:email
+		},
+		dataType: 'json',
+		success: function(data) {
+			if(data){
+				alert("Email aready exists. Please enter a different email");
+				//swal("Email aready exists. Please enter a different email");
+			}
+			else {
+				var childfname=[];
+			  var childlname=[];
+			  var childage=[];
+			  //var inputimage=[];
+			//  var email = $('#txtaccemail').val();
+			  var pwd = $('#txtaccpassword').val();
+			  var fname = $('#txtaccfname').val();
+			  var lname = $('#txtacclname').val();
+			  var numberOfKids= $('#NumChildren').val();
+			  for(var i=0;i<numberOfKids;i++){
+			    var j=i+1;
+			     childfname[i] = $('#txtchildfname'+j).val();
+			     childlname[i] = $('#txtchildlname'+j).val();
+			     childage[i] = $('#txtchildage'+j).val();
+			     //inputimage[i] = $('#inputimage'+j).val();
+			  }
+				var conditionAdd=true;
+				for(var i=1;i<numberOfKids;i++){
+					conditionAdd=conditionAdd && childfname[i] && childage[i];
 				}
-		});
-	}
-	else {
-			alert("Email, password, your name and kids' first names and ages are mandatory");
-			return false;
-	}
+				var condition=email && pwd && fname && lname && childfname[0] && childage[0] && conditionAdd;
+			  console.log("condition:" + condition);
+				console.log("conditionAdd:" + conditionAdd);
+				if(condition){
+					$.ajax({
+						url: '/signup.htm',
+						type: 'POST',
+						data: {
+							email:email,
+							pwd:pwd,
+							fname:fname,
+							lname:lname,
+							numberOfKids: numberOfKids,
+							childfname: JSON.stringify(childfname),
+							childlname: JSON.stringify(childlname),
+							childage: JSON.stringify(childage),
+							inputimage: JSON.stringify(inputimage)
+						},
+						dataType: 'json',
+						success: function(data) {
+							console.log("success -return to ajax");
+							window.location.href = data.redirect;
+							}
+					});
+				}
+				else {
+						alert("Email, password, your name and kids' first names and ages are mandatory");
+						return false;
+				}
+			}
+		}
+	});
 };

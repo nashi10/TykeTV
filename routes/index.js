@@ -40,6 +40,11 @@ router.get('/editaccount.htm', function(req, res, next) {
   res.render('editaccount');
 });
 
+/* GET select account/home page. */
+router.get('/selectaccount.htm', function(req, res, next) {
+  res.render('selectaccount');
+});
+
 /* GET history page + user email */
 router.get('/history.htm/:loginEmail', function(req, res, next) {
   var email=req.params.loginEmail;

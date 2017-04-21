@@ -59,5 +59,6 @@ $(function(){
 $(function(){
   $('#Getout').click(function(){
       //add later
+        window.location.href="/signedout.htm";
   });
 });
