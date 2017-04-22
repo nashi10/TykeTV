@@ -85,6 +85,7 @@ var numberOfkids; //global variable to hold number of kids from db
 //function to retieve data from db based on current login email
 $(function(){
   var parentEmail=localStorage.getItem('login-email');
+  console.log(parentEmail);
   $.ajax({
     url: '/editaccountRetrieve.htm',
     type: 'POST',
@@ -112,7 +113,6 @@ function displayBoxes(kids){
   		document.getElementById('two').style.display='table-row';
   		document.getElementById('three').style.display='table-row';
   		document.getElementById('four').style.display='table-row';
-
   	}
   	else if (kids == 2)
   	{
