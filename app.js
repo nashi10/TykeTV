@@ -60,6 +60,9 @@ app.use('/success.htm', index);
 app.use('/editaccountRetrieve.htm', index);
 app.use('/signedout.htm', index);
 app.use('/selectaccount.htm', index);
+app.use('/selectaccount-load.htm', index);
+app.use('/kidAge.htm', index);
+app.use('/videos6to8.htm', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,96 @@
+$(function(){
+  var url = window.location.pathname;
+  var filename = url.substring(url.lastIndexOf('/')+1);
+  if(localStorage.login=="false" && (filename != 'login.htm' || filename != 'signup.htm'))
+    window.location.href = "/index.htm";
+}) ;
+
+//AJAX post function to load images on page
+$(function(){
+  var email=localStorage.getItem('login-email');
+  $.ajax({
+    url: '/selectaccount-load.htm',
+    type: 'POST',
+    data: {
+      email:email
+    },
+    dataType: 'json',
+    success: function(data) {
+    //data needs to have number of kids, sources of images and first names of kids
+    //call function and pass data
+    putImage(data);
+  }
+})
+});
+
+//function to be called on AJAX success
+var putImage=function(data){
+  var numberOfKids=data.kids;
+  if(numberOfKids==1){
+    document.getElementById('kid1-img').src=data.link[0];
+    document.getElementById('kid1-img').alt=data.name[0];
+    document.getElementById('kid1-name').innerHTML=data.name[0];
+  }
+  else if(numberOfKids==2){
+    document.getElementById('kid1-img').src=data.link[0];
+    document.getElementById('kid1-img').alt=data.name[0];
+    document.getElementById('kid1-name').innerHTML=data.name[0];
+    document.getElementById('kid2-img').src=data.link[1];
+    document.getElementById('kid2-img').alt=data.name[1];
+    document.getElementById('kid2-name').innerHTML=data.name[1];
+  }
+  else if(numberOfKids==3){
+    document.getElementById('kid1-img').src=data.link[0];
+    document.getElementById('kid1-img').alt=data.name[0];
+    document.getElementById('kid1-name').innerHTML=data.name[0];
+    document.getElementById('kid2-img').src=data.link[1];
+    document.getElementById('kid2-img').alt=data.name[1];
+    document.getElementById('kid2-name').innerHTML=data.name[1];
+    document.getElementById('kid3-img').src=data.link[2];
+    document.getElementById('kid3-img').alt=data.name[2];
+    document.getElementById('kid3-name').innerHTML=data.name[2];
+  }
+  else if(numberOfKids==4){
+    document.getElementById('kid1-img').src=data.link[0];
+    document.getElementById('kid1-img').alt=data.name[0];
+    document.getElementById('kid1-name').innerHTML=data.name[0];
+    document.getElementById('kid2-img').src=data.link[1];
+    document.getElementById('kid2-img').alt=data.name[1];
+    document.getElementById('kid2-name').innerHTML=data.name[1];
+    document.getElementById('kid3-img').src=data.link[2];
+    document.getElementById('kid3-img').alt=data.name[2];
+    document.getElementById('kid3-name').innerHTML=data.name[2];
+    document.getElementById('kid4-img').src=data.link[3];
+    document.getElementById('kid4-img').alt=data.name[3];
+    document.getElementById('kid4-name').innerHTML=data.name[3];
+  }
+}
+
+
+//function to execute on click of parent image
+$(function(){
+  $('#parents-img').on('click', function(){
+    var parentEmail=localStorage.getItem('login-email');
+    window.location.href=`/history.htm/${parentEmail}`;
+  })
+});
+
+//function to execute on click of child image
+$(function(){
+  $('.img-circle').on('click', function(){
+    var email=localStorage.getItem('login-email');
+    var kidName =$(this).attr("alt");
+    $.ajax({
+      url: '/kidAge.htm',
+      type: 'POST',
+      data: {
+        email: email,
+        fname: kidName
+      },
+      dataType: 'json',
+      success: function(data) {
+        window.location.href=data.redirect;
+      }
+    })
+  })
+});

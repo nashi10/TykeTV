@@ -1,4 +1,11 @@
 //Ajax POST call to db from delete page- remove kid account
+$(function(){
+  var url = window.location.pathname;
+  var filename = url.substring(url.lastIndexOf('/')+1);
+  if(localStorage.login=="false" && (filename != 'login.htm' || filename != 'signup.htm'))
+    window.location.href = "/index.htm";
+}) ;
+
 $(function() {
   $('.img-circle').on('click', deleteKid);
 });

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+<title>TykeTV Age 6 to 8</title>
+<link href="age6to8.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="dropdown.js"></script>
+<script src="../javascripts/Mascotchange.js"></script>
+<script src="../javascripts/vidpopup.js"></script>
+</head>
+
+<body>
+<div id="page">
+	<div class="header">
+		<h1 class="title"><a href="home.htm">Tyke TV </a></h1>
+		<div class="dragon-logo">
+			<img id="dragon-img" class="img-responsive" src="dragon_baby_happy.png" />
+		</div>
+		<div class="menu">
+		<img onclick="myFunction()" id="menu_img" src="Menu.svg">
+		   <div id="myDropdown" class="dropdown-content">
+           <a id="Edprof">Edit Profile</a>
+		   <a id="Deprof">Delete Profile</a>
+           <a id="Chistory">Check History</a>
+           <a id="Bevents">Book Events</a>
+		   <a id="Getout">Logout</a>
+		   </div>
+		</div>
+	</div>
+
+	<div class="section">
+			<div class="headerone">
+			<h1> Videos </h1>
+			</div>
+			<form>
+				<input type="text" name="search" placeholder="Search..">
+			</form>
+			<div class="videotitle1">
+			<h1> Fun </h1>
+			</div>
+			<!--include this code within the div where you want the videos. vid-list-container will have the scroll bar with videos-->
+			<div class="vid-list-container" id="Fun Vidoes">
+				<ul id="vid-list">
+				<!--will be inserting videos here dynamically-->
+					<li class="vid-item" onclick="startVideo('https://www.youtube.com/embed/JKdCwQ6fjUk')">
+						<div class="thumb"><img src="sarah.png">
+						</div>
+						<div class="desc">Teddy Bear Nursery Rhymes</div>
+					</li>
+				</ul>
+			</div>
+			<div class="videotitle2">
+			<h1> Learn </h1>
+			</div>
+			<div class="vid-list-container" id="Learn Vidoes">
+				<ul id="vid-list">
+				<!--will be inserting videos here dynamically-->
+					<li class="vid-item" onclick="startVideo('https://www.youtube.com/embed/JKdCwQ6fjUk')">
+						<div class="thumb"><img src="sarah.png">
+						</div>
+						<div class="desc">Teddy Bear Nursery Rhymes</div>
+					</li>
+				</ul>
+			</div>
+
+			<!-- this code will display a popup when the video is clicked. Add it to the end of your code just before div id="page" ends-->
+			<div id="popup2" class="popup">
+				<iframe id="vid_frame" frameborder="0" height="315" src="" width="560" allowscriptaccess="always">
+				</iframe>
+				<a class="close" href="#" onclick="toggleVideo('hide')">
+				<img id="close-icon" src="../images/info-close-icon.png"></a>
+			</div>
+		
+		
+	</div>
+	<div class="footer">
+		<p>Copyright@TykeTV.com</p>
+	</div>
+</div>
+
+</body>
+
+</html>

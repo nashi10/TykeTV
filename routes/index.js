@@ -45,6 +45,11 @@ router.get('/selectaccount.htm', function(req, res, next) {
   res.render('selectaccount');
 });
 
+/* GET videos  page for 6-8. */
+router.get('/videos6to8.htm', function(req, res, next) {
+  res.render('videos6to8');
+});
+
 /* GET history page + user email */
 router.get('/history.htm/:loginEmail', function(req, res, next) {
   var email=req.params.loginEmail;
@@ -217,13 +222,80 @@ router.post('/index.htm*', function(req, res){
             {
               console.log(det);
               console.log("successful login-correct password");
-              res.send({result:null, redirect: `/history.htm/${loginInfo.email}`});
+              res.send({result:null, redirect: '/selectaccount.htm'});
             }
             else if(det.pwd!=loginInfo.pwd){
                 console.log(det);
                 res.send({result:"nopwd"});
             }
         });
+});
+
+/*retrieve kids images for account selection page*/
+router.post('/selectaccount-load.htm', function(req, res){
+  var parentEmail = req.body.email;
+  UserParent.findOne({ email: parentEmail},'_id', function(err, det){
+      if(err || !det)
+      {
+        res.render('error');
+      }
+      else{
+        console.log("Parent ID"+det._id);
+        var Links=[];
+        var fName=[];
+        UserKid.find({Parent_id: ObjectId(det._id).toString()}, function(err1, det1){
+          if(err1){
+            res.render('error');
+          }
+          else{
+            var kids=det1.length;
+            for(var i=0;i<kids;i++){
+              Links.push(det1[i].image);
+              fName.push(det1[i].fname);
+            }
+            console.log(kids);
+            console.log(Links);
+            console.log(fName);
+            res.send({kids:kids,link:Links,name:fName});
+          }
+        })
+      }
+    })
+});
+
+//Retrieve age of kids and choose page to render based on that
+router.post('/kidAge.htm', function(req, res, next) {
+  var parentEmail = req.body.email;
+  var fname= req.body.fname;
+  UserParent.findOne({ email: parentEmail},'_id', function(err, det){
+      if(err || !det)
+      {
+        res.render('error');
+      }
+      else
+      {
+        console.log("Det: "+ det._id);
+        UserKid.findOne({Parent_id: ObjectId(det._id).toString(),fname:fname},'DOB', function(err1, det1){
+            console.log(typeof det1);
+            if(err1)
+            {
+              res.render('error');
+            }
+            else
+            {
+              var age=det1.DOB;
+              console.log("In user kid table"+det1.DOB);
+              if(age>=3 && age<=5)
+              {
+                res.send({redirect:'/videos6to8.htm'});
+              }
+              else{
+                res.send({redirect:'/signup.htm'});
+              }
+            }
+        });
+      }
+  })
 });
 
 /* Retrieve kidHistory from db. */
@@ -328,7 +400,7 @@ router.post('/editaccount.htm', function(req, res){
         }
     ], function(err, results) {
          console.log('edit done');
-         res.send({redirect: '/index.htm'});
+         res.send({redirect: '/selectaccount.htm'});
     }
 );
 });
@@ -455,7 +527,47 @@ router.post('/editaccount.htm', function(req, res){
     }
   }
 
-
+router.post('/displayVideos6to8.htm', function(req, res, next) {
+    Content_link.find({Age_group:"2",Game:"No",Category:"Learn"},function(err, det){
+      if(err){
+        console.log("first find error");
+        res.render('error');
+      }
+      else {
+        var contentLinks=[];
+        var contentLinksName=[];
+        var contentLinksDescr=[];
+        var contentLinksThumb=[];
+        var contentLinksFun=[];
+        var contentLinksNameFun=[];
+        var contentLinksDescrFun=[];
+        var contentLinksThumbFun=[];
+        Content_link.find({Age_group:"2",Game:"No",Category:{$in:["Cartoon","Fun"]}},function(err1, det1){
+          if(err1)
+          {
+            console.log("second find error");
+            res.render(error);
+          }
+          else{
+            for(var i=0;i<det1.length;i++){
+              contentLinksFun.push(det1[i].Link);
+              contentLinksNameFun.push(det1[i].Name);
+              contentLinksDescrFun.push(det1[i].Description);
+              contentLinksThumbFun.push(det1[i].Thumb);
+            }
+            for(var i=0;i<det.length;i++){
+              contentLinks.push(det[i].Link);
+              contentLinksName.push(det[i].Name);
+              contentLinksDescr.push(det[i].Description);
+              contentLinksThumb.push(det[i].Thumb);
+            }
+            console.log(contentLinks);
+            res.send({LinksFun:contentLinksFun,NameFun:contentLinksNameFun, DescrFun:contentLinksDescrFun,ThumbFun:contentLinksThumbFun, Links:contentLinks,Name:contentLinksName, Descr:contentLinksDescr,Thumb:contentLinksThumb});
+          }//end of else of learn videos find
+      });////end of learn videos find
+    } ////end of else of fun videos find
+  });  ////end of  fun videos find
+}); //end of get
 
 //Delete a kid's account
 router.post('/deletekid.htm', function(req, res, next) {
