@@ -55,7 +55,7 @@ $(window).on('resize', function(event){
 
 
 //hide all child info boxes on load initially
-window.onload = pre_loader;
+//window.onload = pre_loader;
 function pre_loader() {
 
 		document.getElementById('childInfoHeader').style.display='none';
@@ -312,21 +312,24 @@ $("#txtaccemail").change(function() {
 $(function() {
 $(document.body).on('change','#txtaccemail', function() {
 		console.log("change action function 2");
-		var email = $('#txtaccemail').val();
-		$.ajax({
-			url: '/signup-email.htm',
-			type: 'POST',
-			data: {
-				email:email
-			},
-			dataType: 'json',
-			success: function(data) {
-				if(data){
-					alert("Email aready exists. Please enter a different email");
-					//swal("Email aready exists. Please enter a different email");
-				}
-  	}
-	})
+    var oldEmail=$('#txtaccemail').data('original');
+    var email = $('#txtaccemail').val();
+    if(oldEmail!=email){
+  		$.ajax({
+  			url: '/signup-email.htm',
+  			type: 'POST',
+  			data: {
+  				email:email
+  			},
+  			dataType: 'json',
+  			success: function(data) {
+  				if(data){
+  					alert("Email aready exists. Please enter a different email");
+  					//swal("Email aready exists. Please enter a different email");
+  				}
+    	   }
+	     })
+    }
 });
 });
 
@@ -400,112 +403,137 @@ $(function(){
           });
 });
 
+
 //detect input boxes with changes
 //update respective fields on click of edit-button
-//function to submit changes to db
 //ensure no empty cells before uploading to db
 //if cloudonary uplaod returns null, make no changes in db
+var postUpdates=function(){
+  var oldEmail=$('#txtaccemail').data('original');
+  var email = $('#txtaccemail').val();
+  var childfnameOld=[];
+  console.log("Old number of kids: "+numberOfkids);
+  for(var i=0;i<numberOfkids;i++){
+    var j=i+1;
+     childfnameOld[i] = $('#txtchildfname'+j).data('original');
+  }
+  console.log("old email:"+ oldEmail);
+  console.log("old fname:"+ childfnameOld[0]);
+  var numberOfKidsNew;
+  if ( $('#five').css('display') == 'none' ){
+    numberOfKidsNew=1;
+  }
+  else if($('#nine').css('display') == 'none'){
+    numberOfKidsNew=2;
+  }
+  else if($('#thirteen').css('display') == 'none'){
+    numberOfKidsNew=3;
+  }
+  else if($('#thirteen').css('display') == 'table-row'){
+    numberOfKidsNew=4;
+  }
+  console.log("New number of kids: "+numberOfKidsNew);
+
+  var childfname=[];
+  var childlname=[];
+  var childage=[];
+  //var inputimage=[];
+
+  var pwd = $('#txtaccpassword').val();
+  var fname = $('#txtaccfname').val();
+  var lname = $('#txtacclname').val();
+  //var numberOfKids= $('#NumChildren').val();
+  for(var i=0;i<numberOfKidsNew;i++){
+    var j=i+1;
+     childfname[i] = $('#txtchildfname'+j).val();
+     childlname[i] = $('#txtchildlname'+j).val();
+     childage[i] = $('#txtchildage'+j).val();
+     //inputimage[i] = $('#inputimage'+j).val();
+  }
+  var conditionAdd=true;
+  var fnameAdd=false;
+  for(var i=1;i<numberOfKidsNew;i++){
+    conditionAdd=conditionAdd && childfname[i] && childage[i];
+    fnameAdd=fnameAdd || (childfname[i]==childfname[i-1]);
+  }
+  var condition=email && pwd && fname && lname && childfname[0] && childage[0] && conditionAdd;
+  console.log("condition:" + condition);
+  console.log("conditionAdd:" + conditionAdd);
+  console.log("fnameAdd:" + fnameAdd);
+  if(!fnameAdd){
+    if(condition){
+      $.ajax({
+        url: '/editaccount.htm',
+        type: 'POST',
+        data: {
+          emailOld:oldEmail,
+          childfnameOld: JSON.stringify(childfnameOld),
+          numberOfkidsOld: numberOfkids,
+          email:email,
+          pwd:pwd,
+          fname:fname,
+          lname:lname,
+          numberOfKids: numberOfKidsNew,
+          childfname: JSON.stringify(childfname),
+          childlname: JSON.stringify(childlname),
+          childage: JSON.stringify(childage),
+          inputimage: JSON.stringify(inputimage)
+        },
+        dataType: 'json',
+        success: function(data) {
+          console.log("success -return to ajax");
+          var result=confirm("Edited account. Do you want to continue editing? ");
+          //
+          if(result==false)
+          {
+            window.location.href = data.redirect;
+          }
+          else {
+             location.reload(true);
+          }
+        }
+      });
+    }
+    else {
+        alert("Email, password, your name and kids' first names and ages are mandatory");
+        return false;
+    }
+  }
+  else{
+    alert("First names of kids need to be different");
+    return false;
+  }
+};
+
+
 $(function(){
   $("#edit-button").on('click',function(){
-  //  var changedIDs=[];
     console.log("inside button action");
-    /*console.log(inputs);
-    inputs.each(function() {
-          if ($(this).data('original') !== this.value) {
-              // Do something for the changed value
-              console.log(this.id);
-              changedIDs.push({id:this.id,value:this.value});
-          } else {
-              // And something else for the rest.
-              //lert("No changes made");
-          }
-      });
-      console.log(changedIDs[0].value);*/
-
       //getting original values id, value, numberofkids
       var oldEmail=$('#txtaccemail').data('original');
-      var childfnameOld=[];
-      console.log("Old number of kids: "+numberOfkids);
-      for(var i=0;i<numberOfkids;i++){
-        var j=i+1;
-         childfnameOld[i] = $('#txtchildfname'+j).data('original');
-      }
-      console.log("old email:"+ oldEmail);
-      console.log("old fname:"+ childfnameOld[0]);
-      var numberOfKidsNew;
-      if ( $('#five').css('display') == 'none' ){
-        numberOfKidsNew=1;
-      }
-      else if($('#nine').css('display') == 'none'){
-        numberOfKidsNew=2;
-      }
-      else if($('#thirteen').css('display') == 'none'){
-        numberOfKidsNew=3;
-      }
-      else if($('#thirteen').css('display') == 'table-row'){
-        numberOfKidsNew=4;
-      }
-        console.log("New number of kids: "+numberOfKidsNew);
-
-      var childfname=[];
-      var childlname=[];
-      var childage=[];
-      //var inputimage=[];
       var email = $('#txtaccemail').val();
-      var pwd = $('#txtaccpassword').val();
-      var fname = $('#txtaccfname').val();
-      var lname = $('#txtacclname').val();
-      //var numberOfKids= $('#NumChildren').val();
-      for(var i=0;i<numberOfKidsNew;i++){
-        var j=i+1;
-         childfname[i] = $('#txtchildfname'+j).val();
-         childlname[i] = $('#txtchildlname'+j).val();
-         childage[i] = $('#txtchildage'+j).val();
-         //inputimage[i] = $('#inputimage'+j).val();
-      }
-    	var conditionAdd=true;
-    	for(var i=1;i<numberOfKidsNew;i++){
-    		conditionAdd=conditionAdd && childfname[i] && childage[i];
-    	}
-    	var condition=email && pwd && fname && lname && childfname[0] && childage[0] && conditionAdd;
-      console.log("condition:" + condition);
-    	console.log("conditionAdd:" + conditionAdd);
-    	if(condition){
-    		$.ajax({
-    			url: '/editaccount.htm',
-    			type: 'POST',
-    			data: {
-            emailOld:oldEmail,
-            childfnameOld: JSON.stringify(childfnameOld),
-            numberOfkidsOld: numberOfkids,
-    				email:email,
-    				pwd:pwd,
-    				fname:fname,
-    				lname:lname,
-    				numberOfKids: numberOfKidsNew,
-    				childfname: JSON.stringify(childfname),
-    				childlname: JSON.stringify(childlname),
-    				childage: JSON.stringify(childage),
-    				inputimage: JSON.stringify(inputimage)
-    			},
-    			dataType: 'json',
-    			success: function(data) {
-    				console.log("success -return to ajax");
-            var result=confirm("Edited account. Do you want to continue editing? ");
-    				//
-            if(result==false)
-            {
-              window.location.href = data.redirect;
-    				}
-            else {
-               location.reload(true);
+      if(oldEmail!=email){
+        $.ajax({
+          url: '/signup-email.htm',
+          type: 'POST',
+          data: {
+            email:email
+          },
+          dataType: 'json',
+          success: function(data) {
+            if(data){
+              alert("Email aready exists. Please enter a different email");
+              return(false);
+              //swal("Email aready exists. Please enter a different email");
             }
-          }
-    		});
-    	}
-    	else {
-    			alert("Email, password, your name and kids' first names and ages are mandatory");
-    			return false;
-    	}
-  });
-})
+            else{
+              postUpdates();
+            }
+           }
+         })
+       }
+       else{
+         postUpdates();
+      }
+    });
+});

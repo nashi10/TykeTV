@@ -309,7 +309,13 @@ img {
 	color: #ffffff;
 	letter-spacing: 0.05em;
 }
-
+h1.buttontext {
+	color: #c43396;
+	font-size: 1.25em;
+}
+.headertwo {
+	padding-top: 5px;
+}
 
 @media only screen and (max-width: 1200px){
 	.title {

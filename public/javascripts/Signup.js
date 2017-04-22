@@ -230,6 +230,7 @@ $(function() {
 var addUser = function() {
   console.log("entering addUser function");
 	var email = $('#txtaccemail').val();
+	var numberOfKids= $('#NumChildren').val();
 	$.ajax({
 		url: '/signup-email.htm',
 		type: 'POST',
@@ -251,7 +252,7 @@ var addUser = function() {
 			  var pwd = $('#txtaccpassword').val();
 			  var fname = $('#txtaccfname').val();
 			  var lname = $('#txtacclname').val();
-			  var numberOfKids= $('#NumChildren').val();
+
 			  for(var i=0;i<numberOfKids;i++){
 			    var j=i+1;
 			     childfname[i] = $('#txtchildfname'+j).val();
@@ -260,37 +261,52 @@ var addUser = function() {
 			     //inputimage[i] = $('#inputimage'+j).val();
 			  }
 				var conditionAdd=true;
+				var fnameAdd=false;
 				for(var i=1;i<numberOfKids;i++){
 					conditionAdd=conditionAdd && childfname[i] && childage[i];
+					fnameAdd=fnameAdd || (childfname[i]==childfname[i-1]);
 				}
 				var condition=email && pwd && fname && lname && childfname[0] && childage[0] && conditionAdd;
 			  console.log("condition:" + condition);
 				console.log("conditionAdd:" + conditionAdd);
-				if(condition){
-					$.ajax({
-						url: '/signup.htm',
-						type: 'POST',
-						data: {
-							email:email,
-							pwd:pwd,
-							fname:fname,
-							lname:lname,
-							numberOfKids: numberOfKids,
-							childfname: JSON.stringify(childfname),
-							childlname: JSON.stringify(childlname),
-							childage: JSON.stringify(childage),
-							inputimage: JSON.stringify(inputimage)
-						},
-						dataType: 'json',
-						success: function(data) {
-							console.log("success -return to ajax");
-							window.location.href = data.redirect;
+				console.log("fnameAdd:" + fnameAdd);
+				if(!fnameAdd){
+					if(condition){
+						$.ajax({
+							url: '/signup.htm',
+							type: 'POST',
+							data: {
+								email:email,
+								pwd:pwd,
+								fname:fname,
+								lname:lname,
+								numberOfKids: numberOfKids,
+								childfname: JSON.stringify(childfname),
+								childlname: JSON.stringify(childlname),
+								childage: JSON.stringify(childage),
+								inputimage: JSON.stringify(inputimage)
+							},
+							dataType: 'json',
+							success: function(data) {
+								console.log("success -return to ajax");
+								window.location.href = data.redirect;
+								}
+						});
+					}
+					else {
+							if(numberOfKids==null){
+								alert("Enter at least one kid's details");
+								return false;
 							}
-					});
+							else{
+								alert("Email, password, your name and kids' first names and ages are mandatory");
+								return false;
+							}
+					}
 				}
-				else {
-						alert("Email, password, your name and kids' first names and ages are mandatory");
-						return false;
+				else{
+					alert("First names of kids need to be different");
+					return false;
 				}
 			}
 		}
