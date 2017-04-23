@@ -3,8 +3,11 @@
 $(function(){
   console.log("Entering function");
   $.ajax({
-    url: '/displayVideos6to8.htm',
+    url: '/display6to8.htm',
     type: 'POST',
+    data: {
+      Game:"No"
+    },
     dataType: 'json',
     success: function(data) {
       $('#FunVideos #vid-list li').remove();
@@ -33,6 +36,7 @@ $(function(){
         url: '/displaySearchVideos6to8.htm',
         type: 'POST',
         data:{
+            Game:"No",
           keyword:keywords
         },
         dataType: 'json',

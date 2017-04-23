@@ -8,6 +8,7 @@ $(function(){
 //AJAX post function to load images on page
 $(function(){
   var email=localStorage.getItem('login-email');
+  localStorage.removeItem('kid-name');
   $.ajax({
     url: '/selectaccount-load.htm',
     type: 'POST',
@@ -80,6 +81,7 @@ $(function(){
   $('.img-circle').on('click', function(){
     var email=localStorage.getItem('login-email');
     var kidName =$(this).attr("alt");
+    localStorage.setItem('kid-name',kidName);
     $.ajax({
       url: '/kidAge.htm',
       type: 'POST',

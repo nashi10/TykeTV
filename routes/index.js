@@ -45,9 +45,19 @@ router.get('/selectaccount.htm', function(req, res, next) {
   res.render('selectaccount');
 });
 
+/* GET main page for 6-8. */
+router.get('/kids6to8.htm', function(req, res, next) {
+  res.render('kids6to8');
+});
+
 /* GET videos  page for 6-8. */
 router.get('/videos6to8.htm', function(req, res, next) {
   res.render('videos6to8');
+});
+
+/* GET games page for 6-8. */
+router.get('/games6to8.htm', function(req, res, next) {
+  res.render('games6to8');
 });
 
 /* GET history page + user email */
@@ -116,7 +126,7 @@ router.get('/delete.htm/:loginEmail', function(req, res, next) {
               console.log(det1[i]);
               if(!det1[i].image)
               {
-                images.push("../images/dragon_baby_happy.png");
+                images.push("https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_1_uet7it.png");
               }
               else {
                  images.push(det1[i].image);
@@ -287,10 +297,10 @@ router.post('/kidAge.htm', function(req, res, next) {
               console.log("In user kid table"+det1.DOB);
               if(age>=3 && age<=5)
               {
-                res.send({redirect:'/videos6to8.htm'});
+                res.send({redirect:'/kids6to8.htm'});
               }
               else{
-                res.send({redirect:'/signup.htm'});
+                res.send({redirect:'/kids6to8.htm'});
               }
             }
         });
@@ -527,8 +537,9 @@ router.post('/editaccount.htm', function(req, res){
     }
   }
 
-router.post('/displayVideos6to8.htm', function(req, res, next) {
-    Content_link.find({Age_group:"2",Game:"No",Category:"Learn"},function(err, det){
+router.post('/display6to8.htm', function(req, res, next) {
+  var Game=req.body.Game;
+    Content_link.find({Age_group:"2",Game:Game,Category:"Learn"},function(err, det){
       if(err){
         console.log("first find error");
         res.render('error');
@@ -542,7 +553,7 @@ router.post('/displayVideos6to8.htm', function(req, res, next) {
         var contentLinksNameFun=[];
         var contentLinksDescrFun=[];
         var contentLinksThumbFun=[];
-        Content_link.find({Age_group:"2",Game:"No",Category:{$in:["Cartoon","Fun"]}},function(err1, det1){
+        Content_link.find({Age_group:"2",Game:Game,Category:{$in:["Cartoon","Fun"]}},function(err1, det1){
           if(err1)
           {
             console.log("second find error");
@@ -571,8 +582,9 @@ router.post('/displayVideos6to8.htm', function(req, res, next) {
 
 router.post('/displaySearchVideos6to8.htm', function(req, res, next) {
     var keyword = req.body.keyword;
+    var Game = req.body.Game;
     console.log("keyword: "+keyword);
-    Content_link.find({$text: {$search: keyword},Age_group:"2",Game:"No",Category:"Learn"},function(err, det){
+    Content_link.find({$text: {$search: keyword},Age_group:"2",Game:Game,Category:"Learn"},function(err, det){
       if(err){
         console.log("first find error");
         res.render('error');
@@ -587,7 +599,7 @@ router.post('/displaySearchVideos6to8.htm', function(req, res, next) {
         var contentLinksNameFun=[];
         var contentLinksDescrFun=[];
         var contentLinksThumbFun=[];
-        Content_link.find({$text: {$search: keyword},Age_group:"2",Game:"No",Category:{$in:["Cartoon","Fun"]}},function(err1, det1){
+        Content_link.find({$text: {$search: keyword},Age_group:"2",Game:Game,Category:{$in:["Cartoon","Fun"]}},function(err1, det1){
           if(err1)
           {
             console.log("second find error");
@@ -614,6 +626,42 @@ router.post('/displaySearchVideos6to8.htm', function(req, res, next) {
   });  ////end of  fun videos find
 }); //end of get
 
+//UPdating history on view of video
+router.post('/updateHistory.htm', function(req, res, next) {
+  var email = req.body.email;
+  var fname= req.body.fname;
+  var Link= req.body.Link;
+  Content_link.findOne({ Link: Link},'_id', function(err1, det1){
+    if(err1 || !det1)
+    {
+      res.render('error');
+    }
+    else
+    {
+      console.log("Det1: "+ det1._id);
+      UserParent.findOne({ email: email},'_id', function(err, det){
+          if(err || !det)
+          {
+            res.render('error');
+          }
+          else
+          {
+            console.log("Det: "+ det._id);
+            UserKid.findOneAndUpdate({Parent_id: ObjectId(det._id).toString(),fname:fname}, {$push:{contentLinkIDs:ObjectId(det1._id).toString()}},function(err2, det2){
+              if(err2){
+                res.render('error');
+              }
+              else{
+                console.log("Det2"+det2);
+                res.send("Updated");
+              }
+            })
+          }
+        })
+      }
+  })
+});
+
 //Delete a kid's account
 router.post('/deletekid.htm', function(req, res, next) {
   var parentEmail = req.body.email;
@@ -627,7 +675,7 @@ router.post('/deletekid.htm', function(req, res, next) {
       {
         console.log("Det: "+ det._id);
         UserKid.findOneAndRemove({Parent_id: ObjectId(det._id).toString(),fname:fname}, function(err1, det1){
-          if(err)
+          if(err1)
           {
             res.render('error');
           }

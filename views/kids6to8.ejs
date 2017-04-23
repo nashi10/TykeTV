@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+	<title>TykeTV</title>
+	<link href="../stylesheets/kids6to8.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="../javascripts/dropdown1.js"></script>
+	<script src="../javascripts/Mascotchange.js"></script>
+	<script src="../javascripts/vidpopup.js"></script>
+	<script src="../javascripts/kids6to8.js"></script>
+</head>
+
+
+  <body>
+    <div id="page">
+	<div class="header">
+		<h1 class="title"><a href="selectaccount.htm">Tyke TV </a></h1>
+		<div class="dragon-logo">
+			<img id="dragon-img" class="img-responsive" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492909570/22080452_dragon_teen_3_wsnfln.png"  />
+		</div>
+		<div class="menu">
+		<img onclick="myFunction()" id="menu_img" src="../images/Menu.svg">
+		   <div id="myDropdown" class="dropdown-content">
+           <a id="Edprof">Edit Profile</a>
+		   <a id="Deprof">Delete Profile</a>
+           <a id="Chistory">Check History</a>
+           <a id="Bevents">Book Events</a>
+		   <a id="Getout">Logout</a>
+		   </div>
+		</div>
+	</div>
+
+
+	<div class="section">
+
+
+
+
+
+
+<div class="videos">
+<p>Watch again!</p>
+<div class="vid-list-container">
+				<ul id="vid-list">
+						<!--videos to be added here dynamically-->
+				</ul>
+			</div>
+</div>
+
+
+<div class="buttons">
+
+<p>What do you want to do?</p>
+
+<button type="button" id="btnVideos" class="btn-default"> <p class="enter">Videos</p></button>
+
+<button type="button" id="btnGames" class="btn-default"> <p class="enter">Games</p></button>
+
+
+
+</div>
+
+	</div>
+
+
+
+
+ 	<div class="footer">
+     		<p>Copyright@TykeTV.com</p>
+ 	</div>
+
+<div id="popup2" class="popup">
+  <iframe id="vid_frame" frameborder="0" height="315" src="" width="560" allowscriptaccess="always">
+	</iframe>
+  <a class="close" href="#" onclick="toggleVideo('hide')">
+  <img id="close-icon" src="info-close-icon.png"></a></div>
+
+</div>
+ </div>
+  </body>
+
+</html>

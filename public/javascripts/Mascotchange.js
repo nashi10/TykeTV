@@ -17,14 +17,14 @@ $(function(){
     else if(logo.src=="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png"){
       logo.src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_1_uet7it.png";
     }
-    else if(logo.src=="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759792/dragon_teen_3_wsouqo.png"){
+    else if(logo.src=="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492909570/22080452_dragon_teen_3_wsnfln.png"){
       logo.src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759793/dragon_teen_2_uheotw.png";
     }
     else if(logo.src=="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759793/dragon_teen_2_uheotw.png"){
       logo.src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_teen_1_lfgfgu.png";
     }
     else if(logo.src=="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_teen_1_lfgfgu.png"){
-      logo.src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759792/dragon_teen_3_wsouqo.png";
+      logo.src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492909570/22080452_dragon_teen_3_wsnfln.png";
     }
   });
 });

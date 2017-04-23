@@ -8,13 +8,10 @@ $(function(){
 }) ;
 
 
-//Ajax POST call to db from history page- retrieving history
+//Ajax POST call to db from 6 to 8 page- retrieving history
 $(function(){
-  $('.img-circle').on('click', getHistory);
-});
-var getHistory = function() {
   console.log("Entering function");
-  var kidName =$(this).attr("alt");
+  var kidName =localStorage.getItem('kid-name');
   var parentEmail=localStorage.getItem('login-email');
   $.ajax({
     url: '/kidhistory.htm',
@@ -25,11 +22,9 @@ var getHistory = function() {
     },
     dataType: 'json',
     success: function(data) {
+      console.log(data.Links);
      console.log(kidName);
-      //document.getElementById("kid-name").style.display=inline;
       $('#vid-list li').remove();
-      document.getElementById("kid-name").innerHTML="";
-      document.getElementById("kid-name").innerHTML=kidName+"'s ";
       var widthValueLearn=(data.Links.length)*188;
       $("#vid-list").css("width", widthValueLearn);
       for(var i=0;i<data.Links.length;i++){
@@ -37,18 +32,18 @@ var getHistory = function() {
       }
     }
   });
-};
+});
 
 
 $(function(){
-  $('#BookEventsButton').on('click',function(){
-  //  window.location.href="/events.htm";
+  $('#btnVideos').on('click',function(){
+    window.location.href="/videos6to8.htm";
   })
 })
 
 
 $(function(){
-  $('#checkActivityButton').on('click',function(){
-    window.location.href=`/history.htm/${parentEmail}`;
+  $('#btnGames').on('click',function(){
+    window.location.href="/games6to8.htm";
   })
 })
