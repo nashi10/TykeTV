@@ -12,6 +12,7 @@
     <script  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="crossorigin="anonymous"></script>
     <script src='../javascripts/jquery.cloudinary.js' type='text/javascript'></script>
 		<script src="../javascripts/Mascotchange.js"></script>
+		<script src="../javascripts/dropdown1.js"></script>
     <script src="../javascripts/editaccount.js"></script>
 </head>
 
@@ -20,8 +21,21 @@
 
 <div id="page">
 	<div class="header">
-		<h1 class="title"><a href="index.htm">Tyke TV</a></h1>
-		<img id="dragon-img" alt="Tyke the Dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_1_uet7it.png" /> </div>
+		<h1 class="title"><a href="/selectaccount.htm">Tyke TV</a></h1>
+	<div class="dragon-logo">					   
+		<img id="dragon-img"  alt="Tyke the Dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_1_uet7it.png" /> 
+	</div>
+		<div class="menu">
+			<img onclick="myFunction()" id="menu_img" src="../images/Menu.svg">
+			   <div id="myDropdown" class="dropdown-content">
+				   <a id="Edprof">Edit Profile</a>
+				   <a id="Deprof">Delete Profile</a>
+				   <a id="Chistory">Check History</a>
+				   <a id="Bevents">Book Events</a>
+				   <a id="Getout">Logout</a>
+			   </div>
+		</div>
+	</div>
 	<div class="section">
 		<div class="section-left">
 			<p>
@@ -75,7 +89,7 @@
 					<td class="label">Image:</td>
 					<td id="inputimage1">
 						<div class="thumbnail">
-						<img id="thumbnail1" src="" alt="Child Photo 1"/> </div>
+						<img id="thumbnail1" src="" alt="Child Photo 1"/>
 						</div>
 					</td>
 				</tr>
@@ -103,7 +117,7 @@
 					<td class="label">Image:</td>
 					<td id="inputimage2">
 						<div class="thumbnail">
-						<img id="thumbnail2" src="" alt="Child Photo 2"/> </div>
+						<img id="thumbnail2" src="" alt="Child Photo 2"/>
 						</div>
 					</td>
 				</tr>
@@ -131,7 +145,7 @@
 					<td class="label">Image:</td>
 					<td id="inputimage3">
 						<div class="thumbnail">
-						<img id="thumbnail3" src="" alt="Child Photo 3"/> </div>
+						<img id="thumbnail3" src="" alt="Child Photo 3"/>
 						</div>
 					</td>
 				</tr>
@@ -159,7 +173,7 @@
 					<td class="label">Image:</td>
 					<td id="inputimage4">
 						<div class="thumbnail">
-						<img id="thumbnail4" src="" alt="Child Photo 4"/> </div>
+						<img id="thumbnail4" src="" alt="Child Photo 4"/>
 						</div>
 					</td>
 				</tr>
@@ -184,7 +198,7 @@
 		</div>
 		<div class="section-right">
 			<div class="teenimage">
-				<img src="../images/editdragon.png" /> </div>
+				<img src="../images/editdragon.png" />
 		</div>
 	</div>
 </div>

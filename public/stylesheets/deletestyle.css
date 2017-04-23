@@ -261,7 +261,7 @@ img {
 /* tab content is the classname of the div containg unordered list*/
  .tabcontent {
 	width: 100%;
-	height: 60%;
+	height: 70%;
     padding:0;
     border-top: none;
     overflow-x: auto;
@@ -313,9 +313,9 @@ h1.buttontext {
 	color: #c43396;
 	font-size: 1.25em;
 }
-.headertwo {
-	padding-top: 5px;
-}
+			
+				  
+ 
 
 @media only screen and (max-width: 1200px){
 	.title {
@@ -361,7 +361,20 @@ h1.buttontext {
 }
 }
 
+.headerone {
+	height: 10%;
+}
+.headertwo {
+	height: 20%;
+}
+
 h1.buttontext {
 	color: #c43396;
-	font-size: 2em;
+				
+}
+
+@media only screen and (min-width: 1092px){
+	.tabcontent{
+		height: 45%;
+	}
 }
