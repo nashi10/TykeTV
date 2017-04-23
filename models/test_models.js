@@ -32,6 +32,7 @@ var Content_linksSchema = mongoose.Schema({
    Age_group:String,
    Game:String
 },{ collection: 'Content_links' });
+Content_linksSchema .index({Name: 'text'});
 var Content_link = mongoose.model("Content_link", Content_linksSchema);
 
 module.exports =  { UserParent, UserKid, Content_link} ;

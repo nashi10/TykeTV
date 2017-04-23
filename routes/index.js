@@ -567,6 +567,51 @@ router.post('/displayVideos6to8.htm', function(req, res, next) {
       });////end of learn videos find
     } ////end of else of fun videos find
   });  ////end of  fun videos find
+}); //end of post
+
+router.post('/displaySearchVideos6to8.htm', function(req, res, next) {
+    var keyword = req.body.keyword;
+    console.log("keyword: "+keyword);
+    Content_link.find({$text: {$search: keyword},Age_group:"2",Game:"No",Category:"Learn"},function(err, det){
+      if(err){
+        console.log("first find error");
+        res.render('error');
+      }
+      else {
+        console.log(det);
+        var contentLinks=[];
+        var contentLinksName=[];
+        var contentLinksDescr=[];
+        var contentLinksThumb=[];
+        var contentLinksFun=[];
+        var contentLinksNameFun=[];
+        var contentLinksDescrFun=[];
+        var contentLinksThumbFun=[];
+        Content_link.find({$text: {$search: keyword},Age_group:"2",Game:"No",Category:{$in:["Cartoon","Fun"]}},function(err1, det1){
+          if(err1)
+          {
+            console.log("second find error");
+            res.render(error);
+          }
+          else{
+            for(var i=0;i<det1.length;i++){
+              contentLinksFun.push(det1[i].Link);
+              contentLinksNameFun.push(det1[i].Name);
+              contentLinksDescrFun.push(det1[i].Description);
+              contentLinksThumbFun.push(det1[i].Thumb);
+            }
+            for(var i=0;i<det.length;i++){
+              contentLinks.push(det[i].Link);
+              contentLinksName.push(det[i].Name);
+              contentLinksDescr.push(det[i].Description);
+              contentLinksThumb.push(det[i].Thumb);
+            }
+            console.log(contentLinks);
+            res.send({LinksFun:contentLinksFun,NameFun:contentLinksNameFun, DescrFun:contentLinksDescrFun,ThumbFun:contentLinksThumbFun, Links:contentLinks,Name:contentLinksName, Descr:contentLinksDescr,Thumb:contentLinksThumb});
+          }//end of else of learn videos find
+      });////end of learn videos find
+    } ////end of else of fun videos find
+  });  ////end of  fun videos find
 }); //end of get
 
 //Delete a kid's account
