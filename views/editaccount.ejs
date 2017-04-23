@@ -3,6 +3,7 @@
 <head>
 	<title>TykeTV</title>
 	<link href="../stylesheets/Editaccount.css" rel="stylesheet" type="text/css" />
+	<link href="../stylesheets/Logoutcss.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -22,11 +23,11 @@
 <div id="page">
 	<div class="header">
 		<h1 class="title"><a href="/selectaccount.htm">Tyke TV</a></h1>
-	<div class="dragon-logo">					   
-		<img id="dragon-img"  alt="Tyke the Dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_1_uet7it.png" /> 
+	<div class="dragon-logo">
+		<img id="dragon-img"  alt="Tyke the Dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_1_uet7it.png" />
 	</div>
 		<div class="menu">
-			<img onclick="myFunction()" id="menu_img" src="../images/Menu.svg">
+			<img  id="menu_img" src="../images/Menu.svg">
 			   <div id="myDropdown" class="dropdown-content">
 				   <a id="Edprof">Edit Profile</a>
 				   <a id="Deprof">Delete Profile</a>
@@ -204,6 +205,14 @@
 </div>
 <div class="footer">
 	<p>Copyright@TykeTV.com</p>
+</div>
+<div id="popup3" class="popuplg">
+	<img class="dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759790/dragon_baby_3_vnpp58.png">
+	<p> Are you leaving me? </p>
+		<div class="buttons">
+			<button type="button" class="btn-yes" id="yes-button"> <p class="button">Yes</p></button>
+			<button type="button" class="btn-no" id="no-button" onclick="cancellogout()"> <p class="button">No</p></button>
+		</div>
 </div>
 </body>
 

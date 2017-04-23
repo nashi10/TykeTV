@@ -1,3 +1,10 @@
+$(function(){
+  var url = window.location.pathname;
+  var filename = url.substring(url.lastIndexOf('/')+1);
+  if(localStorage.login=="false" && (filename != 'login.htm' || filename != 'signup.htm'))
+    window.location.href = "/index.htm";
+}) ;
+
 //populate both sections on page load
 //pass age category based on page
 $(function(){

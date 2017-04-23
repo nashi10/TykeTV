@@ -4,6 +4,7 @@
 	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
 	<title>TykeTV</title>
 	<link href="../stylesheets/videos6to8.css" rel="stylesheet" type="text/css" />
+	<link href="../stylesheets/Logoutcss.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -21,7 +22,7 @@
 			<img id="dragon-img" class="img-responsive" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492909570/22080452_dragon_teen_3_wsnfln.png" />
 		</div>
 		<div class="menu">
-		<img onclick="myFunction()" id="menu_img" src="../images/Menu.svg">
+		<img  id="menu_img" src="../images/Menu.svg">
 		   <div id="myDropdown" class="dropdown-content">
            <a id="Edprof">Edit Profile</a>
 		   		<a id="Deprof">Delete Profile</a>
@@ -66,6 +67,14 @@
 	</div>
 	<div class="footer">
 		<p>Copyright@TykeTV.com</p>
+	</div>
+	<div id="popup3" class="popuplg">
+		<img class="dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759790/dragon_baby_3_vnpp58.png">
+		<p> Are you leaving me? </p>
+			<div class="buttons">
+				<button type="button" class="btn-yes" id="yes-button"> <p class="button">Yes</p></button>
+				<button type="button" class="btn-no" id="no-button" onclick="cancellogout()"> <p class="button">No</p></button>
+			</div>
 	</div>
 </div>
 

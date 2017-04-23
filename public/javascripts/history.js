@@ -42,13 +42,14 @@ var getHistory = function() {
 
 $(function(){
   $('#BookEventsButton').on('click',function(){
-  //  window.location.href="/events.htm";
+    window.location.href="/BookEventsPg1.htm";
   })
 })
 
 
 $(function(){
   $('#checkActivityButton').on('click',function(){
+    var parentEmail=localStorage.getItem('login-email');
     window.location.href=`/history.htm/${parentEmail}`;
   })
 })

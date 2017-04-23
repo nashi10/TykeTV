@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+	<title>TykeTV</title>
+	<link href="../stylesheets/BookEventsPg1.css" rel="stylesheet" type="text/css" />
+	<link href="../stylesheets/Logoutcss.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<script src="../javascripts/dropdown1.js"></script>
+	<script src="../javascripts/Mascotchange.js"></script>
+
+</head>
+
+<body>
+
+<div id="page">
+	<div class="header">
+		<h1 class="title">Tyke TV </h1>
+		<div class="dragon-logo">
+			<img id="dragon-img" class="img-responsive" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_parent_1_j2belt.png" />
+		</div>
+		<div class="menu">
+			<img id="menu_img"  src="../images/Menu.svg">
+			<div id="myDropdown" class="dropdown-content">
+				<a id="Edprof">Edit Profile</a> <a id="Deprof">Delete Profile</a>
+				<a id="Chistory">Check History</a> <a id="Bevents">Book Events</a>
+				<a id="Getout">Logout</a> </div>
+		</div>
+	</div>
+	<div class="tab">
+		<button class="tablinks" id="BookEventsButton">
+		<p><img class="tabicons" src="../images/BookEvents.svg"> Events</p>
+		</button>
+		<button class="tablinks" id="checkActivityButton">
+		<p><img class="tabicons" src="../images/Historyicon2.svg"> History</p>
+		</button></div>
+	<div class="section">
+		<div class="mobileheader">
+			<p>Step 1/3: Choose Event</p>
+		</div>
+		<div class="left-section">
+			<img class="verticalbare" src="../images/Vertical_bare_1.png"> </div>
+		<div class="right-section">
+			<div class="slideshow-container">
+				<div id="firstslide" class="mySlides">
+					<img class="slideimg" src="http://www.eaglesgymnastics.com/uploads/birthday_party.jpg">
+					<div class="eventTitle">
+						Birthday Party</div>
+					<div class="text">
+						A&nbsp;birthday&nbsp;is an occasion when a person or institution
+						celebrates the anniversary of their birth.</div>
+				</div>
+				<div class="mySlides">
+					<img class="slideimg" src="http://allhomeparty.com/wp-content/uploads/2016/03/kids-pool-party-ideas.jpg">
+					<div class="eventTitle">
+						Pool Party</div>
+					<div class="text">
+						A&nbsp;pool party&nbsp;is the perfect way to cool off during
+						the hot summer months.&nbsp;</div>
+				</div>
+				<div class="mySlides">
+					<img class="slideimg" src="http://www.totalbounce.co.uk/wp-content/uploads/2012/09/33896805642.jpg">
+					<div class="eventTitle">
+						Bounce Castle Party</div>
+					<div class="text">
+						The&nbsp;Bounce Castle&nbsp;is a safe place for kids to
+						jump and run around inside on huge inflatable slides for
+						a birthday&nbsp;party&nbsp;or just a rainy day!</div>
+				</div>
+				<div class="mySlides">
+					<img class="slideimg" src="http://cdn5.thr.com/sites/default/files/2016/09/moana_still_h_2016.jpeg">
+					<div class="eventTitle">
+						Moana Theme Party</div>
+					<div class="text">
+						a party where everyone has to dress in a particular way
+						connected with a particular subject</div>
+				</div>
+				<div class="mySlides">
+					<img class="slideimg" src="http://www.totalbounce.co.uk/wp-content/uploads/2012/09/33896805642.jpg">
+					<div class="eventTitle">
+						Disney Castle Party</div>
+					<div class="text">
+						a party where everyone has to dress in a particular way
+						connected with a particular subject</div>
+				</div>
+				<div class="mySlides">
+					<img class="slideimg" src="http://www.birthdayexpress.com/partyideas/wp-content/uploads/2015/10/01.jpg">
+					<div class="eventTitle">
+						Marvel Superheroes Theme Party</div>
+					<div class="text">
+						a party where everyone has to dress in a particular way
+						connected with a particular subject</div>
+				</div>
+				<div class="mySlides">
+					<img class="slideimg" src="https://s-media-cache-ak0.pinimg.com/originals/e7/f9/d6/e7f9d618639b931052a7b5a6651da106.jpg">
+					<div class="eventTitle">
+						Cinderella Castle Party</div>
+					<div class="text">
+						a party where everyone has to dress in a particular way
+						connected with a particular subject</div>
+				</div>
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a> </div>
+			<div class="dotclass" style="text-align: center">
+				<span class="dot" onclick="currentSlide(1)"></span>
+				<span class="dot" onclick="currentSlide(2)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span></div>
+			<button id="continue-page1Button" class="btn-default">
+			<a href="#" class="buttontext">CONTINUE</a>
+			</button></div>
+	</div>
+	<div class="footer">
+		<p>Copyright@TykeTV.com</p>
+	</div>
+	<div id="popup3" class="popuplg">
+		<img class="dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759790/dragon_baby_3_vnpp58.png">
+		<p> Are you leaving me? </p>
+			<div class="buttons">
+				<button type="button" class="btn-yes" id="yes-button"> <p class="button">Yes</p></button>
+				<button type="button" class="btn-no" id="no-button" onclick="cancellogout()"> <p class="button">No</p></button>
+			</div>
+	</div>
+</div>
+
+</body>
+
+</html>

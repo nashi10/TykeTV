@@ -1,4 +1,11 @@
-/* Javascript for dropdown functionality
+
+//JS for logout popup functionality
+function cancellogout() {
+    document.getElementById('popup3').style.display ='none';
+ }
+
+
+     /* Javascript for dropdown functionality
 When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 $(function(){
@@ -51,14 +58,20 @@ $(function(){
 //Book events tab switch
 $(function(){
   $('#Bevents').click(function(){
-      //add later
+      window.location.href="/BookEventsPg1.htm";
   });
 });
 
 //logout popup
 $(function(){
-  $('#Getout').click(function(){
-      //add later
-        window.location.href="/signedout.htm";
+  $('#Getout').on('click',function(){
+       document.getElementById('popup3').style.display ='block';
+  });
+});
+
+//logout popup button click
+$(function(){
+  $('#yes-button').on('click',function(){
+       window.location.href="/signedout.htm";
   });
 });

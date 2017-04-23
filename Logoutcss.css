@@ -1,0 +1,165 @@
+/* Styling the logout overlay popup */
+.popuplg {
+  display: none;
+  position: fixed;
+  padding: 10px;
+  width: 70%;
+  left: 15%;
+  right:15%;
+  height: 70%;
+  top: 20%;
+  background: #D9F7DB;
+  border:15px grey solid;
+  border-radius: 3.448276%;
+  z-index: 20;
+}
+
+#popup3:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -2;
+}
+
+#popup3:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #D9F7DB;
+  z-index: -1;
+}
+
+#popup3 p {
+	margin: 2.604167%; 
+	color: #5F5B58;
+	font-family: Chewy;
+	font-size: 1.5em; 
+	text-align: center;
+}
+
+.buttons {
+	margin-left: 30%;
+	margin-bottom: 2%;
+}
+
+.btn-no {
+	margin-left: 10%;
+	width: 25%;
+	border: 3px solid #57EA76;
+	border-radius: 10px;
+	background-image: radial-gradient(ellipse at center, white 1%, #57EA76 100% );
+
+
+}
+
+.btn-no:hover, .btn-no:focus{
+	background-image: none;
+	background-color: #7de88a;
+
+}
+
+.btn-yes {
+	width: 25%;
+	border: 3px solid red;
+	border-radius: 10px;
+	background-image: radial-gradient( ellipse at center, white 1%, red 100% );
+
+
+}
+
+.btn-yes:hover, .btn-yes:focus{
+	background-image: none;
+	background-color: red;
+
+}
+
+#popup3 .button p {
+	font-family: Chewy;
+	font-size: 2.5em;
+	color: #5F5B58;
+	margin: 5%;
+}
+
+@media only screen and (min-width: 800px) {
+
+
+img {
+	margin-top: 2%;
+	margin-left:37%;
+	width: 27%;
+	height: 50%;
+}
+} 
+@media only screen and (max-width: 799px) {
+img {
+	margin-top: 10%;
+	height: 55%;
+	width: 45%;
+	margin-left:30%;
+}
+}
+
+@media only screen and (max-width: 480px) {
+.buttons{
+	margin-left: 17%;
+}
+
+.btn-no {
+	width: 35%;
+}
+.btn-yes {
+	width: 35%;
+}
+#popup3 .button p {
+	font-size: 1.75em;
+}
+
+img {
+	margin-top: 30%;
+	height: 35%;
+	width: 45%;
+	margin-left:30%;
+}
+} 
+
+@media only screen and (max-width: 360px) {
+.buttons{
+	margin-left: 17%;
+}
+img {
+	margin-top: 30%;
+	height: 30%;
+	width: 45%;
+	margin-left:28%;
+}
+.btn-no {
+	width: 35%;
+}
+.btn-yes {
+	width: 35%;
+}
+}
+
+@media only screen and (min-width: 1000px) {
+#popup3 .button p {
+	font-size: 1.75em;
+}
+
+img {
+	margin-top: 5%;
+	margin-left:42%;
+	width: 18%;
+	height: 40%;
+}
+} 
+
+/*Styling for logout popup ends*/
+
+

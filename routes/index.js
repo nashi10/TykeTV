@@ -60,6 +60,11 @@ router.get('/games6to8.htm', function(req, res, next) {
   res.render('games6to8');
 });
 
+/* GET first page of book events */
+router.get('/BookEventsPg1.htm', function(req, res, next) {
+  res.render('BookEventsPg1');
+});
+
 /* GET history page + user email */
 router.get('/history.htm/:loginEmail', function(req, res, next) {
   var email=req.params.loginEmail;
