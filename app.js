@@ -65,10 +65,13 @@ app.use('/kidAge.htm', index);
 app.use('/videos6to8.htm', index);
 app.use('/games6to8.htm', index);
 app.use('/kids6to8.htm', index);
+app.use('/kidsAge3to5.htm', index);
 app.use('/displaySearchVideos6to8.htm', index);
 app.use('/display6to8.htm', index);
 app.use('/updateHistory.htm', index);
 app.use('/BookEventsPg1.htm"', index);
+app.use('/displaySearch3to5.htm', index);
+app.use('/display3to5.htm', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -28,40 +28,90 @@ $(function(){
 var putImage=function(data){
   var numberOfKids=data.kids;
   if(numberOfKids==1){
-    document.getElementById('kid1-img').src=data.link[0];
+    if(data.link[0]==null){
+      document.getElementById('kid1-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid1-img').src=data.link[0];
+    }
     document.getElementById('kid1-img').alt=data.name[0];
     document.getElementById('kid1-name').innerHTML=data.name[0];
   }
   else if(numberOfKids==2){
-    document.getElementById('kid1-img').src=data.link[0];
+    if(data.link[0]==null){
+      document.getElementById('kid1-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid1-img').src=data.link[0];
+    }
     document.getElementById('kid1-img').alt=data.name[0];
     document.getElementById('kid1-name').innerHTML=data.name[0];
-    document.getElementById('kid2-img').src=data.link[1];
+    if(data.link[1]==null){
+      document.getElementById('kid2-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid2-img').src=data.link[1];
+    }
     document.getElementById('kid2-img').alt=data.name[1];
     document.getElementById('kid2-name').innerHTML=data.name[1];
   }
   else if(numberOfKids==3){
-    document.getElementById('kid1-img').src=data.link[0];
+    if(data.link[0]==null){
+      document.getElementById('kid1-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid1-img').src=data.link[0];
+    }
     document.getElementById('kid1-img').alt=data.name[0];
     document.getElementById('kid1-name').innerHTML=data.name[0];
-    document.getElementById('kid2-img').src=data.link[1];
+    if(data.link[1]==null){
+      document.getElementById('kid2-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid2-img').src=data.link[1];
+    }
     document.getElementById('kid2-img').alt=data.name[1];
     document.getElementById('kid2-name').innerHTML=data.name[1];
-    document.getElementById('kid3-img').src=data.link[2];
+    if(data.link[2]==null){
+      document.getElementById('kid3-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid3-img').src=data.link[2];
+    }
     document.getElementById('kid3-img').alt=data.name[2];
     document.getElementById('kid3-name').innerHTML=data.name[2];
   }
   else if(numberOfKids==4){
-    document.getElementById('kid1-img').src=data.link[0];
+    if(data.link[0]==null){
+      document.getElementById('kid1-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid1-img').src=data.link[0];
+    }
     document.getElementById('kid1-img').alt=data.name[0];
     document.getElementById('kid1-name').innerHTML=data.name[0];
-    document.getElementById('kid2-img').src=data.link[1];
+    if(data.link[1]==null){
+      document.getElementById('kid2-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid2-img').src=data.link[1];
+    }
     document.getElementById('kid2-img').alt=data.name[1];
     document.getElementById('kid2-name').innerHTML=data.name[1];
-    document.getElementById('kid3-img').src=data.link[2];
+    if(data.link[2]==null){
+      document.getElementById('kid3-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid3-img').src=data.link[2];
+    }
     document.getElementById('kid3-img').alt=data.name[2];
     document.getElementById('kid3-name').innerHTML=data.name[2];
-    document.getElementById('kid4-img').src=data.link[3];
+    if(data.link[3]==null){
+      document.getElementById('kid4-img').src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_baby_2_in2kqz.png";
+    }
+    else{
+        document.getElementById('kid4-img').src=data.link[3];
+    }
     document.getElementById('kid4-img').alt=data.name[3];
     document.getElementById('kid4-name').innerHTML=data.name[3];
   }

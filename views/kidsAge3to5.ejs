@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+<title>TykeTV</title>
+<link href="../stylesheets/kidsAge3to5.css" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/Logoutcss.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<script src="../javascripts/dropdown1.js"></script>
+<script src="../javascripts/Mascotchange.js"></script>
+<script src="../javascripts/kidsAge3to5.js"></script>
+</head>
+
+<body>
+
+<div id="page">
+	<div class="header">
+		<h1 class="title"><a href="/selectaccount.htm">Tyke TV </a></h1>
+		<div class="dragon-logo">
+			<img id="dragon-img" class="img-responsive" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_parent_3_zbghmt.png" />
+		</div>
+		<div class="menu">
+			<img id="menu_img" onclick="myFunction()" src="../images/Menu.svg">
+			<div id="myDropdown" class="dropdown-content">
+				<a id="Edprof">Edit Profile</a> <a id="Deprof">Delete Profile</a>
+				<a id="Chistory">Check History</a> <a id="Bevents">Book Events</a>
+				<a id="Getout">Logout</a> </div>
+		</div>
+	</div>
+	<div class="section">
+
+			<input id="search" name="search" placeholder="Search.." type="text">
+
+		<div id="viewHistory" class="history-section">
+			<p>Play Again!</p>
+			<ul class="vid-list">
+				<!--will be inserting videos here dynamically-->
+			</ul>
+		</div>
+		<div class="lower-section">
+			<div class="video-section">
+				<p class="video-section-header">VIDEOS</p>
+				<ul class="vertical-list">
+					<!--will be inserting videos here dynamically-->
+				</ul>
+			</div>
+			<div class="games-section">
+				<p class="games-section-header">GAMES</p>
+				<ul class="vertical-list">
+					<!--will be inserting videos here dynamically-->
+				</ul>
+			</div>
+			<div class="horizontal-video-section">
+				<p class="video-section-header">VIDEOS</p>
+				<ul class="vid-list">
+					<!--will be inserting videos here dynamically-->
+				</ul>
+			</div>
+			<div class="horizontal-games-section">
+				<p class="games-section-header">GAMES</p>
+				<ul class="vid-list">
+					<!--will be inserting videos here dynamically-->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+	<p>Copyright@TykeTV.com</p>
+</div>
+<div id="popup3" class="popuplg">
+	<img class="dragon" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759790/dragon_baby_3_vnpp58.png">
+	<p> Are you leaving me? </p>
+		<div class="buttons">
+			<button type="button" class="btn-yes" id="yes-button"> <p class="button">Yes</p></button>
+			<button type="button" class="btn-no" id="no-button" onclick="cancellogout()"> <p class="button">No</p></button>
+		</div>
+</div>
+
+</div>
+
+</body>
+
+</html>

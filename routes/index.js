@@ -60,6 +60,11 @@ router.get('/games6to8.htm', function(req, res, next) {
   res.render('games6to8');
 });
 
+/* GET  page for 3-5   */
+router.get('/kidsAge3to5.htm', function(req, res, next) {
+  res.render('kidsAge3to5');
+});
+
 /* GET first page of book events */
 router.get('/BookEventsPg1.htm', function(req, res, next) {
   res.render('BookEventsPg1');
@@ -302,7 +307,7 @@ router.post('/kidAge.htm', function(req, res, next) {
               console.log("In user kid table"+det1.DOB);
               if(age>=3 && age<=5)
               {
-                res.send({redirect:'/kids6to8.htm'});
+                res.send({redirect:'/kidsAge3to5.htm'});
               }
               else{
                 res.send({redirect:'/kids6to8.htm'});
@@ -625,6 +630,77 @@ router.post('/displaySearchVideos6to8.htm', function(req, res, next) {
             }
             console.log(contentLinks);
             res.send({LinksFun:contentLinksFun,NameFun:contentLinksNameFun, DescrFun:contentLinksDescrFun,ThumbFun:contentLinksThumbFun, Links:contentLinks,Name:contentLinksName, Descr:contentLinksDescr,Thumb:contentLinksThumb});
+          }//end of else of learn videos find
+      });////end of learn videos find
+    } ////end of else of fun videos find
+  });  ////end of  fun videos find
+}); //end of get
+
+
+router.post('/display3to5.htm', function(req, res, next) {
+  var Game=req.body.Game;
+    Content_link.find({Age_group:"1",Game:Game},function(err, det){
+      if(err){
+        console.log("first find error");
+        res.render('error');
+      }
+      else {
+        var contentLinks=[];
+        var contentLinksName=[];
+        var contentLinksDescr=[];
+        var contentLinksThumb=[];
+        for(var i=0;i<det.length;i++){
+              contentLinks.push(det[i].Link);
+              contentLinksName.push(det[i].Name);
+              contentLinksDescr.push(det[i].Description);
+              contentLinksThumb.push(det[i].Thumb);
+            }
+            console.log(contentLinks);
+            res.send({Links:contentLinks,Name:contentLinksName, Descr:contentLinksDescr,Thumb:contentLinksThumb});
+    } ////end of else of fun videos find
+  });  ////end of  fun videos find
+}); //end of post
+
+router.post('/displaySearch3to5.htm', function(req, res, next) {
+    var keyword = req.body.keyword;
+    console.log("keyword: "+keyword);
+    Content_link.find({$text: {$search: keyword},Age_group:"1",Game:"No"},function(err, det){
+      if(err){
+        console.log("first find error");
+        res.render('error');
+      }
+      else {
+        //console.log("Videos: "+det);
+        var contentLinks=[];
+        var contentLinksName=[];
+        var contentLinksDescr=[];
+        var contentLinksThumb=[];
+        var contentLinksFun=[];
+        var contentLinksNameFun=[];
+        var contentLinksDescrFun=[];
+        var contentLinksThumbFun=[];
+        Content_link.find({$text: {$search: keyword},Age_group:"1",Game:"Yes"},function(err1, det1){
+          if(err1)
+          {
+            console.log("second find error");
+            res.render(error);
+          }
+          else{
+            for(var i=0;i<det1.length;i++){
+              contentLinksFun.push(det1[i].Link);
+              contentLinksNameFun.push(det1[i].Name);
+              contentLinksDescrFun.push(det1[i].Description);
+              contentLinksThumbFun.push(det1[i].Thumb);
+            }
+            for(var i=0;i<det.length;i++){
+              contentLinks.push(det[i].Link);
+              contentLinksName.push(det[i].Name);
+              contentLinksDescr.push(det[i].Description);
+              contentLinksThumb.push(det[i].Thumb);
+            }
+            console.log(contentLinks);
+            console.log(contentLinksFun);
+            res.send({LinksGames:contentLinksFun,NameGames:contentLinksNameFun, DescrGames:contentLinksDescrFun,ThumbGames:contentLinksThumbFun, Links:contentLinks,Name:contentLinksName, Descr:contentLinksDescr,Thumb:contentLinksThumb});
           }//end of else of learn videos find
       });////end of learn videos find
     } ////end of else of fun videos find
