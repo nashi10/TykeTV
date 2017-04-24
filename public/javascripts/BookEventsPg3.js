@@ -40,11 +40,12 @@ $(function(){
       dataType: 'json',
       success: function(data) {
         if(data){
-          //hide image, replace right section with a message, replaace current image with new image
+          alert("Yay...Event boooked!!!!!");
+          //hide image, replace right section with a message, replace current image with new image
           localStorage.removeItem('eventName');
           localStorage.removeItem('eventDate');
-          localStorage.removeItem('timeRange');
-            alert("Booking complete");
+          localStorage.removeItem('timeRange'); 
+          window.location.href="/BookEventsPg1.htm"
         }
         else {
           alert("Encountered error while booking. Please try again");

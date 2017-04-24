@@ -29,9 +29,9 @@ $(function(){
     }
     else{
       var mySlides=document.getElementsByClassName('mySlides');
-      for (var i = 1; i < mySlides.length; i ++) {
-        if(mySlides[i].style.display=='block'){
-          eventName=eventTitle[i].innerHTML;
+      for (var k = 1; k < mySlides.length; k ++) {
+        if(mySlides[k].style.display=='block'){
+          eventName=eventTitle[k].innerHTML;
         }
       }
     }

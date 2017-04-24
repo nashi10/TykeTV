@@ -1,4 +1,8 @@
-
+$(function(){
+  if(localStorage.login=="true"){
+    window.location.href = "/selectaccount.htm";
+  }
+});
 
 //Ajax POST call to db from login page
 $(function() {

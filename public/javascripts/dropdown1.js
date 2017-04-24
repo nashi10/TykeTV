@@ -20,9 +20,9 @@ $(function(){
     if (!event.target.matches('#menu_img')) {
 
       var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
+      var j;
+      for (j = 0; j < dropdowns.length; j++) {
+        var openDropdown = dropdowns[j];
         if (openDropdown.style="display:block") {
           openDropdown.style="display:none";
         }
