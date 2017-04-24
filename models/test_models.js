@@ -15,7 +15,7 @@ var UserParent = mongoose.model("UserParent", userParentsSchema);
 var userKidsSchema = mongoose.Schema({
    fname: String,
    lname: String,
-   DOB : Number,
+   Age : Number,
    image: String,
    Parent_id:String,
    contentLinkIDs : Array

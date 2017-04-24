@@ -209,7 +209,7 @@ router.post('/signup.htm', function(req, res){
           var newUserKid = new UserKid({
             fname: childfnamefor[i],
             lname: childlnamefor[i],
-            DOB : childagefor[i],
+            Age : childagefor[i],
             image: inputimagefor[i],
             Parent_id:ObjectId(det._id).toString()
           });
@@ -305,7 +305,7 @@ router.post('/kidAge.htm', function(req, res, next) {
       else
       {
         console.log("Det: "+ det._id);
-        UserKid.findOne({Parent_id: ObjectId(det._id).toString(),fname:fname},'DOB', function(err1, det1){
+        UserKid.findOne({Parent_id: ObjectId(det._id).toString(),fname:fname},'Age', function(err1, det1){
             console.log(typeof det1);
             if(err1)
             {
@@ -313,8 +313,8 @@ router.post('/kidAge.htm', function(req, res, next) {
             }
             else
             {
-              var age=det1.DOB;
-              console.log("In user kid table"+det1.DOB);
+              var age=det1.Age;
+              console.log("In user kid table"+det1.Age);
               if(age>=3 && age<=5)
               {
                 res.send({redirect:'/kidsAge3to5.htm'});
@@ -461,7 +461,7 @@ router.post('/editaccount.htm', function(req, res){
       UserParent.findOne({ email: loginInfo.email},'_id', function(err1, det1){
           for(var i=0;i<kidsOld;i++){
             UserKid.findOneAndUpdate({Parent_id: ObjectId(det1._id).toString(),fname:childfnameforOld[i]},
-            {$set:{fname:childfnamefor[i], lname:childlnamefor[i],DOB:childagefor[i]}},
+            {$set:{fname:childfnamefor[i], lname:childlnamefor[i],Age:childagefor[i]}},
             function(err,det){
               if(!err){
                 console.log("updateexisitng kids"+ det);
@@ -524,7 +524,7 @@ router.post('/editaccount.htm', function(req, res){
             var newUserKid = new UserKid({
               fname: childfnamefor[j],
               lname: childlnamefor[j],
-              DOB : childagefor[j],
+              Age : childagefor[j],
               image: inputimagefor[j],
               Parent_id:ObjectId(det1._id).toString()
             });
