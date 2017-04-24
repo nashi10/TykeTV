@@ -131,18 +131,20 @@ $(function(){
   $('.img-circle').on('click', function(){
     var email=localStorage.getItem('login-email');
     var kidName =$(this).attr("alt");
-    localStorage.setItem('kid-name',kidName);
-    $.ajax({
-      url: '/kidAge.htm',
-      type: 'POST',
-      data: {
-        email: email,
-        fname: kidName
-      },
-      dataType: 'json',
-      success: function(data) {
-        window.location.href=data.redirect;
-      }
-    })
+    if(kidName!=null){
+      localStorage.setItem('kid-name',kidName);
+      $.ajax({
+        url: '/kidAge.htm',
+        type: 'POST',
+        data: {
+          email: email,
+          fname: kidName
+        },
+        dataType: 'json',
+        success: function(data) {
+          window.location.href=data.redirect;
+        }
+      })
+    }
   })
 });
