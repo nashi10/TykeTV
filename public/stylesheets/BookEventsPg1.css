@@ -378,7 +378,7 @@ float: left;
 .verticalbare {
 	width: 64.285714%;
 	margin-left: 17.857142%;
-	margin-right: 17.857142%;		  
+	margin-right: 17.857142%;
 	height: 95%;
 	margin-left: 2%;
 }
@@ -646,7 +646,7 @@ margin-top: -3%;
 }
 
 @media only screen and (max-width: 320px) {
-  .btn-default {
+  .btn-default:enabled {
 	  width: 28%;
 	  height: 7%;
 	  left:36%;
@@ -667,7 +667,7 @@ margin-top: -3%;
 }
 
 @media only screen and (min-width: 321px) and (max-width: 450px){
-	.btn-default{
+	.btn-default:enabled{
 		width: 28%;
 		height:7%;
 		left: 36%;
