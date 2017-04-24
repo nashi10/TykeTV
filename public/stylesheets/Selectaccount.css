@@ -252,9 +252,7 @@ img, embed, object, video {
 
 }
 
-.img-circle:hover {
-	border: 5px white solid;
-}
+
 
 ul {
    	 list-style-type: none;

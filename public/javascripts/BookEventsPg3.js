@@ -26,7 +26,7 @@ $(function(){
     var eventName=localStorage.getItem('eventName');
     var eventDate=localStorage.getItem('eventDate');
     var timeRange=localStorage.getItem('timeRange');
-    var comments=$('#comments').val();
+    var comments=$('#Text').val();
     $.ajax({
       url: '/eventBooking.htm',
       type: 'POST',
@@ -44,7 +44,7 @@ $(function(){
           //hide image, replace right section with a message, replace current image with new image
           localStorage.removeItem('eventName');
           localStorage.removeItem('eventDate');
-          localStorage.removeItem('timeRange'); 
+          localStorage.removeItem('timeRange');
           window.location.href="/BookEventsPg1.htm"
         }
         else {

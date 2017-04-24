@@ -36,6 +36,11 @@ var putImage=function(data){
     }
     document.getElementById('kid1-img').alt=data.name[0];
     document.getElementById('kid1-name').innerHTML=data.name[0];
+    $(".img-circle:eq(0)").hover(function(){
+      $(this).css("border", "5px white solid");
+      }, function(){
+      $(this).css("border", "5px #c43396 solid");
+    });
   }
   else if(numberOfKids==2){
     if(data.link[0]==null){
@@ -54,6 +59,16 @@ var putImage=function(data){
     }
     document.getElementById('kid2-img').alt=data.name[1];
     document.getElementById('kid2-name').innerHTML=data.name[1];
+    $(".img-circle:eq(0)").hover(function(){
+      $(this).css("border", "5px white solid");
+      }, function(){
+      $(this).css("border", "5px #c43396 solid");
+    });
+    $(".img-circle:eq(1)").hover(function(){
+      $(this).css("border", "5px white solid");
+      }, function(){
+      $(this).css("border", "5px #c43396 solid");
+    });
   }
   else if(numberOfKids==3){
     if(data.link[0]==null){
@@ -80,6 +95,21 @@ var putImage=function(data){
     }
     document.getElementById('kid3-img').alt=data.name[2];
     document.getElementById('kid3-name').innerHTML=data.name[2];
+    $(".img-circle:eq(0)").hover(function(){
+      $(this).css("border", "5px white solid");
+      }, function(){
+      $(this).css("border", "5px #c43396 solid");
+    });
+    $(".img-circle:eq(1)").hover(function(){
+      $(this).css("border", "5px white solid");
+      }, function(){
+      $(this).css("border", "5px #c43396 solid");
+    });
+    $(".img-circle:eq(2)").hover(function(){
+      $(this).css("border", "5px white solid");
+      }, function(){
+      $(this).css("border", "5px #c43396 solid");
+    });
   }
   else if(numberOfKids==4){
     if(data.link[0]==null){
@@ -114,6 +144,11 @@ var putImage=function(data){
     }
     document.getElementById('kid4-img').alt=data.name[3];
     document.getElementById('kid4-name').innerHTML=data.name[3];
+    $(".img-circle").hover(function(){
+      $(this).css("border", "5px white solid");
+      }, function(){
+      $(this).css("border", "5px #c43396 solid");
+    });
   }
 }
 

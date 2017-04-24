@@ -1,11 +1,11 @@
-
+var popUpResult;
 //JS for logout popup functionality
 function cancellogout() {
     document.getElementById('popup3').style.display ='none';
  }
 
 
-     /* Javascript for dropdown functionality
+/* Javascript for dropdown functionality
 When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 $(function(){
@@ -35,7 +35,17 @@ $(function(){
 
 $(function(){
   $('#Edprof').click(function(){
-      window.location.href="/editaccount.htm";
+    /*var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/')+1);
+    if(filename == 'games6to8.htm' ||'videos6to8.htm' || filename != 'kids6to8.htm'|| filename != 'kidsAge3to5.htm')){
+        showPasswordPopup();
+    }
+    if(popUpResult){*/
+        window.location.href="/editaccount.htm";
+    /*}
+    else{
+      return false;
+    }*/
   });
 });
 
@@ -75,3 +85,40 @@ $(function(){
        window.location.href="/signedout.htm";
   });
 });
+
+/*
+function showPasswordPopup(){
+  document.getElementById('pwdpopup').style.display ='block';
+}
+
+
+function hidePasswordPopup() {
+    document.getElementById("pwdpopup").style.display = "none";
+    //var password = document.getElementById("pass").value;
+    popUpResult=checkUser();
+};
+
+var checkUser = function(p) {
+  var email = localStorage.getItem('login-email');;
+  var pwd = $('#pass').val();
+  if(pwd!=''){
+    $.ajax({
+      url: '/index.htm',
+      type: 'POST',
+      data: {
+        email:email,
+        pwd:pwd
+      },
+      dataType: 'json',
+      success: function(data) {
+        if(data.result==null)
+          return(true);
+        else if(data.result=="nopwd")
+          return(false);
+      }
+    });
+  }
+  else{
+    alert("No password entered");
+  }
+};*/
