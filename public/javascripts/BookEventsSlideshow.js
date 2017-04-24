@@ -1,7 +1,6 @@
-$(function(){
 
-  var slideIndex = 1;
-showSlides(slideIndex);
+var slideIndex = 1;
+//showSlides(slideIndex);
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -26,5 +25,3 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
-
-});

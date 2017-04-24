@@ -22,6 +22,22 @@ var userKidsSchema = mongoose.Schema({
 },{ collection: 'userkids' });
 var UserKid = mongoose.model("UserKid", userKidsSchema);
 
+var eventsSchema = mongoose.Schema({
+   Description: String,
+   Image: String,
+   Name: String
+},{ collection: 'Events' });
+var EventDet = mongoose.model("EventDet", eventsSchema);
+
+var bookingsSchema = mongoose.Schema({
+   Event_ID: String,
+   Parent_ID: String,
+   Date: String,
+   Time:String,
+   Comments:String
+},{ collection: 'Bookings' });
+var Booking = mongoose.model("Booking", bookingsSchema);
+
 var Content_linksSchema = mongoose.Schema({
    Link:String,
    Name:String,
@@ -35,4 +51,4 @@ var Content_linksSchema = mongoose.Schema({
 Content_linksSchema .index({Name: 'text'});
 var Content_link = mongoose.model("Content_link", Content_linksSchema);
 
-module.exports =  { UserParent, UserKid, Content_link} ;
+module.exports =  { UserParent, UserKid, Content_link, EventDet, Booking} ;

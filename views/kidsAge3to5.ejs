@@ -11,6 +11,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <script src="../javascripts/dropdown1.js"></script>
 <script src="../javascripts/Mascotchange.js"></script>
+<script src="../javascripts/vidpopup.js"></script>
 <script src="../javascripts/kidsAge3to5.js"></script>
 </head>
 
@@ -78,7 +79,11 @@
 			<button type="button" class="btn-no" id="no-button" onclick="cancellogout()"> <p class="button">No</p></button>
 		</div>
 </div>
-
+<div id="popup2" class="popup">
+  <iframe id="vid_frame" frameborder="0" height="315" src="" width="560" allowscriptaccess="always">
+	</iframe>
+  <a class="close" href="#" onclick="toggleVideo('hide')">
+  <img id="close-icon" src="../images/info-close-icon.png"></a></div>
 </div>
 
 </body>

@@ -13,6 +13,7 @@ html, body {
 	width: 80%; /* 900/960 */
 	height: 100%; /* 768px */
 }
+
 .header{
 	width: 80%; /*1228.8/1536*/
 
@@ -65,7 +66,6 @@ height:55px;
 	left: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2;
-	color:#c43396;
 }
 
 /* Links inside the dropdown */
@@ -81,15 +81,9 @@ height:55px;
     display: block;
 	text-decoration: none;
 }
-/* Added this css as it was showing black coloured text from menu list items (temp fix) */
-.dropdown-content a {
-	color: inherit;
-	text-decoration:none;
-}
-
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {background-color: #f1f1f1;}
 
 #dragon-img{
 	float: right;
@@ -176,7 +170,7 @@ height:30px;
 	float: right;
 }
 }
- img {
+img {
     max-width: 100%;
 }
 
@@ -283,19 +277,22 @@ div.tab button.active {
 }
 
 /* Style the tab content */
-.left-section{
-width:28%;
-height: 96%;
-margin-left: 1%;
-margin-top:1%;
-margin-right:1%;
-margin-bottom: 1%;
-float: left;
-}
-
-.verticalbare {
+.tabcontent {
 	width: 100%;
-	height: 100%;
+	height: 180px;
+	padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+	display: none;
+}
+div.tabcontent button{
+	width: auto;
+height: 130px;
+/* opacity: 0.6; */
+border-radius: 260px;
 }
 
 
@@ -335,360 +332,287 @@ font-size: 0.8em;
   	border-radius: 3.448276%;  /* 30/870 */
 	z-index: 1;
 }
-/*CSS for header tpo be shown only on smaller screens */
-.mobileheader{
-	display: none;
-	width: 100%;
-	height: 8%;
-	margin: 0%;
-	margin: 0%;
+
+.verticalbar {
+	margin-top: 1%;
+	margin-left: 1.5%;
+	margin-right: 1%;
+	float: left;
+	width: 18%;
+	height: 93%;
 }
-
-.mobileheader p{
-	font-family: Chewy;
-	font-size: 1.5em;
-	text-align: center;
-	color: #FFFFFF;
-	margin-bottom: 0%;
-}
-
-@media only screen and (max-width: 450px){
-.mobileheader{
-	display: block;
-	}
-}
-
-
-
-
-/* Styling the left section and vertical progress bar*/
-.left-section{
-width:28%;
-height: 96%;
-margin-left: 1%;
-margin-top:1%;
-margin-right:1%;
-float: left;
-}
-
-@media only screen and (max-width: 320px){
-
-	.left-section{
-		display:none;
-	}
-
-}
-
-@media only screen and (max-width: 450px){
-
-	.left-section{
-		display:none;
-	}
-
-}
-
-
 
 .verticalbare {
 	width: 100%;
-	height: 95%;
-	margin-left: 2%;
+	height: 100%;
 }
 
-
-
-.right-section{
-width: 70%;
-height: 92%;
-margin: 0%;
-float: right;
+.rightsection{
+	width: 35%;
+	float: left;
+	height: 100%;
 }
 
-@media only screen and (max-width: 320px){
-	.right-section{
-		display:block;
-		width: 100%;
-		margin-top: 2%;
-	}
+.rightbottom {
+	height: 35%;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
 
-@media only screen and (max-width: 450px){
-	.right-section{
-		display:block;
-		width: 100%;
-		height: 88%;
-		margin-top: 2%;
-	}
-}
-
-
-/* Styling the carousel */
-.mySlides {display:none;
-	width:80%;
-	height: 80%;
-}
-
-#firstslide{
-	display:block;
-}
-
-/* Slideshow container */
-.slideshow-container {
-  background-color: rgba(235,235,235,0.25);
-  width: 87%;
-  height: 92%;
-  position: relative;
-  margin-left: 6%;
-  margin-top: 2%;
-  margin-right: 2%;
-  }
-
-/* Image */
-.slideimg{
-	width: 65%;
-	height:  65%;
-	border-radius: 10%;
-	left: 17%;
-	right: 17%;
-	margin-top:2%;
-	position:absolute;
-	}
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-	.slideimg{
-		display:block;
-		width: 70%;
-		height: 58%;
-	}
-}
-
-@media only screen and (max-width: 320px){
-	.slideimg{
-		margin-left:-1%;
-		top: 10%;
-		width: 70%;
-		height: 58%;
-	}
-}
-
-
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 3%;
-  margin-top: -22px;
-  color: #FFFFFF;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(255,255,255,0.2);
-}
-
-/* Event Title */
-.eventTitle{
+.rightbottomcontainer {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	border: 5px;
+	border-radius: 20px;
+	height: 100%;
 	width: 100%;
-	color: #FFFFFF;
-  font-family:Chewy;
-  font-size: 1.5em;
-  position: absolute;
-  top: 70%;
-  text-align: center;
+	padding:20px;
 }
 
+div.rightbottomcontainer h1{
+	color: #c43396;
+	font-size: 2em;
+	font-family: 'Chewy';
+	font-weight:100;
+}
 
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-	.eventTitle{
-		font-size: 1.3em;
-		top: 60%;
+@media only screen and (width: 768px)and (height: 1024px){
+	.verticalbar {
+		display: none;
+	}
+	.leftsection {
+		width: 50%;
+	}
+	.rightsection {
+		width: 50%;
 	}
 }
 
-@media only screen and (max-width: 320px){
-	.eventTitle{
-		top: 75%;
+@media only screen and (max-width: 740px){
+	.verticalbar {
+		display: none;
+	}
+	.leftsection {
+		width: 40%;
+	}
+	.rightsection {
+		width: 60%;
 	}
 }
 
-
-/* Caption text */
-.text {
-  color: #FFFFFF;
-  font-family:Chewy;
-  font-size: 1em;
-  position: absolute;
-  float:bottom;
-  top: 84%;
-  width: 100%;
-  text-align: center;
-}
-
-@media only screen and (max-width: 320px){
-	.text{
+@media only screen and (max-width: 480px){
+	.verticalbar {
+		display: none;
+	}
+	.leftsection {
 		display:none;
 	}
-}
-
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-	.text{
-		top: 75%;
+	.rightsection {
+		width: 100%;
 	}
 }
 
-/* The dots/bullets/indicators */
-.dotclass{
-margin-top: -3%;
+@media only screen and (max-width: 1400px){
+	div.rightbottomcontainer h1{
+	font-size: 1.75em;
+}
 }
 
-@media only screen and (min-width: 321px) and (max-width: 450px){
-		.dotclass{
-		margin-top: -7%;
-	}
+@media only screen and (max-width: 1200px){
+	div.rightbottomcontainer h1{
+	font-size: 1.5em;
+}
 }
 
-@media only screen and (max-width: 320px){
-	.dotclass{
-		margin-top: -10%;
-	}
+@media only screen and (max-width: 900px){
+	div.rightbottomcontainer h1{
+	font-size: 1.3em;
+}
 }
 
-
-
-
-.dot {
-  cursor:pointer;
-  height: 8px;
-  width: 8px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+@media only screen and (max-width: 480px){
+	div.rightbottomcontainer h1{
+	font-size: 1.2em;
+}
 }
 
-
-.active, .dot:hover {
-  background-color: #717171;
+.mobileheader{
+	width:100%;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+.mobileheader p {
+	font-family: Chewy;
+	font-size: 1em;
+	color: #ffffff;
+	display:none;
+	text-align:center;
+	padding: 2px;
+	margin-bottom: 0px;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 0.5em}
-}
-
-
-.btn-default:disabled {
-	position: absolute;
-	width: 15%;
-	height: 8%;
-	left:58%;
-	margin-top: 1%;
-	border: 3px solid #808080;
+#timepick {
+	height: 25%;
+	width: 60%;
+	font-family: Chewy;
+	color: #c43396;
+    background-color: #ffffff;
+	border: 3px solid #9e9e9e;
 	border-radius: 10px;
-	background-color:#ccc;
-	background-image:none;
+	right: 0px;
+	left: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
 }
 
-.btn-default:enabled {
-	position: absolute;
-	width: 15%;
+#timepick:hover {
+	cursor: pointer;
+}
+
+.leftsection {
+	float: right;
+	width: 40%;
+	height: 100%;
+	border: 5px;
+	border-color: #000000;
+}
+
+.leftimg {
+	margin-top:17.5%;
+	margin-bottom: 17.5%;
+	margin-left: 12.5%;
+	margin-right: 12.5%;
+	width:75%;
+	height:60%;
+}
+
+@media only screen and (max-width: 1200px) {
+	.leftimg {
+		margin-top:24.5%;
+		height: 53%;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.leftimg {
+		margin-top: 32.5%;
+		height: 45%;
+	}
+}
+
+@media only screen and (max-width: 760px) {
+	.leftimg {
+		margin-top: 44.5%;
+		height: 45%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.leftimg {
+		margin-top: 55%;
+		height: 45%;
+	}
+}
+/*********CSS for calendar********/
+
+
+/*********CSS for calendar********/
+
+.btn-default {
+	position: relative;
+	width: 25%;
+	margin-left: 37.5%;
+	margin-right: 37.5%;
 	height: 8%;
-	left:58%;
-	margin-top: 1%;
 	border: 3px solid #04821b;
 	border-radius: 10px;
 	background-image: radial-gradient(ellipse at center, #0af58b 1%, #24ab46 100% );
 }
-
-
-
-.btn-default:enabled:hover, .btn-default:enabled:focus {
+.btn-default:hover, .btn-default:focus {
 	background-image: none;
 	background-color: #7de88a;
 	cursor: pointer;
 	text-decoration: none;
 }
-.btn-default:disabled:hover, .btn-default:disabled:focus {
-
-}
-
-
-
 
 .buttontext {
 	color: #c43396;
-	font-size: 1.5em;
+	font-size: 1em;
 	font-family: Chewy;
-}
-
-.buttontext{
+	text-decoration: none;
 	margin-bottom:0%;
 }
 
+@media only screen and (max-width: 1320px) {
+  #timepick {
+	  width: 70%;
+  }
+  .btn-default {
+	  width: 28%;
+  }
+  .buttontext {
+	font-size: 0.85em;
+}
+}
+
+@media only screen and (max-width: 920px) {
+  #timepick {
+	  width: 75%;
+  }
+  .btn-default {
+	  width: 33%;
+  }
+  .buttontext {
+	font-size: 0.8em;
+}
+}
+
+@media only screen and (max-width: 760px) {
+  #timepick {
+	  width: 85%;
+  }
+  .btn-default {
+	  width: 38%;
+  }
+  .buttontext {
+	font-size: 0.75em;
+}
+}
+
+@media only screen and (max-width: 480px) {
+  #timepick option {
+	font-size: 0.7em;
+  }
+  .mobileheader p {
+	  display: block;
+  }
+}
+
 @media only screen and (max-width: 320px) {
+  #timepick {
+	  width: 95%;
+  }
+
+  #timepick option {
+	font-size: 0.6em;
+  }
+
   .btn-default {
 	  width: 28%;
 	  height: 7%;
-	  left:36%;
 	  margin-top: 0%;
   }
-
-	.btn-default:disabled {
-		width: 28%;
-		height: 7%;
-		left:36%;
-		margin-top: 0%;
-	}
-
   .buttontext {
 	font-size: 0.7em;
 }
-
 }
 
 @media only screen and (min-width: 321px) and (max-width: 450px){
 	.btn-default{
 		width: 28%;
 		height:7%;
-		left: 36%;
-		margin-top: 0%;
-	}
-	.btn-default:disabled{
-		width: 28%;
-		height:7%;
-		left: 36%;
 		margin-top: 0%;
 	}
 	.buttontext {
@@ -707,7 +631,6 @@ margin-top: -3%;
 		font-size: 0.8em;
 	}
 }
-
 
 .footer{
   height: 32px;

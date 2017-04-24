@@ -65,7 +65,6 @@ height:55px;
 	left: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2;
-	color:#c43396;
 }
 
 /* Links inside the dropdown */
@@ -81,15 +80,44 @@ height:55px;
     display: block;
 	text-decoration: none;
 }
-/* Added this css as it was showing black coloured text from menu list items (temp fix) */
-.dropdown-content a {
-	color: inherit;
-	text-decoration:none;
-}
-
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content2 {
+    display: none;
+	color: #c43396;
+    position: relative;
+    background-color: #7de88a;
+	border: 3px solid #7de88a;
+	border-radius: 10px;
+    width: 40%;
+	right: 0px;
+	left: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+	-ms-transform: translate(0%, -115%); /* IE 9 */
+    -webkit-transform: translate(0%, -115%); /* Safari */
+    transform: translate(0%, -115%);
+}
+
+/* Links inside the dropdown */
+.dropdown-content2 a {
+    color: inherit;
+	background-color: #ffffff;
+	font-family: Chewy;
+	border: 6px solid #7de88a;
+	border-radius: 10px;
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
+    padding: 3px 4px;
+    display: block;
+	text-decoration: none;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content2 a:hover {background-color: #f1f1f1;}
 
 #dragon-img{
 	float: right;
@@ -176,7 +204,7 @@ height:30px;
 	float: right;
 }
 }
- img {
+img {
     max-width: 100%;
 }
 
@@ -283,19 +311,22 @@ div.tab button.active {
 }
 
 /* Style the tab content */
-.left-section{
-width:28%;
-height: 96%;
-margin-left: 1%;
-margin-top:1%;
-margin-right:1%;
-margin-bottom: 1%;
-float: left;
-}
-
-.verticalbare {
+.tabcontent {
 	width: 100%;
-	height: 100%;
+	height: 180px;
+	padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+	display: none;
+}
+div.tabcontent button{
+	width: auto;
+height: 130px;
+/* opacity: 0.6; */
+border-radius: 260px;
 }
 
 
@@ -335,379 +366,98 @@ font-size: 0.8em;
   	border-radius: 3.448276%;  /* 30/870 */
 	z-index: 1;
 }
-/*CSS for header tpo be shown only on smaller screens */
-.mobileheader{
-	display: none;
-	width: 100%;
-	height: 8%;
-	margin: 0%;
-	margin: 0%;
+
+.verticalbar {
+	margin-top: 1%;
+	margin-left: 1.5%;
+	margin-right: 1%;
+	float: left;
+	width: 18%;
+	height: 93%;
 }
-
-.mobileheader p{
-	font-family: Chewy;
-	font-size: 1.5em;
-	text-align: center;
-	color: #FFFFFF;
-	margin-bottom: 0%;
-}
-
-@media only screen and (max-width: 450px){
-.mobileheader{
-	display: block;
-	}
-}
-
-
-
-
-/* Styling the left section and vertical progress bar*/
-.left-section{
-width:28%;
-height: 96%;
-margin-left: 1%;
-margin-top:1%;
-margin-right:1%;
-float: left;
-}
-
-@media only screen and (max-width: 320px){
-
-	.left-section{
-		display:none;
-	}
-
-}
-
-@media only screen and (max-width: 450px){
-
-	.left-section{
-		display:none;
-	}
-
-}
-
-
 
 .verticalbare {
 	width: 100%;
-	height: 95%;
-	margin-left: 2%;
+	height: 100%;
+}
+
+.rightsection{
+	width: 35%;
+	float: left;
+	height: 100%;
 }
 
 
-
-.right-section{
-width: 70%;
-height: 92%;
-margin: 0%;
-float: right;
+.leftsection {
+	float: right;
+	width: 40%;
+	height: 100%;
+	border: 5px;
+	border-color: #000000;
 }
 
-@media only screen and (max-width: 320px){
-	.right-section{
-		display:block;
-		width: 100%;
-		margin-top: 2%;
+.leftimg {
+	margin-top:17.5%;
+	margin-bottom: 17.5%;
+	margin-left: 12.5%;
+	margin-right: 12.5%;
+	width:75%;
+	height:60%;
+}
+
+@media only screen and (max-width: 1200px) {
+	.leftimg {
+		margin-top:24.5%;
+		height: 53%;
 	}
 }
 
-@media only screen and (max-width: 450px){
-	.right-section{
-		display:block;
-		width: 100%;
-		height: 88%;
-		margin-top: 2%;
+@media only screen and (max-width: 900px) {
+	.leftimg {
+		margin-top: 32.5%;
+		height: 45%;
 	}
 }
 
-
-/* Styling the carousel */
-.mySlides {display:none;
-	width:80%;
-	height: 80%;
-}
-
-#firstslide{
-	display:block;
-}
-
-/* Slideshow container */
-.slideshow-container {
-  background-color: rgba(235,235,235,0.25);
-  width: 87%;
-  height: 92%;
-  position: relative;
-  margin-left: 6%;
-  margin-top: 2%;
-  margin-right: 2%;
-  }
-
-/* Image */
-.slideimg{
-	width: 65%;
-	height:  65%;
-	border-radius: 10%;
-	left: 17%;
-	right: 17%;
-	margin-top:2%;
-	position:absolute;
-	}
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-	.slideimg{
-		display:block;
-		width: 70%;
-		height: 58%;
+@media only screen and (max-width: 760px) {
+	.leftimg {
+		margin-top: 44.5%;
+		height: 45%;
 	}
 }
 
-@media only screen and (max-width: 320px){
-	.slideimg{
-		margin-left:-1%;
-		top: 10%;
-		width: 70%;
-		height: 58%;
+@media only screen and (max-width: 600px) {
+	.leftimg {
+		margin-top: 55%;
+		height: 45%;
 	}
 }
+/*********CSS for calendar********/
 
 
+/*********CSS for calendar********/
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 3%;
-  margin-top: -22px;
-  color: #FFFFFF;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(255,255,255,0.2);
-}
-
-/* Event Title */
-.eventTitle{
-	width: 100%;
-	color: #FFFFFF;
-  font-family:Chewy;
-  font-size: 1.5em;
-  position: absolute;
-  top: 70%;
-  text-align: center;
-}
-
-
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-	.eventTitle{
-		font-size: 1.3em;
-		top: 60%;
-	}
-}
-
-@media only screen and (max-width: 320px){
-	.eventTitle{
-		top: 75%;
-	}
-}
-
-
-/* Caption text */
-.text {
-  color: #FFFFFF;
-  font-family:Chewy;
-  font-size: 1em;
-  position: absolute;
-  float:bottom;
-  top: 84%;
-  width: 100%;
-  text-align: center;
-}
-
-@media only screen and (max-width: 320px){
-	.text{
-		display:none;
-	}
-}
-
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-	.text{
-		top: 75%;
-	}
-}
-
-/* The dots/bullets/indicators */
-.dotclass{
-margin-top: -3%;
-}
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-		.dotclass{
-		margin-top: -7%;
-	}
-}
-
-@media only screen and (max-width: 320px){
-	.dotclass{
-		margin-top: -10%;
-	}
-}
-
-
-
-
-.dot {
-  cursor:pointer;
-  height: 8px;
-  width: 8px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 0.5em}
-}
-
-
-.btn-default:disabled {
-	position: absolute;
-	width: 15%;
-	height: 8%;
-	left:58%;
-	margin-top: 1%;
-	border: 3px solid #808080;
-	border-radius: 10px;
-	background-color:#ccc;
-	background-image:none;
-}
-
-.btn-default:enabled {
-	position: absolute;
-	width: 15%;
-	height: 8%;
-	left:58%;
-	margin-top: 1%;
+.btn-default {
+	position: relative;
+	width: 28%;
+	margin-top: 10%;
+	margin-left: 22%;
+	margin-right: 22%;
+	height: 7%;
 	border: 3px solid #04821b;
 	border-radius: 10px;
 	background-image: radial-gradient(ellipse at center, #0af58b 1%, #24ab46 100% );
+	color: #c43396;
+	font-size: 1em;
+	font-family: Chewy;
+	text-decoration: none;
 }
-
-
-
-.btn-default:enabled:hover, .btn-default:enabled:focus {
+.btn-default:hover, .btn-default:focus {
 	background-image: none;
 	background-color: #7de88a;
 	cursor: pointer;
 	text-decoration: none;
 }
-.btn-default:disabled:hover, .btn-default:disabled:focus {
-
-}
-
-
-
-
-.buttontext {
-	color: #c43396;
-	font-size: 1.5em;
-	font-family: Chewy;
-}
-
-.buttontext{
-	margin-bottom:0%;
-}
-
-@media only screen and (max-width: 320px) {
-  .btn-default {
-	  width: 28%;
-	  height: 7%;
-	  left:36%;
-	  margin-top: 0%;
-  }
-
-	.btn-default:disabled {
-		width: 28%;
-		height: 7%;
-		left:36%;
-		margin-top: 0%;
-	}
-
-  .buttontext {
-	font-size: 0.7em;
-}
-
-}
-
-@media only screen and (min-width: 321px) and (max-width: 450px){
-	.btn-default{
-		width: 28%;
-		height:7%;
-		left: 36%;
-		margin-top: 0%;
-	}
-	.btn-default:disabled{
-		width: 28%;
-		height:7%;
-		left: 36%;
-		margin-top: 0%;
-	}
-	.buttontext {
-		font-size: 0.9em;
-	}
-}
-
-@media only screen and (min-width: 761px) and (max-width: 900px){
-	.buttontext {
-		font-size: 0.9em;
-	}
-}
-
-@media only screen and (min-width: 451px) and (max-width: 760px){
-	.buttontext {
-		font-size: 0.8em;
-	}
-}
-
 
 .footer{
   height: 32px;
@@ -730,4 +480,207 @@ margin-top: -3%;
 	text-align: center;
 	padding-bottom: 0px;
 	margin-bottom: 0px;
+}
+
+/* Styling the form and buttons */
+.rightsectioncontent{
+	width:76%;
+	height: 90%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 24%;
+}
+
+.rightsectioncontent p{
+	width: 76%;
+	margin-top: 25%;
+	font-family: Chewy;
+	font-size:2em;
+	color: white;
+	}
+
+
+input[type=text]{
+	height: 120px;
+	font-family: Chewy;
+	font-size:1.5em;
+	margin-top: 2%;
+}
+
+.mobileheader{
+	display: none;
+	width: 100%;
+	height: 8%;
+	margin: 0%;
+	margin: 0%;
+}
+
+.mobileheader p{
+	font-family: Chewy;
+	font-size: 1em;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 2px;
+	margin-bottom: 0%;
+}
+
+@media only screen and (max-width: 768px){
+.mobileheader{
+	display: block;
+	}
+}
+
+
+
+@media only screen and (max-width: 320px) {
+  .verticalbar{
+	  display:none;
+  }
+
+  .rightsectioncontent{
+	margin-top: 21%;
+	margin-left: 24%;
+	width: 100%;
+	font-family: Chewy;
+	font-size:1em;
+	color: white;
+	}
+	.rightsectioncontent p{
+	font-size:1.5em;
+
+	}
+	input[type=text]{
+
+		font-size:0.8em;
+		margin-top: 2%;
+
+	}
+
+	.leftsection{
+		display: none;
+	}
+
+	.rightsection{
+		width: 100%;
+		height:100%;
+	}
+	.btn-default{
+		width: 35%;
+		height:7%;
+		margin-top: 10%;
+		margin-left: 8%;
+		padding:0%;
+	}
+	.buttontext {
+
+		font-size: 0.9em;
+	}
+
+
+}
+
+@media only screen and (min-width: 321px) and (max-width: 450px){
+
+	.verticalbar{
+	  display:none;
+  }
+  .leftsection{
+		display: none;
+	}
+	.rightsection{
+		width: 100%;
+		height:100%;
+	}
+
+	.rightsectioncontent{
+	margin-top: 22%;
+	margin-left: 23%;
+	width: 100%;
+	font-family: Chewy;
+	font-size:1em;
+	color: white;
+	}
+	.rightsectioncontent p{
+	font-size:1.5em;
+	}
+	input[type=text]{
+
+		font-size:0.9em;
+		margin-top: 4%;
+	}
+
+	.btn-default{
+		width: 28%;
+		height:7%;
+		margin-top: 7%;
+		margin-left: 13%;
+	}
+	.buttontext {
+		font-size: 0.9em;
+	}
+}
+
+@media only screen and (min-width: 761px) and (max-width: 900px){
+
+  .rightsection{
+		width: 48%;
+		height:100%;
+	}
+  .rightsectioncontent{
+	margin-top: 30%;
+	margin-left: 25%;
+	width: 100%;
+	font-family: Chewy;
+	font-size:1em;
+	color: white;
+	}
+	.rightsection p{
+	font-size:1.5em;
+	}
+	.btn-default{
+		width: 28%;
+		height:7%;
+		margin-top: 12%;
+		margin-left: 25%;
+	}
+	.buttontext {
+		font-size: 0.9em;
+	}
+}
+
+@media only screen and (min-width: 451px) and (max-width: 768px){
+	.verticalbar{
+	  display:none;
+  }
+	.rightsection{
+		width: 48%;
+		height:100%;
+	}
+	.rightsectioncontent{
+	margin-top: 25%;
+	margin-left: 20%;
+	width: 100%;
+	font-family: Chewy;
+	font-size:1em;
+	color: white;
+	}
+	.rightsection p{
+	font-size:1.5em;
+	}
+
+	input[type=text]{
+
+		font-size:1.2em;
+		margin-top: 2%;
+	}
+
+	.btn-default{
+		width: 28%;
+		height:7%;
+		margin-top: 12%;
+		margin-left: 22%;
+	}
+	.buttontext {
+		font-size: 0.9em;
+	}
 }

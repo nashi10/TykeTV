@@ -4,7 +4,7 @@ async = require("async");
 var express = require('express');
 var router = express.Router();
 var {ObjectId} = require('mongodb');
-var {UserParent,UserKid, Content_link} = require('../models/test_models');
+var {UserParent,UserKid, Content_link, EventDet, Booking} = require('../models/test_models');
 
 /* GET landing page. */
 router.get('/', function(req, res, next) {
@@ -68,6 +68,16 @@ router.get('/kidsAge3to5.htm', function(req, res, next) {
 /* GET first page of book events */
 router.get('/BookEventsPg1.htm', function(req, res, next) {
   res.render('BookEventsPg1');
+});
+
+/* GET second page of book events */
+router.get('/BookEventsPg2.htm', function(req, res, next) {
+  res.render('BookEventsPg2');
+});
+
+/* GET third page of book events */
+router.get('/BookEventsPg3.htm', function(req, res, next) {
+  res.render('BookEventsPg3');
 });
 
 /* GET history page + user email */
@@ -392,7 +402,6 @@ router.post('/editaccountRetrieve.htm', function(req, res, next) {
       }
     });
 });
-
 
 //Update edited details in db
 router.post('/editaccount.htm', function(req, res){
@@ -818,5 +827,57 @@ router.post('/deleteAccount.htm', function(req, res, next) {
       } //end of userParent findONe else
     }) //end of userParent
 }); //end of post
+
+
+
+//Add event booking
+router.post('/eventBooking.htm', function(req, res){
+   var email=req.body.email;
+   var eventName=req.body.eventName;
+   var eventDate=req.body.eventDate;
+   var timeRange=req.body.timeRange;
+   var comments=req.body.comments;
+   UserParent.findOne({ email: email},'_id', function(err, det){
+       if(err || !det)
+       {
+         res.send(false);
+       }
+       else{
+         console.log("Parent ID"+det._id);
+         console.log("Event anme"+eventName+"blah");
+         EventDet.findOne({ Name: eventName},'_id', function(err1, det1){
+           if(err1)
+           {
+             res.send(false);
+           }
+           else if(!det1){
+             console.log("No values in db");
+             res.send(false);
+           }
+           else
+           {
+             console.log("Event ID"+det1._id);
+             var newBooking = new Booking({
+               Event_ID: ObjectId(det1._id).toString(),
+               Parent_ID: ObjectId(det._id).toString(),
+               Date: eventDate,
+               Time:timeRange,
+               Comments:comments
+             });
+             console.log("To be added booking values:"+ newBooking);
+             newBooking.save(function(err2, det2){
+               if(err2)
+                 res.send("false");
+               else
+                 {
+                   res.send(true);
+                 }
+              }); //insertion
+            } //event find ONe else
+          }) //event findOne
+        }//userParent find one   else
+     })//userParent find one
+})
+
 
 module.exports = router;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="../javascripts/dropdown1.js"></script>
+<script src="../javascripts/Mascotchange.js"></script>
+<script src="../javascripts/BookEventsPg2.js"></script>
+<script type="text/javascript" src="../javascripts/datepicktest.js"></script>
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" rel="stylesheet">
+<title>TykeTV</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="../stylesheets/Bookeventspg2.css" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/datepickstyle.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+<div id="page">
+	<div class="header">
+		<h1 class="title"><a href="selectaccount.htm">Tyke TV </a></h1>
+		<div class="dragon-logo">
+			<img id="dragon-img" class="img-responsive" src="https://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759791/dragon_parent_1_j2belt.png" />
+		</div>
+		<div class="menu">
+		<img  id="menu_img" src="../images/Menu.svg">
+		   <div id="myDropdown" class="dropdown-content">
+		   <a id="Edprof">Edit Profile</a>
+		   <a id="Deprof">Delete Profile</a>
+           <a id="Chistory">Check History</a>
+           <a id="Bevents">Book Events</a>
+		   <a id="Getout">Logout</a>
+		   </div>
+		</div>
+	</div>
+	<div class="tab" >
+		<button class="tablinks" id="BookEventsButton">
+		<p><img class="tabicons" src="../images/BookEvents.svg"> Events</p>
+		</button>
+		<button id="checkActivityButton" class="tablinks">
+		<p><img class="tabicons" src="../images/Historyicon2.svg"> History</p>
+		</button></div>
+	<div class="section">
+	    <div class="verticalbar">
+		   <img class="verticalbare" src="../images/Vertical_bare_2.png">
+		</div>
+		<div class="rightsection">
+				<div class="mobileheader">
+					<p> Step 2/3: Select Date and Time</p>
+				</div>
+				<section class="wrapper">
+					<h1>When is the party?</h1>
+					<br>
+					<input type="text" id="theInput" placeholder="Select a Date"/>
+				</section>
+				<div class="rightbottom">
+					<div class="rightbottomcontainer">
+						<h1>At what time?</h1>
+						<br><br>
+						<select id="timepick" name="Select a Time slot"/>
+							<option disabled selected>Select a Time slot</option>
+							<option value="9:00 - 11:00">9:00 - 11:00</option>
+							<option value="11:00 - 13:00">11:00 - 13:00</option>
+							<option value="13:00 - 15:00">13:00 - 15:00</option>
+							<option value="15:00 - 17:00">15:00 - 17:00</option>
+							<option value="17:00 - 19:00">17:00 - 19:00</option>
+						</select>
+					</div>
+				</div>
+				<button class="btn-default" id="continue-page2Button">
+					<p class="buttontext">CONTINUE</p>
+				</button>
+		</div>
+		<div class="leftsection">
+			<img class="leftimg" src="http://res.cloudinary.com/dqn5eqmwt/image/upload/v1492759793/dragonfamily_zeqsbg.png">
+		</div>
+	</div>
+	<div class="footer">
+		<p>Copyright@TykeTV.com</p>
+	</div>
+</div>
+
+</body>
+
+</html>
