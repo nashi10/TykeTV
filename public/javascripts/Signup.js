@@ -25,6 +25,11 @@ function pre_loader() {
 		document.getElementById('sixteen').style.display='none';
 }
 
+$(function(){
+	$("#btnCancel").on('click',function(){
+		window.location.href="/index.htm";
+	})
+})
 
 //Show and hide placeholders on window resize
 $(window).on('resize', function(event){

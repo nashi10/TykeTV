@@ -5,6 +5,12 @@ $(function(){
     window.location.href = "/index.htm";
 }) ;
 
+$(function(){
+  $("#btnCancel").on('click',function(){
+    window.location.href="/selectaccount.htm";
+  })
+});
+
 //Show and hide placeholders on window resize
 $(window).on('resize', function(event){
 	if ( $(window).width() < 739) {
