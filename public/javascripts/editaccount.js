@@ -1,15 +1,3 @@
-$(function(){
-  var url = window.location.pathname;
-  var filename = url.substring(url.lastIndexOf('/')+1);
-  if(localStorage.login=="false" && (filename != 'login.htm' || filename != 'signup.htm'))
-    window.location.href = "/index.htm";
-}) ;
-
-$(function(){
-  $("#btnCancel").on('click',function(){
-    window.location.href="/selectaccount.htm";
-  })
-});
 
 //Show and hide placeholders on window resize
 $(window).on('resize', function(event){
@@ -59,6 +47,20 @@ $(window).on('resize', function(event){
 	}
 });
 
+
+
+$(function(){
+  var url = window.location.pathname;
+  var filename = url.substring(url.lastIndexOf('/')+1);
+  if(localStorage.login=="false" && (filename != 'login.htm' || filename != 'signup.htm'))
+    window.location.href = "/index.htm";
+}) ;
+
+$(function(){
+  $("#btnCancel").on('click',function(){
+    window.location.href="/selectaccount.htm";
+  })
+});
 
 //hide all child info boxes on load initially
 //window.onload = pre_loader;
