@@ -273,7 +273,7 @@ input[type=text] {
     font-size: 1em;
     background-color: white;
     background-image: url('C:\projects\tyketv-master\tyketv-master\public\images\searchicon2.png');
-    background-position: 10px 10px; 
+    background-position: 10px 10px;
     background-repeat: no-repeat;
 	margin: 1% 2% 0 2%;
     padding: 12px 20px 12px 50px;
@@ -326,7 +326,7 @@ input[type=text] {
 @media only screen and (max-width: 400px){
 input[type=text] {
     width: 35%;
-	font-size: 0.8em; 
+	font-size: 0.8em;
 }
 
 }
@@ -400,13 +400,13 @@ input[type=text] {
 
 .lower-section{
 	width: 100%;
-	height:59%;
+	height:54%;
 	overflow-y:auto;
-	
+
 }
 .video-section{
 	width:45%;
-	
+
 	background-color: rgba(235,235,235,0.25);
 	float:left;
 	margin-top: 0.5%;
@@ -481,7 +481,7 @@ input[type=text] {
     font-size: 0.9em;
 }
 div.vert-desc p{
-	margin: 0%; 
+	margin: 0%;
 }
 
 .vert-vid-item:hover {
@@ -489,7 +489,7 @@ div.vert-desc p{
     cursor: pointer;
 }
 
-.vid-item a, .thumb a, .desc a,.vid-item a:visited, .thumb a:visited, .desc a:visited , 
+.vid-item a, .thumb a, .desc a,.vid-item a:visited, .thumb a:visited, .desc a:visited ,
 .vert-vid-item a, .vert-thumb a, .vert-desc a,.vert-vid-item a:visited, .vert-thumb a:visited, .vert-desc a:visited  {
   text-decoration: none;
   color: #FFFFFF;
@@ -647,12 +647,12 @@ input[type=text] {
    .history-section{
 	   height: 28%;
    }
-   
+
    .video-section{
 		display:none;
 		height: 32%;
 	}
-	
+
 	.games-section{
 		display:none;
 		height: 32%;
@@ -660,23 +660,23 @@ input[type=text] {
 	.games-section-header{
 		font-size: 0.9em;
 	}
-	
+
 	.video-section-header{
 		font-size: 0.9em;
 	}
-	
+
 	.horizontal-video-section{
 		display: block;
 		height:46%;
 		margin-top: 3%;
 	}
-	
+
 	.horizontal-games-section{
 		display: block;
 		margin-top: 3%;
 		height:46%
 	}
-	
+
 	.thumb img {
 		width: 80%;
 		height:95%;

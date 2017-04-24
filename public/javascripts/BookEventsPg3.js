@@ -44,6 +44,7 @@ $(function(){
           localStorage.removeItem('eventName');
           localStorage.removeItem('eventDate');
           localStorage.removeItem('timeRange');
+            alert("Booking complete");
         }
         else {
           alert("Encountered error while booking. Please try again");
