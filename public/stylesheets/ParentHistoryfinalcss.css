@@ -522,7 +522,7 @@ border-radius: 50%;
 
 .vid-item, .thumb, .desc a:hover,
 a:active {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .popup a,
