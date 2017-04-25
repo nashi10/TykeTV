@@ -1,4 +1,4 @@
-var popUpResult;
+//var popUpResult;
 //JS for logout popup functionality
 function cancellogout() {
     document.getElementById('popup3').style.display ='none';
@@ -16,7 +16,7 @@ $(function(){
 
   // Close the dropdown if the user clicks outside of it
 $(function(){
-  window.onclick = function(event) {
+  $(window).on('click',function(event) {
     if (!event.target.matches('#menu_img')) {
 
       var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -28,7 +28,7 @@ $(function(){
         }
       }
     }
-  }
+  })
 
 });
 
