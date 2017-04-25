@@ -88,6 +88,7 @@ height:55px;
 
 #dragon-img{
 	float: right;
+	cursor:pointer;			
 }
 /* Media query for responsive tabs */
 @media only screen and (max-width:1200px){

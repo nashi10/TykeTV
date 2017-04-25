@@ -88,6 +88,7 @@ height:55px;
 
 #dragon-img{
 	float: right;
+	cursor:pointer;			
 }
 /* Media query for responsive tabs */
 @media only screen and (max-width:1200px){
@@ -260,6 +261,7 @@ img {
   	border-radius: 3.448276%;  /* 30/870 */
 	z-index: 1;
 	margin-top:5.5%;
+	overflow-y: auto;			  
 }
 
 /*CSS for the searach bar*/
@@ -401,7 +403,7 @@ input[type=text] {
 .lower-section{
 	width: 100%;
 	height:54%;
-	overflow-y:auto;
+	/*overflow-y:auto;*/
 
 }
 .video-section{

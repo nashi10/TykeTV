@@ -93,6 +93,7 @@ html, body {
 
 #dragon-img{
 	float: right;
+	cursor:pointer;
 }
 
 .left_section {
@@ -210,7 +211,7 @@ background-color: #7de88a;
 
 .vid-list-container {
 	width:  100%;
-	height: 75%;
+	height: 85%;
 	overflow-x: auto;
 	overflow-y: hidden;
 
@@ -245,6 +246,7 @@ background-color: #7de88a;
 }
 .vid-item .desc {
 	color: #FFFFFF;
+	text-decoration:none;
 	font-size: 0.8em;
 }
 

@@ -93,6 +93,7 @@ html, body {
 
 #dragon-img{
 	float: right;
+	cursor:pointer;
 }
 
 .left_section {
@@ -156,6 +157,7 @@ html, body {
 .left_section img {
 	border-radius: 60%;
 	background-color: pink;
+  cursor:pointer;
 }
 
 
@@ -249,7 +251,7 @@ img, embed, object, video {
 	border-radius: 50%;
 	border: 5px #c43396 solid;
 	background-color: gray;
-
+	cursor:pointer
 }
 
 
@@ -536,6 +538,7 @@ img {
 	margin-top: 5%;
 	width: 40%;
 	height: 65%;
+	cursor:pointer;
 }
 }
 
@@ -615,6 +618,7 @@ img {
 	margin-top: 1%;
 	width: 35%;
 	height: 70%;
+	cursor:pointer;
 }
 
 h1.buttontext {

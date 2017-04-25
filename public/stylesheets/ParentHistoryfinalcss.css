@@ -81,11 +81,15 @@ height:55px;
 	text-decoration: none;
 }
 
+#Edprof, #Deprof, #Chistory, #Bevents, #Getout {
+	color: #c43396;
+}
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #f1f1f1}
 
 #dragon-img{
 	float: right;
+	cursor:pointer;
 }
 /* Media query for responsive tabs */
 @media only screen and (max-width:1200px){
@@ -241,7 +245,9 @@ div.tab button {
 	border: 6px solid #ffffff;
 	border-radius: 10px;
 	background-color: #fff3bb;
+	cursor:pointer;
 }
+
 
 #checkActivityButton {
 	background-color: #ccc;
@@ -388,12 +394,17 @@ display: inline-block;
 	}
 
 .img-circle{
-width:150px;
-height: 150px;
-padding: 15px 15px;
+width:120px;
+height: 135px;
 float: center;
 cursor: pointer;
 border-radius: 50%;
+border: 5px #c43396 solid;
+margin:5px;
+}
+
+.img-circle:hover{
+	border: 5px #FFFFFF solid;
 }
 
 /* Styling the name for each kid button */

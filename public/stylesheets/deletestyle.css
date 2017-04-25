@@ -265,29 +265,34 @@ img {
     padding:0;
     border-top: none;
     overflow-x: auto;
-} 
+}
 /* Styling the kids images as buttons to retrieve history */
 
 .childInfo{
 	list-style-type: none;
 	display: inline-block;
 }
-	
+
 .img-circle{
-	width: 200px;
-	height: 200px;
-	padding: 15px 15px;
+	width: 175px;
+	height: 175px;
+	margin: 15px;
 	float: center;
 	cursor: pointer;
 	border-radius: 50%;
+	border: 7px solid #c43396 ;
 }
+.img-circle:hover{
+	border: 7px #FFFFFF solid;
+}
+
 .kidList {
 	margin: 0;
 	padding-bottom: 0;
 }
 .childName{
 	font-family: Chewy;
-	font-size: 2em;
+	font-size: 1.5em;
 	color: #FFFFFF;
 	float: center;
 	text-align: center;
@@ -313,9 +318,9 @@ h1.buttontext {
 	color: #c43396;
 	font-size: 1.25em;
 }
-			
-				  
- 
+
+
+
 
 @media only screen and (max-width: 1200px){
 	.title {
@@ -370,7 +375,7 @@ h1.buttontext {
 
 h1.buttontext {
 	color: #c43396;
-				
+
 }
 
 @media only screen and (min-width: 1092px){

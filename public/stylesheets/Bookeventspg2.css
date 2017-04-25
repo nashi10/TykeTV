@@ -49,6 +49,9 @@ width:55px;
 height:55px;
 }
 
+#Edprof, #Deprof, #Chistory, #Bevents, #Getout {
+	color: #c43396;
+}
 /* Dropdown button on hover & focus */
 .menu:hover, .menu:focus {
     background-color: #3e8e41;
@@ -87,6 +90,7 @@ height:55px;
 
 #dragon-img{
 	float: right;
+	cursor: pointer;
 }
 /* Media query for responsive tabs */
 @media only screen and (max-width:1200px){

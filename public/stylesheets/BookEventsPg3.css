@@ -20,6 +20,10 @@ html, body {
 	background-color: #7de88a;
 }
 
+#Edprof, #Deprof, #Chistory, #Bevents, #Getout {
+	color: #c43396;
+}
+
 .dragon-logo {
     display: block;
     position: absolute;
@@ -121,6 +125,7 @@ height:55px;
 
 #dragon-img{
 	float: right;
+	cursor:pointer;
 }
 /* Media query for responsive tabs */
 @media only screen and (max-width:1200px){
@@ -504,7 +509,7 @@ font-size: 0.8em;
 	height: 25%;
 	font-family: Chewy;
 	font-size:1.1em;
-	margin-top: 2%;	
+	margin-top: 2%;
 }
 
 .mobileheader{
@@ -553,7 +558,7 @@ font-size: 0.8em;
 	height: 22%;
 	font-family: Chewy;
 	font-size:0.8em;
-	margin-top: 2%;	
+	margin-top: 2%;
 }
 
 	.leftsection{
@@ -608,9 +613,9 @@ font-size: 0.8em;
 	height: 25%;
 	font-family: Chewy;
 	font-size:0.9em;
-	margin-top: 2%;	
+	margin-top: 2%;
 }
-  
+
 
 	.btn-default{
 		width: 28%;
@@ -645,8 +650,8 @@ font-size: 0.8em;
 	height: 25%;
 	font-family: Chewy;
 	font-size:1.1em;
-	margin-top: 2%;	
-	}		
+	margin-top: 2%;
+	}
 	.btn-default{
 		width: 28%;
 		height:7%;
@@ -682,7 +687,7 @@ font-size: 0.8em;
 	height: 25%;
 	font-family: Chewy;
 	font-size:1em;
-	margin-top: 2%;	
+	margin-top: 2%;
 }
 }
 
