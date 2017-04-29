@@ -11,8 +11,8 @@ toggle between hiding and showing the dropdown content */
 
 $(function(){
   $('#menu_img').on('click touchend',function() {
-      document.getElementById("myDropdown").style="display:block";
-    //  $('#myDropdown').show();
+      //document.getElementById("myDropdown").style="display:block";
+      $('#myDropdown').show();
   })
 });
 
@@ -20,18 +20,19 @@ $(function(){
 $(function(){
   $(window).on('click touchend',function(event) {
     if (!event.target.matches('#menu_img')) {
-
-      var dropdowns = document.getElementsByClassName("dropdown-content");
+      $('#myDropdown').is(":visible"); {
+          $('#myDropdown').hide();
+      }
+      /*var dropdowns = document.getElementsByClassName("dropdown-content");
       var j;
       for (j = 0; j < dropdowns.length; j++) {
         var openDropdown = dropdowns[j];
         if (openDropdown.style="display:block") {
           openDropdown.style="display:none";
         }
-      }
+      }*/
     }
   })
-
 });
 
 
