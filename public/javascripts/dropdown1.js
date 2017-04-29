@@ -8,10 +8,10 @@ function cancellogout() {
 /* Javascript for dropdown functionality
 When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-
 $(function(){
-  $('#menu_img').on('click touch',function() {
-      document.getElementById("myDropdown").style="display:block";
+  $('#menu_img').on('click touchend',function() {
+      //document.getElementById("myDropdown").style="display:block";
+      $('#myDropdown').show();
   })
 });
 
