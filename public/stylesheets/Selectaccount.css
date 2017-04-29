@@ -51,10 +51,10 @@ html, body {
 }
 
 /* Dropdown button on hover & focus */
-.menu:hover, .menu:focus {
+/*.menu:hover .menu:focus {
     	background-color: #3e8e41;
 }
-
+*/
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     	display: none;
