@@ -8,16 +8,17 @@ function cancellogout() {
 /* Javascript for dropdown functionality
 When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
+
 $(function(){
   $('#menu_img').on('click touchend',function() {
-      //document.getElementById("myDropdown").style="display:block";
-      $('#myDropdown').show();
+      document.getElementById("myDropdown").style="display:block";
+    //  $('#myDropdown').show();
   })
 });
 
   // Close the dropdown if the user clicks outside of it
 $(function(){
-  $(window).on('click',function(event) {
+  $(window).on('click touchend',function(event) {
     if (!event.target.matches('#menu_img')) {
 
       var dropdowns = document.getElementsByClassName("dropdown-content");
