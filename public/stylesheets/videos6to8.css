@@ -45,11 +45,13 @@ html, body {
 #menu_img{
 width:55px;
 height:55px;
+cursor: pointer;
 }
 
 /* Dropdown button on hover & focus */
 .menu:hover, .menu:focus {
     background-color: #3e8e41;
+		cursor: pointer;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -64,6 +66,7 @@ height:55px;
 	left: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2;
+		cursor: pointer;
 }
 
 /* Links inside the dropdown */
@@ -88,7 +91,7 @@ height:55px;
 
 #dragon-img{
 	float: right;
-	cursor:pointer;			
+	cursor:pointer;
 }
 /* Media query for responsive tabs */
 @media only screen and (max-width:1200px){
@@ -267,14 +270,14 @@ img {
     padding:0;
     border-top: none;
     overflow-x: auto;
-} 
+}
 /* Styling the kids images as buttons to retrieve history */
 
 .childInfo{
 	list-style-type: none;
 	display: inline-block;
 }
-	
+
 .img-circle{
 	width: 200px;
 	height: 200px;
@@ -393,7 +396,7 @@ h1.buttontext {
     float: left;
     margin: 0;
     padding: 10px;
-	
+
 }
 .thumb {
     /* position: relative; */
@@ -521,7 +524,7 @@ input[type=text] {
     font-size: 1em;
     background-color: white;
     background-image: url('C:\projects\tyketv-master\tyketv-master\public\images\searchicon2.png');
-    background-position: 10px 10px; 
+    background-position: 10px 10px;
     background-repeat: no-repeat;
 	margin: 0 2% 0 2%;
     padding: 12px 20px 12px 50px;
@@ -596,7 +599,7 @@ input[type=text] {
 @media only screen and (max-width: 400px){
 input[type=text] {
     width: 35%;
-	font-size: 0.8em; 
+	font-size: 0.8em;
 }
 
 .magnicon {
@@ -618,5 +621,3 @@ input[type=text] {
 .videotitle2 h1 {
 	margin-top: 1%;
 }
-
-

@@ -52,6 +52,7 @@ cursor:pointer;
 /* Dropdown button on hover & focus */
 .menu:hover, .menu:focus {
     background-color: #3e8e41;
+		cursor: pointer;
 }
 
 /* Dropdown Content (Hidden by Default) */

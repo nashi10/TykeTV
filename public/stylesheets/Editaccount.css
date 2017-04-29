@@ -44,11 +44,13 @@
 #menu_img{
 width:55px;
 height:55px;
+cursor: pointer;
 }
 
 /* Dropdown button on hover & focus */
 .menu:hover, .menu:focus {
     background-color: #3e8e41;
+		cursor: pointer;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -63,6 +65,7 @@ height:55px;
 	left: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2;
+		cursor: pointer;
 }
 
 /* Links inside the dropdown */
@@ -87,7 +90,7 @@ height:55px;
 
 #dragon-img{
 	float: right;
-	cursor:pointer;			
+	cursor:pointer;
 }
 
 /* Media query for responsive tabs */
