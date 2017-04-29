@@ -19,7 +19,7 @@ $(function(){
   // Close the dropdown if the user clicks outside of it
 $(function(){
   $(window).on('click touchend',function(event) {
-    if (!event.target.matches('#menu_img')) {
+    if (!(event.target.matches('#myDropdown') || event.target.matches('#menu_img') )) {
       $('#myDropdown').is(":visible"); {
           $('#myDropdown').hide();
       }
