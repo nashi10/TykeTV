@@ -1,10 +1,12 @@
-$(function(){
+//on signout, reset localStorage elements
+$(function() {
   localStorage.removeItem('login-email');
-  localStorage.setItem('login','false');
+  localStorage.setItem('login', 'false');
 });
 
-$(function(){
-  $("#signedout").on('click',function(){
-    window.location.href="/index.htm";
+//On click of log in again button, redirect to login page
+$(function() {
+  $("#signedout").on('click', function() {
+    window.location.href = "/index.htm";
   })
 });

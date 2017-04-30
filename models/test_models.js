@@ -2,7 +2,7 @@ var Promise = require('bluebird');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
- var userParentsSchema = mongoose.Schema({
+var userParentsSchema = mongoose.Schema({
     email: String,
     pwd: String,
     fname:String,
